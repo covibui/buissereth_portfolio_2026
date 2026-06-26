@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>*{margin:0;padding:0;box-sizing:border-box;} body{margin:0;} ::selection{background:var(--accent,#EA580C);color:#fff;}</style>
+</helmet>
+<div id="top" style="background:var(--paper,#F4F1EA); color:var(--ink,#1C1A17); min-height:100vh; --paper:#F4F1EA; --ink:#1C1A17; --muted:#6B675F; --hair:rgba(28,26,23,.14); --accent:#EA580C;">
+
+  <dc-import name="Header" active="work" hint-size="100%,68px"></dc-import>
+
+  <!-- INTRO -->
+  <section style="max-width:1160px; margin:0 auto; padding:clamp(56px,8vw,110px) 48px clamp(36px,5vw,64px);">
+    <p style="font-family:'Archivo',sans-serif; font-size:12px; letter-spacing:.26em; text-transform:uppercase; color:var(--accent,#EA580C); font-weight:600; margin-bottom:34px;">The Archive</p>
+    <h1 style="font-family:'Newsreader',serif; font-weight:500; font-size:clamp(40px,6.5vw,84px); line-height:1; letter-spacing:-.025em; max-width:16ch; text-wrap:balance; margin-bottom:34px;">Nine problems that started as <span style="font-style:italic; color:var(--accent,#EA580C);">someone's idea.</span></h1>
+    <p style="font-family:'Newsreader',serif; font-size:clamp(18px,2vw,22px); line-height:1.55; color:var(--muted,#6B675F); max-width:54ch; text-wrap:pretty;">Three are live and ongoing. Six shipped during my enterprise years — anonymized here under NDA. Each is framed by the decision it changed, not the screens it produced.</p>
+  </section>
+
+  <!-- INDEX LIST -->
+  <section style="max-width:1160px; margin:0 auto; padding:clamp(40px,6vw,80px) 48px clamp(72px,10vw,128px);">
+    <div style="display:flex; justify-content:space-between; font-family:'Archivo',sans-serif; font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--muted,#6B675F); border-bottom:1px solid var(--ink,#1C1A17); padding-bottom:14px; font-weight:600;">
+      <span>Live &amp; Ongoing</span>
+    </div>
+    <sc-for list="{{ featured }}" as="c" hint-placeholder-count="3">
+      <article style="display:grid; grid-template-columns:{{ c.cols }}; gap:clamp(32px,4.5vw,64px); align-items:center; padding:clamp(44px,6vw,76px) 0; border-bottom:1px solid var(--hair,rgba(28,26,23,.14));">
+        <a href="Case.dc.html" style="display:block; aspect-ratio:4/3; background:var(--hair,rgba(28,26,23,.08)); border:1px solid var(--hair,rgba(28,26,23,.14)); position:relative; overflow:hidden; order:{{ c.imgOrder }};">
+          <span style="position:absolute; bottom:16px; left:18px; font-family:'Archivo',sans-serif; font-size:10.5px; letter-spacing:.18em; text-transform:uppercase; color:var(--muted,#6B675F);">{{ c.imgLabel }}</span>
+        </a>
+        <div style="order:{{ c.textOrder }};">
+          <span style="font-family:'Newsreader',serif; font-size:15px; color:var(--accent,#EA580C);">{{ c.num }} — {{ c.sector }}</span>
+          <h3 style="font-family:'Newsreader',serif; font-weight:400; font-size:clamp(30px,4vw,50px); line-height:1.02; letter-spacing:-.02em; margin:18px 0 22px; text-wrap:pretty; max-width:18ch;">{{ c.title }}</h3>
+          <p style="font-family:'Newsreader',serif; font-size:clamp(18px,2vw,21px); line-height:1.55; color:var(--muted,#6B675F); max-width:48ch; margin-bottom:30px; text-wrap:pretty;">{{ c.summary }}</p>
+          <a href="Case.dc.html" style="text-decoration:none; font-family:'Archivo',sans-serif; font-size:12px; letter-spacing:.16em; text-transform:uppercase; font-weight:600; color:var(--ink,#1C1A17); border-bottom:2px solid var(--ink,#1C1A17); padding-bottom:5px;" style-hover="color:var(--accent,#EA580C); border-bottom-color:var(--accent,#EA580C);">Read the case →</a>
+        </div>
+      </article>
+    </sc-for>
+
+    <div style="display:flex; justify-content:space-between; font-family:'Archivo',sans-serif; font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--muted,#6B675F); border-bottom:1px solid var(--ink,#1C1A17); padding-bottom:14px; font-weight:600; margin-top:72px;">
+      <span>Enterprise Work · EPAM '21–'23</span><span>Sector</span>
+    </div>
+    <sc-for list="{{ archive }}" as="c" hint-placeholder-count="6">
+      <a href="Case.dc.html" style="display:grid; grid-template-columns:64px 1fr auto; gap:32px; align-items:baseline; padding:28px 0; border-bottom:1px solid var(--hair,rgba(28,26,23,.14)); text-decoration:none; color:var(--ink,#1C1A17);" style-hover="background:linear-gradient(90deg,rgba(234,88,12,.05),transparent);">
+        <span style="font-family:'Newsreader',serif; font-size:18px; color:var(--muted,#6B675F);">{{ c.num }}</span>
+        <span style="font-family:'Newsreader',serif; font-weight:400; font-size:clamp(19px,2.1vw,26px); line-height:1.15; letter-spacing:-.01em; text-wrap:pretty;">{{ c.title }}</span>
+        <span style="font-family:'Archivo',sans-serif; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted,#6B675F); text-align:right; font-weight:500; white-space:nowrap;">{{ c.meta }}</span>
+      </a>
+    </sc-for>
+  </section>
+
+  <dc-import name="Footer" hint-size="100%,360px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      featured: [
+        { num: "01", sector: "Wellness", title: "VMC Aesthetics \u2014 a clinic rebuilt around one system", summary: "A thriving practice that grew faster than its systems. I rebuilt brand and operations into one source of truth the team now runs without a designer on call.", imgLabel: "VMC Aesthetics", cols: "1.05fr .95fr", imgOrder: 2, textOrder: 1 },
+        { num: "02", sector: "Healthcare Venture", title: "Vitality \u2014 a second venture, designed deliberately", summary: "Having fixed a practice that grew without a system, the same founder is building the next venture the opposite way \u2014 framed before launch, not after.", imgLabel: "Vitality", cols: ".95fr 1.05fr", imgOrder: 1, textOrder: 2 },
+        { num: "03", sector: "Public Health", title: "Din\u00e9 Safe Passage \u2014 when trust is the product", summary: "A service and brand for a sector where every design decision is also a safety decision. Built person-first and non-stigmatizing, with care for the people it serves.", imgLabel: "Din\u00e9 Safe Passage", cols: "1.05fr .95fr", imgOrder: 2, textOrder: 1 },
+      ],
+      archive: [
+        { num: "04", title: "A sprawling security audit, rebuilt into a tool a team could actually run", meta: "Enterprise Security · EPAM" },
+        { num: "05", title: "One try-on component library, so every brand could ship without rebuilding it", meta: "Beauty Retail · EPAM" },
+        { num: "06", title: "Mapping how assets really move \u2014 then designing the delivery around the reality", meta: "Logistics · EPAM" },
+        { num: "07", title: "A vision for how a bank's branches and its customers actually talk", meta: "Financial Services · EPAM" },
+        { num: "08", title: "Two readers who want opposite things. One hub that serves both", meta: "Enterprise · EPAM" },
+        { num: "09", title: "The heuristics, personas, and flows behind the work \u2014 method made visible", meta: "UX Method · EPAM" },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>

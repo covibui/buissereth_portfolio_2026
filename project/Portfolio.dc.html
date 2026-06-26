@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,300;1,6..72,400&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{margin:0;}
+  ::selection{background:var(--accent,#EA580C);color:#fff;}
+</style>
+</helmet>
+<div id="top" style="background:var(--paper,#F4F1EA); color:var(--ink,#1C1A17); min-height:100vh; --paper:{{paper}}; --ink:{{ink}}; --muted:{{muted}}; --hair:{{hair}}; --accent:{{accent}};">
+
+  <dc-import name="Header" active="home" hint-size="100%,68px"></dc-import>
+
+  <!-- HERO -->
+  <section style="position:relative; overflow:hidden; max-width:1160px; margin:0 auto; padding:clamp(56px,9vw,128px) 48px clamp(48px,7vw,96px);">
+    <div id="heroReveal" aria-hidden="true" style="position:absolute; inset:0; z-index:0; opacity:0; transition:opacity .4s ease; pointer-events:none; background-color:#D9D3C5; background-image:repeating-linear-gradient(45deg, rgba(28,26,23,.055) 0 16px, transparent 16px 32px); -webkit-mask-image:radial-gradient(circle 240px at var(--mx,-400px) var(--my,-400px), #000 0%, #000 40%, transparent 72%); mask-image:radial-gradient(circle 240px at var(--mx,-400px) var(--my,-400px), #000 0%, #000 40%, transparent 72%);">
+      <span style="position:absolute; bottom:20px; left:48px; font-family:'Archivo',sans-serif; font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:#6B675F;">Hero Image</span>
+    </div>
+    <p style="position:relative; z-index:1; font-family:'Archivo',sans-serif; font-size:12px; letter-spacing:.26em; text-transform:uppercase; color:var(--accent,#EA580C); font-weight:600; margin-bottom:40px;">Design Strategy &nbsp;·&nbsp; Selected Work &nbsp;·&nbsp; 2026</p>
+    <h1 style="position:relative; z-index:1; font-family:'Newsreader',serif; font-weight:300; font-size:clamp(44px,8.2vw,108px); line-height:.98; letter-spacing:-.025em; text-wrap:balance; max-width:14ch; margin-bottom:44px;">Strategy stays an idea until someone <span style="font-style:italic; font-weight:400; color:var(--accent,#EA580C);">frames</span> it.</h1>
+    <div style="position:relative; z-index:1; display:flex; flex-wrap:wrap; gap:40px 64px; align-items:flex-end; justify-content:space-between; border-top:1px solid var(--hair,rgba(28,26,23,.14)); padding-top:34px;">
+      <p style="font-family:'Newsreader',serif; font-size:clamp(19px,2.1vw,23px); line-height:1.55; color:var(--ink,#1C1A17); max-width:52ch; text-wrap:pretty;">I'm a designer moving from craft into strategy. I work with founders and big-picture teams at the messy, early stage — when the work is still a hunch — and turn it into brand systems, operations, and services concrete enough to act on.</p>
+      <a href="Work.dc.html" style="flex:none; text-decoration:none; font-family:'Archivo',sans-serif; font-size:12px; letter-spacing:.16em; text-transform:uppercase; font-weight:600; color:var(--ink,#1C1A17); display:inline-flex; align-items:center; gap:10px; border-bottom:2px solid var(--ink,#1C1A17); padding-bottom:5px;" style-hover="color:var(--accent,#EA580C); border-bottom-color:var(--accent,#EA580C);">See selected work →</a>
+    </div>
+  </section>
+
+  <!-- FEATURED WORK -->
+  <section style="max-width:1160px; margin:0 auto; padding:0 48px clamp(40px,6vw,80px);">
+    <div style="display:flex; align-items:baseline; justify-content:space-between; gap:24px; border-bottom:1px solid var(--hair,rgba(28,26,23,.14)); padding-bottom:18px; margin-bottom:8px;">
+      <h2 style="font-family:'Archivo',sans-serif; font-size:12px; letter-spacing:.22em; text-transform:uppercase; font-weight:600; color:var(--muted,#6B675F);">Featured Cases</h2>
+      <span style="font-family:'Archivo',sans-serif; font-size:12px; letter-spacing:.1em; color:var(--muted,#6B675F);">Three of nine</span>
+    </div>
+
+    <!-- Case 1 -->
+    <article style="display:grid; grid-template-columns:1.05fr .95fr; gap:56px; align-items:center; padding:72px 0; border-bottom:1px solid var(--hair,rgba(28,26,23,.14));">
+      <div>
+        <span style="font-family:'Newsreader',serif; font-size:15px; color:var(--accent,#EA580C);">01 — Wellness</span>
+        <h3 style="font-family:'Newsreader',serif; font-weight:400; font-size:clamp(28px,3.6vw,46px); line-height:1.04; letter-spacing:-.02em; margin:18px 0 22px; text-wrap:pretty; max-width:18ch;">A wellness clinic that grew faster than its systems</h3>
+        <p style="font-family:'Newsreader',serif; font-size:19px; line-height:1.58; color:var(--muted,#6B675F); max-width:46ch; margin-bottom:28px; text-wrap:pretty;">VMC became a thriving practice before it had a brand system or a documented way of working. I rebuilt both into one source of truth the team now runs without a designer on call.</p>
+        <div style="display:flex; gap:28px; font-family:'Archivo',sans-serif; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted,#6B675F); margin-bottom:30px; font-weight:500;">
+          <span>Brand &amp; Operations</span><span>2025</span>
+        </div>
+        <a href="Case.dc.html" style="text-decoration:none; font-family:'Archivo',sans-serif; font-size:12px; letter-spacing:.16em; text-transform:uppercase; font-weight:600; color:var(--ink,#1C1A17); border-bottom:2px solid var(--ink,#1C1A17); padding-bottom:4px;" style-hover="color:var(--accent,#EA580C); border-bottom-color:var(--accent,#EA580C);">Read the case</a>
+      </div>
+      <a href="Case.dc.html" style="display:block; aspect-ratio:4/3; background:var(--hair,rgba(28,26,23,.08)); border:1px solid var(--hair,rgba(28,26,23,.14)); position:relative; overflow:hidden;">
+        <span style="position:absolute; bottom:16px; left:18px; font-family:'Archivo',sans-serif; font-size:10.5px; letter-spacing:.18em; text-transform:uppercase; color:var(--muted,#6B675F);">Case Image</span>
+      </a>
+    </article>
+
+    <!-- Case 2 (reversed) -->
+    <article style="display:grid; grid-template-columns:.95fr 1.05fr; gap:56px; align-items:center; padding:72px 0; border-bottom:1px solid var(--hair,rgba(28,26,23,.14));">
+      <a href="Case.dc.html" style="display:block; aspect-ratio:4/3; background:var(--hair,rgba(28,26,23,.08)); border:1px solid var(--hair,rgba(28,26,23,.14)); position:relative; overflow:hidden; order:0;">
+        <span style="position:absolute; bottom:16px; left:18px; font-family:'Archivo',sans-serif; font-size:10.5px; letter-spacing:.18em; text-transform:uppercase; color:var(--muted,#6B675F);">Case Image</span>
+      </a>
+      <div>
+        <span style="font-family:'Newsreader',serif; font-size:15px; color:var(--accent,#EA580C);">02 — Healthcare Venture</span>
+        <h3 style="font-family:'Newsreader',serif; font-weight:400; font-size:clamp(28px,3.6vw,46px); line-height:1.04; letter-spacing:-.02em; margin:18px 0 22px; text-wrap:pretty; max-width:18ch;">A second health venture, designed deliberately from day one</h3>
+        <p style="font-family:'Newsreader',serif; font-size:19px; line-height:1.58; color:var(--muted,#6B675F); max-width:46ch; margin-bottom:28px; text-wrap:pretty;">Having fixed a practice that grew without a system, the same founder is building the next venture the opposite way — brand, product, and operating model framed before launch, not after.</p>
+        <div style="display:flex; gap:28px; font-family:'Archivo',sans-serif; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted,#6B675F); margin-bottom:30px; font-weight:500;">
+          <span>Brand &amp; Product Vision</span><span>Ongoing</span>
+        </div>
+        <a href="Case.dc.html" style="text-decoration:none; font-family:'Archivo',sans-serif; font-size:12px; letter-spacing:.16em; text-transform:uppercase; font-weight:600; color:var(--ink,#1C1A17); border-bottom:2px solid var(--ink,#1C1A17); padding-bottom:4px;" style-hover="color:var(--accent,#EA580C); border-bottom-color:var(--accent,#EA580C);">Read the case</a>
+      </div>
+    </article>
+
+    <!-- Case 3 -->
+    <article style="display:grid; grid-template-columns:1.05fr .95fr; gap:56px; align-items:center; padding:72px 0;">
+      <div>
+        <span style="font-family:'Newsreader',serif; font-size:15px; color:var(--accent,#EA580C);">03 — Public Health</span>
+        <h3 style="font-family:'Newsreader',serif; font-weight:400; font-size:clamp(28px,3.6vw,46px); line-height:1.04; letter-spacing:-.02em; margin:18px 0 22px; text-wrap:pretty; max-width:18ch;">Diné Safe Passage — when trust is the product</h3>
+        <p style="font-family:'Newsreader',serif; font-size:19px; line-height:1.58; color:var(--muted,#6B675F); max-width:46ch; margin-bottom:28px; text-wrap:pretty;">A service and brand for a sector where every design decision is also a safety decision. Built person-first and non-stigmatizing, with care for the people it serves.</p>
+        <div style="display:flex; gap:28px; font-family:'Archivo',sans-serif; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted,#6B675F); margin-bottom:30px; font-weight:500;">
+          <span>Service Design &amp; Brand</span><span>Ongoing</span>
+        </div>
+        <a href="Case.dc.html" style="text-decoration:none; font-family:'Archivo',sans-serif; font-size:12px; letter-spacing:.16em; text-transform:uppercase; font-weight:600; color:var(--ink,#1C1A17); border-bottom:2px solid var(--ink,#1C1A17); padding-bottom:4px;" style-hover="color:var(--accent,#EA580C); border-bottom-color:var(--accent,#EA580C);">Read the case</a>
+      </div>
+      <a href="Case.dc.html" style="display:block; aspect-ratio:4/3; background:var(--hair,rgba(28,26,23,.08)); border:1px solid var(--hair,rgba(28,26,23,.14)); position:relative; overflow:hidden;">
+        <span style="position:absolute; bottom:16px; left:18px; font-family:'Archivo',sans-serif; font-size:10.5px; letter-spacing:.18em; text-transform:uppercase; color:var(--muted,#6B675F);">Case Image</span>
+      </a>
+    </article>
+  </section>
+
+  <!-- POINT OF VIEW / MANIFESTO -->
+  <section style="background:var(--ink,#1C1A17); color:var(--paper,#F4F1EA); padding:clamp(72px,10vw,140px) 48px;">
+    <div style="max-width:1160px; margin:0 auto;">
+      <p style="font-family:'Archivo',sans-serif; font-size:12px; letter-spacing:.26em; text-transform:uppercase; color:var(--accent,#F6803F); font-weight:600; margin-bottom:48px;">Point of View</p>
+      <div style="display:grid; grid-template-columns:1fr; gap:40px; max-width:980px;">
+        <p style="font-family:'Newsreader',serif; font-weight:300; font-size:clamp(28px,4vw,50px); line-height:1.18; letter-spacing:-.015em; text-wrap:pretty;">Most teams treat design as the last mile of execution. I treat it as the place a strategy first <span style="font-style:italic; color:var(--accent,#F6803F);">meets reality</span> — which is exactly where the leverage is.</p>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:40px; margin-top:24px; border-top:1px solid rgba(244,241,234,.18); padding-top:40px;">
+          <div>
+            <h4 style="font-family:'Archivo',sans-serif; font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--accent,#F6803F); margin-bottom:14px; font-weight:600;">01 / Frame the problem</h4>
+            <p style="font-family:'Newsreader',serif; font-size:17px; line-height:1.55; color:rgba(244,241,234,.78); text-wrap:pretty;">Before a screen, I find the real question. Most briefs describe a symptom; the work starts by naming what is actually broken.</p>
+          </div>
+          <div>
+            <h4 style="font-family:'Archivo',sans-serif; font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--accent,#F6803F); margin-bottom:14px; font-weight:600;">02 / Make it concrete</h4>
+            <p style="font-family:'Newsreader',serif; font-size:17px; line-height:1.55; color:rgba(244,241,234,.78); text-wrap:pretty;">Strategy that stays abstract dies in a deck. I turn it into systems, artifacts, and decisions a team can act on tomorrow.</p>
+          </div>
+          <div>
+            <h4 style="font-family:'Archivo',sans-serif; font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--accent,#F6803F); margin-bottom:14px; font-weight:600;">03 / Make it shippable</h4>
+            <p style="font-family:'Newsreader',serif; font-size:17px; line-height:1.55; color:rgba(244,241,234,.78); text-wrap:pretty;">A framed idea isn't finished until it runs without me. I build for handoff — documented, repeatable, low-maintenance.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARCHIVE TEASER -->
+  <section style="max-width:1160px; margin:0 auto; padding:clamp(64px,8vw,110px) 48px;">
+    <div style="display:flex; flex-wrap:wrap; gap:32px; align-items:flex-end; justify-content:space-between;">
+      <h2 style="font-family:'Newsreader',serif; font-weight:300; font-size:clamp(30px,4.4vw,56px); line-height:1.05; letter-spacing:-.02em; max-width:18ch; text-wrap:balance;">Six more — the enterprise work from the EPAM years — in the archive.</h2>
+      <a href="Work.dc.html" style="flex:none; text-decoration:none; font-family:'Archivo',sans-serif; font-size:12px; letter-spacing:.16em; text-transform:uppercase; font-weight:600; color:var(--ink,#1C1A17); border-bottom:2px solid var(--ink,#1C1A17); padding-bottom:5px;" style-hover="color:var(--accent,#EA580C); border-bottom-color:var(--accent,#EA580C);">Browse all work →</a>
+    </div>
+  </section>
+
+  <dc-import name="Footer" hint-size="100%,360px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;accent&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Rust&quot;,&quot;Ink&quot;,&quot;Forest&quot;,&quot;Plum&quot;],&quot;default&quot;:&quot;Rust&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;theme&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Paper&quot;,&quot;Ink&quot;],&quot;default&quot;:&quot;Paper&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  componentDidMount() {
+    const reveal = document.getElementById("heroReveal");
+    if (!reveal) return;
+    const hero = reveal.parentElement;
+    const move = (e) => {
+      const r = hero.getBoundingClientRect();
+      reveal.style.setProperty("--mx", (e.clientX - r.left) + "px");
+      reveal.style.setProperty("--my", (e.clientY - r.top) + "px");
+    };
+    const enter = () => { reveal.style.opacity = "1"; };
+    const leave = () => { reveal.style.opacity = "0"; };
+    hero.addEventListener("mousemove", move);
+    hero.addEventListener("mouseenter", enter);
+    hero.addEventListener("mouseleave", leave);
+    this._heroCleanup = () => {
+      hero.removeEventListener("mousemove", move);
+      hero.removeEventListener("mouseenter", enter);
+      hero.removeEventListener("mouseleave", leave);
+    };
+  }
+  componentWillUnmount() { if (this._heroCleanup) this._heroCleanup(); }
+  renderVals() {
+    const accents = { Rust: "#EA580C", Ink: "#1F4E6B", Forest: "#2E5D44", Plum: "#6B2D4F" };
+    const accent = accents[this.props.accent] || this.props.accent || "#EA580C";
+    const dark = this.props.theme === "Ink";
+    return {
+      accent,
+      paper: dark ? "#16140F" : "#F4F1EA",
+      ink: dark ? "#F2EEE4" : "#1C1A17",
+      muted: dark ? "#9C968A" : "#6B675F",
+      hair: dark ? "rgba(242,238,228,.16)" : "rgba(28,26,23,.14)",
+    };
+  }
+}
+</script>
+</body>
+</html>
