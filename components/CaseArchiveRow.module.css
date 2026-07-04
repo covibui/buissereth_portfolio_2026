@@ -1,0 +1,53 @@
+.row {
+  display: grid;
+  grid-template-columns: 64px 1fr auto;
+  gap: 32px;
+  align-items: baseline;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--hair);
+  text-decoration: none;
+  color: var(--ink);
+  transition: background 0.15s ease;
+}
+
+.row:hover {
+  background: linear-gradient(90deg, rgba(234, 88, 12, 0.05), transparent);
+}
+
+.num {
+  font-family: "Newsreader", serif;
+  font-size: 18px;
+  color: var(--muted);
+}
+
+.title {
+  font-family: "Newsreader", serif;
+  font-weight: 400;
+  font-size: clamp(19px, 2.1vw, 26px);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  text-wrap: pretty;
+}
+
+.meta {
+  font-family: "Archivo", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-align: right;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .row {
+    grid-template-columns: 32px 1fr;
+    row-gap: 6px;
+  }
+
+  .meta {
+    grid-column: 1 / -1;
+    text-align: left;
+  }
+}

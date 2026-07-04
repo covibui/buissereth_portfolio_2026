@@ -1,0 +1,218 @@
+.intro {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: clamp(56px, 8vw, 110px) 48px clamp(40px, 5vw, 64px);
+}
+
+.introTop {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.eyebrow {
+  font-family: "Archivo", sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.download {
+  text-decoration: none;
+  font-family: "Archivo", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--ink);
+  border: 1px solid var(--ink);
+  padding: 10px 18px;
+  border-radius: 999px;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.download:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.name {
+  font-family: "Newsreader", serif;
+  font-weight: 300;
+  font-size: clamp(44px, 7vw, 92px);
+  line-height: 0.98;
+  letter-spacing: -0.025em;
+  margin-bottom: 30px;
+}
+
+.summary :global(p) {
+  font-family: "Newsreader", serif;
+  font-size: clamp(19px, 2.2vw, 24px);
+  line-height: 1.55;
+  color: var(--muted);
+  max-width: 62ch;
+  text-wrap: pretty;
+}
+
+.body {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 48px clamp(64px, 8vw, 110px);
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 64px;
+  align-items: start;
+}
+
+.sidebar {
+  position: sticky;
+  top: 96px;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.sidebarLabel {
+  font-family: "Archivo", sans-serif;
+  font-size: 10.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.sidebarText {
+  font-family: "Newsreader", serif;
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+.contactLink {
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.contactLink:hover {
+  color: var(--accent);
+}
+
+.note {
+  color: var(--muted);
+  font-style: italic;
+}
+
+.sectionTitle {
+  font-family: "Archivo", sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 600;
+  border-bottom: 1px solid var(--ink);
+  padding-bottom: 14px;
+  margin-bottom: 8px;
+}
+
+.sectionTitleSpaced {
+  margin-top: 64px;
+}
+
+.role {
+  display: grid;
+  gap: 14px;
+  padding: 34px 0;
+  border-bottom: 1px solid var(--hair);
+}
+
+.roleHeader {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.roleTitle {
+  font-family: "Newsreader", serif;
+  font-weight: 400;
+  font-size: clamp(22px, 2.6vw, 30px);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+.roleDates {
+  font-family: "Archivo", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.roleCompany {
+  font-family: "Archivo", sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.roleBlurb {
+  font-family: "Newsreader", serif;
+  font-size: 18px;
+  line-height: 1.58;
+  color: var(--muted);
+  max-width: 62ch;
+  text-wrap: pretty;
+}
+
+.eduRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--hair);
+}
+
+.eduTitle {
+  font-family: "Newsreader", serif;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 1.2;
+}
+
+.eduPlace {
+  font-family: "Newsreader", serif;
+  font-size: 16px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+.eduYear {
+  font-family: "Archivo", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+@media (max-width: 860px) {
+  .body {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    position: static;
+  }
+}

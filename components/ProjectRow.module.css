@@ -1,0 +1,79 @@
+.project {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.imageWrap {
+  aspect-ratio: 5 / 4;
+  background: var(--hair);
+  border: 1px solid var(--hair);
+  position: relative;
+  overflow: hidden;
+}
+
+.imageLabel {
+  position: absolute;
+  bottom: 16px;
+  left: 18px;
+  font-family: "Archivo", sans-serif;
+  font-size: 10.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.index {
+  font-family: "Newsreader", serif;
+  font-size: 15px;
+  color: var(--accent);
+  display: block;
+  margin-bottom: 16px;
+}
+
+.title {
+  font-family: "Newsreader", serif;
+  font-weight: 400;
+  font-size: clamp(26px, 3.2vw, 40px);
+  line-height: 1.06;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+  text-wrap: pretty;
+}
+
+.desc :global(p) {
+  font-family: "Newsreader", serif;
+  font-size: 18px;
+  line-height: 1.58;
+  color: var(--muted);
+  margin-bottom: 24px;
+  max-width: 46ch;
+  text-wrap: pretty;
+}
+
+.tags {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.reversed .imageWrap {
+  order: 2;
+}
+
+.reversed .content {
+  order: 1;
+}
+
+@media (max-width: 720px) {
+  .project {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .reversed .imageWrap,
+  .reversed .content {
+    order: unset;
+  }
+}

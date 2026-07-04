@@ -1,0 +1,32 @@
+# Global site identity, navigation, and footer copy.
+# This is the one YAML-only content type in the project: it's pure structured
+# data (labels + links) with no prose body, so a Markdown file would add
+# nothing — see the "Pages vs. structured data" note in CONTENT_GUIDE.md.
+
+name: "Brianna Buissereth"
+discipline: "Design Strategy"
+email: "covibui@gmail.com"
+phone: "201 419 9664"
+location: "Saint Cloud, FL"
+
+nav:
+  - label: "Work"
+    href: "/work"
+  - label: "Personal"
+    href: "/personal"
+  - label: "Résumé"
+    href: "/resume"
+
+footerCtaLabel: "Let's talk"
+footerCtaHeadline: "Have a problem that's still just an idea?"
+
+footerLinks:
+  - label: "LinkedIn"
+    href: "#"
+  - label: "Read.cv"
+    href: "#"
+  - label: "Résumé"
+    href: "/resume"
+
+copyrightName: "Brianna Buissereth"
+copyrightYear: 2026

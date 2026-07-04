@@ -1,25 +1,63 @@
-# CODING AGENTS: READ THIS FIRST
+# Brianna Buissereth — Portfolio
 
-This is a **handoff bundle** from Claude Design (claude.ai/design).
+A static Next.js site (App Router, TypeScript) with all page content authored in Markdown/YAML under [`content/`](content/). See [`CONTENT_GUIDE.md`](CONTENT_GUIDE.md) for how the content layer works and how to add pages, posts, or a whole new content type.
 
-A user mocked up designs in HTML/CSS/JS using an AI design tool, then exported this bundle so a coding agent can implement the designs for real.
+## Stack
 
-## What you should do — IMPORTANT
+- **Next.js** (App Router) with `output: "export"` — builds to a plain static `out/` directory, no Node server required at runtime.
+- **TypeScript**, strict mode.
+- **gray-matter** for YAML frontmatter, **remark**/**rehype** for Markdown → HTML.
+- Plain CSS Modules for styling (no CSS framework dependency).
 
-**Read the chat transcripts first.** There are 1 chat transcript(s) in `chats/`. The transcripts show the full back-and-forth between the user and the design assistant — they tell you **what the user actually wants** and **where they landed** after iterating. Don't skip them. The final HTML files are the output, but the chat is where the intent lives.
+## Local development
 
-**Read `project/Personal.dc.html` in full.** The user had this file open when they triggered the handoff, so it's almost certainly the primary design they want built. Read it top to bottom — don't skim. Then **follow its imports**: open every file it pulls in (shared components, CSS, scripts) so you understand how the pieces fit together before you start implementing.
+Requires Node.js 18.18+ (Next.js 15's minimum).
 
-**If anything is ambiguous, ask the user to confirm before you start implementing.** It's much cheaper to clarify scope up front than to build the wrong thing.
+```bash
+npm install
+npm run dev
+```
 
-## About the design files
+Open [http://localhost:3000](http://localhost:3000). Edits to any file under `content/` are picked up on the next request in dev mode — no restart needed for content changes; component/route changes hot-reload as usual.
 
-The design medium is **HTML/CSS/JS** — these are prototypes, not production code. Your job is to **recreate them pixel-perfectly** in whatever technology makes sense for the target codebase (React, Vue, native, whatever fits). Match the visual output; don't copy the prototype's internal structure unless it happens to fit.
+## Building
 
-**Don't render these files in a browser or take screenshots unless the user asks you to.** Everything you need — dimensions, colors, layout rules — is spelled out in the source. Read the HTML and CSS directly; a screenshot won't tell you anything they don't.
+```bash
+npm run build
+```
 
-## Bundle contents
+This runs `next build` with `output: "export"` configured in [`next.config.ts`](next.config.ts), producing a fully static site in `out/`. The build fails on any TypeScript error or invalid content frontmatter (every content file is validated against its type guard in [`lib/validators.ts`](lib/validators.ts) at build time — a malformed `.md`/`.yaml` file throws rather than shipping broken data).
 
-- `README.md` — this file
-- `chats/` — conversation transcripts (read these!)
-- `project/` — the `Portfolio Repositioning Strategy` project files (HTML prototypes, assets, components)
+To type-check without a full build:
+
+```bash
+npm run typecheck
+```
+
+## Previewing the static export locally
+
+```bash
+npm run build
+npx serve out
+```
+
+(Any static file server works — `serve`, `python3 -m http.server`, etc. `next start` will *not* work against the exported `out/` directory since there's no server; it's for non-exported builds only.)
+
+## Deploying
+
+The `out/` directory produced by `npm run build` is a plain static site — upload it as-is to any static host:
+
+- **Netlify / Cloudflare Pages / Vercel (static)** — set the build command to `npm run build` and the publish directory to `out`.
+- **GitHub Pages / S3 / any CDN** — copy the contents of `out/` to the host. If deploying under a sub-path (e.g. `username.github.io/repo-name`), set `basePath` in `next.config.ts`.
+
+Because `trailingSlash: true` is set, every route exports as `route/index.html`, which is the layout most static hosts (including GitHub Pages) expect for clean URLs.
+
+## Project structure
+
+```
+content/          — all site content (Markdown + YAML), see CONTENT_GUIDE.md
+lib/              — content-loading utilities and TypeScript types
+components/       — shared React components
+app/              — routes (App Router)
+public/           — static assets served as-is (e.g. /mark.png)
+```

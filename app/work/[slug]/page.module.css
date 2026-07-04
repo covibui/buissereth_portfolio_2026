@@ -1,0 +1,165 @@
+.header {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: clamp(48px, 7vw, 96px) 48px clamp(36px, 4vw, 56px);
+}
+
+.back {
+  text-decoration: none;
+  font-family: "Archivo", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 600;
+  transition: color 0.15s ease;
+}
+
+.back:hover {
+  color: var(--accent);
+}
+
+.eyebrow {
+  font-family: "Archivo", sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 600;
+  margin: 38px 0 24px;
+}
+
+.title {
+  font-family: "Newsreader", serif;
+  font-weight: 300;
+  font-size: clamp(38px, 6vw, 76px);
+  line-height: 1.02;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+  margin-bottom: 32px;
+}
+
+.lede {
+  font-family: "Newsreader", serif;
+  font-size: clamp(20px, 2.3vw, 25px);
+  line-height: 1.5;
+  color: var(--muted);
+  max-width: 58ch;
+  text-wrap: pretty;
+}
+
+.metaWrap {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+
+.leadImage {
+  max-width: 1240px;
+  margin: clamp(40px, 5vw, 72px) auto 0;
+  padding: 0 48px;
+  aspect-ratio: 16 / 9;
+  background: var(--hair);
+  border: 1px solid var(--hair);
+  position: relative;
+}
+
+.leadImageLabel {
+  position: absolute;
+  bottom: 18px;
+  left: 68px;
+  font-family: "Archivo", sans-serif;
+  font-size: 10.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.bodyWrap {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: clamp(56px, 7vw, 96px) 48px 0;
+}
+
+.quoteWrap {
+  margin-bottom: clamp(8px, 2vw, 16px);
+}
+
+.galleryWrap {
+  max-width: 1240px;
+  margin: clamp(40px, 5vw, 72px) auto;
+  padding: 0 48px;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+}
+
+.galleryItem {
+  aspect-ratio: 4 / 3;
+  background: var(--hair);
+  border: 1px solid var(--hair);
+  position: relative;
+}
+
+.galleryLabel {
+  position: absolute;
+  bottom: 16px;
+  left: 18px;
+  font-family: "Archivo", sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.outcomesWrap {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: clamp(48px, 6vw, 72px) 48px clamp(64px, 8vw, 110px);
+}
+
+.nextWrap {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 48px clamp(56px, 7vw, 96px);
+}
+
+.next {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: baseline;
+  justify-content: space-between;
+  text-decoration: none;
+  color: var(--ink);
+  border-top: 1px solid var(--ink);
+  padding-top: 28px;
+  transition: color 0.15s ease;
+}
+
+.next:hover {
+  color: var(--accent);
+}
+
+.nextLabel {
+  font-family: "Archivo", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.nextTitle {
+  font-family: "Newsreader", serif;
+  font-weight: 400;
+  font-size: clamp(24px, 3vw, 38px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  max-width: 20ch;
+  text-align: right;
+  text-wrap: pretty;
+}

@@ -1,0 +1,38 @@
+.wrap {
+  background: var(--ink);
+  color: var(--paper);
+  padding: clamp(40px, 5vw, 64px);
+}
+
+.label {
+  font-family: "Archivo", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent-on-ink);
+  font-weight: 600;
+  margin-bottom: 40px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 40px;
+}
+
+.outcomeLabel {
+  font-family: "Newsreader", serif;
+  font-weight: 300;
+  font-style: italic;
+  font-size: clamp(30px, 3.6vw, 44px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: 14px;
+}
+
+.outcomeDesc {
+  font-family: "Newsreader", serif;
+  font-size: 16px;
+  line-height: 1.45;
+  color: rgba(244, 241, 234, 0.72);
+}
