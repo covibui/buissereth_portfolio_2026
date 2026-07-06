@@ -1,3 +1,13 @@
+@font-face {
+  font-family: "Pagio";
+  font-style: normal;
+  font-weight: 400;
+  src:
+    url("/fonts/Pagio.woff") format("woff"),
+    url("/fonts/Pagio.otf") format("opentype");
+  font-display: swap;
+}
+
 *,
 *::before,
 *::after {

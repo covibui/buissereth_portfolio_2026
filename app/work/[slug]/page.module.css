@@ -30,11 +30,14 @@
 }
 
 .title {
-  font-family: "Newsreader", serif;
-  font-weight: 300;
-  font-size: clamp(38px, 6vw, 76px);
-  line-height: 1.02;
-  letter-spacing: -0.025em;
+  font-family: "Pagio", serif;
+  font-variant-ligatures: common-ligatures discretionary-ligatures;
+  font-feature-settings: "liga" 1, "dlig" 1, "clig" 1;
+  font-weight: 400;
+  font-size: clamp(32px, 5vw, 64px);
+  line-height: 1.04;
+  letter-spacing: -6px;
+  text-transform: none;
   text-wrap: balance;
   margin-bottom: 32px;
 }

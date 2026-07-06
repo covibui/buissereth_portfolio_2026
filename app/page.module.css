@@ -23,32 +23,25 @@
   color: var(--muted);
 }
 
-.featuredCount {
+.featuredCta {
+  text-decoration: none;
   font-family: "Archivo", sans-serif;
   font-size: 12px;
-  letter-spacing: 0.1em;
-  color: var(--muted);
-}
-
-.pov {
-  background: var(--ink);
-  color: var(--paper);
-  padding: clamp(72px, 10vw, 140px) 48px;
-}
-
-.povInner {
-  max-width: 980px;
-  margin: 0 auto;
-}
-
-.povEyebrow {
-  font-family: "Archivo", sans-serif;
-  font-size: 12px;
-  letter-spacing: 0.26em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--accent-on-ink);
   font-weight: 600;
-  margin-bottom: 48px;
+  color: var(--ink);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: 4px;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.featuredCta:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
 }
 
 .archiveTeaser {
@@ -64,7 +57,7 @@
 
 .archiveHeadline {
   font-family: "Newsreader", serif;
-  font-weight: 300;
+  font-weight: 400;
   font-size: clamp(30px, 4.4vw, 56px);
   line-height: 1.05;
   letter-spacing: -0.02em;

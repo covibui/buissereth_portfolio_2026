@@ -22,6 +22,7 @@ export default async function PersonalPage() {
         ledeHtml={page.frontmatter.heroLede ? renderInlineMarkdown(page.frontmatter.heroLede) : undefined}
         showReveal={page.frontmatter.showHeroReveal ?? true}
         revealLabel={page.frontmatter.heroRevealLabel}
+        revealAlign={page.frontmatter.heroRevealAlign}
       />
 
       <section className={styles.projects}>

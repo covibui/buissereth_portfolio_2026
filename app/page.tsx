@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Hero from "@/components/Hero";
-import Prose from "@/components/Prose";
 import CaseFeaturedRow from "@/components/CaseFeaturedRow";
-import { getHomePage } from "@/lib/pages";
+import PointOfView from "@/components/PointOfView";
+import { getHomePage, getPointOfView } from "@/lib/pages";
 import { getFeaturedPosts } from "@/lib/posts";
 import { renderInlineMarkdown } from "@/lib/markdown";
 import styles from "./page.module.css";
@@ -14,7 +14,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function HomePage() {
-  const page = await getHomePage();
+  const [page, pov] = await Promise.all([getHomePage(), getPointOfView()]);
   const featured = getFeaturedPosts();
 
   return (
@@ -23,27 +23,26 @@ export default async function HomePage() {
         eyebrowHtml={renderInlineMarkdown(page.frontmatter.eyebrow)}
         headlineHtml={renderInlineMarkdown(page.frontmatter.heroHeadline)}
         ledeHtml={page.frontmatter.heroLede ? renderInlineMarkdown(page.frontmatter.heroLede) : undefined}
-        cta={page.frontmatter.heroCta}
+        ledeVariant={page.frontmatter.heroLedeVariant}
+        size="large"
         showReveal={page.frontmatter.showHeroReveal ?? true}
         revealLabel={page.frontmatter.heroRevealLabel}
+        revealAlign={page.frontmatter.heroRevealAlign}
       />
 
       <section className={styles.featured}>
         <div className={styles.featuredHeader}>
           <h2 className={styles.featuredLabel}>{page.frontmatter.featuredLabel}</h2>
-          <span className={styles.featuredCount}>{page.frontmatter.featuredCountLabel}</span>
+          <Link href={page.frontmatter.featuredCta.href} className={styles.featuredCta}>
+            {page.frontmatter.featuredCta.label}
+          </Link>
         </div>
         {featured.map((post, index) => (
           <CaseFeaturedRow key={post.slug} post={post} reversed={index % 2 === 1} />
         ))}
       </section>
 
-      <section className={styles.pov}>
-        <div className={styles.povInner}>
-          <p className={styles.povEyebrow}>{page.frontmatter.povEyebrow}</p>
-          <Prose html={page.html} variant="dark" />
-        </div>
-      </section>
+      <PointOfView eyebrow={pov.frontmatter.eyebrow} html={pov.html} />
 
       <section className={styles.archiveTeaser}>
         <h2 className={styles.archiveHeadline}>{page.frontmatter.archiveTeaserHeadline}</h2>

@@ -1,5 +1,5 @@
 ---
-title: "Satisfactory factory planning"
+title: "Satisfactory Factory Planning"
 order: 5
 category: "Systems"
 tags: ["Systems", "For Science"]

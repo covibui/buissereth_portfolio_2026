@@ -4,6 +4,12 @@
   padding: clamp(40px, 6vw, 80px) 48px clamp(72px, 10vw, 128px);
 }
 
+.archive {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: clamp(64px, 8vw, 110px) 48px clamp(72px, 10vw, 128px);
+}
+
 .sectionHeader {
   display: flex;
   justify-content: space-between;
@@ -15,8 +21,4 @@
   border-bottom: 1px solid var(--ink);
   padding-bottom: 14px;
   font-weight: 600;
-}
-
-.archiveHeader {
-  margin-top: 72px;
 }

@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import Hero from "@/components/Hero";
 import CaseFeaturedRow from "@/components/CaseFeaturedRow";
 import CaseArchiveRow from "@/components/CaseArchiveRow";
-import { getWorkPage } from "@/lib/pages";
+import PointOfView from "@/components/PointOfView";
+import { getPointOfView, getWorkPage } from "@/lib/pages";
 import { getArchivePosts, getFeaturedPosts } from "@/lib/posts";
 import { renderInlineMarkdown } from "@/lib/markdown";
 import styles from "./page.module.css";
@@ -13,7 +14,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function WorkPage() {
-  const page = await getWorkPage();
+  const [page, pov] = await Promise.all([getWorkPage(), getPointOfView()]);
   const featured = getFeaturedPosts();
   const archive = getArchivePosts();
 
@@ -25,6 +26,7 @@ export default async function WorkPage() {
         ledeHtml={page.frontmatter.heroLede ? renderInlineMarkdown(page.frontmatter.heroLede) : undefined}
         showReveal={page.frontmatter.showHeroReveal ?? true}
         revealLabel={page.frontmatter.heroRevealLabel}
+        revealAlign={page.frontmatter.heroRevealAlign}
       />
 
       <section className={styles.index}>
@@ -34,10 +36,13 @@ export default async function WorkPage() {
         {featured.map((post, index) => (
           <CaseFeaturedRow key={post.slug} post={post} reversed={index % 2 === 1} />
         ))}
+      </section>
 
-        <div className={`${styles.sectionHeader} ${styles.archiveHeader}`}>
+      <PointOfView eyebrow={pov.frontmatter.eyebrow} html={pov.html} />
+
+      <section className={styles.archive}>
+        <div className={styles.sectionHeader}>
           <span>Enterprise Work · EPAM &apos;21–&apos;23</span>
-          <span>Discipline</span>
         </div>
         {archive.map((post) => (
           <CaseArchiveRow key={post.slug} post={post} />

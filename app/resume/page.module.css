@@ -36,17 +36,21 @@
   transition: background 0.15s ease, color 0.15s ease;
 }
 
-.download:hover {
+.download:hover,
+.download:focus-visible {
   background: var(--ink);
   color: var(--paper);
 }
 
 .name {
-  font-family: "Newsreader", serif;
-  font-weight: 300;
-  font-size: clamp(44px, 7vw, 92px);
-  line-height: 0.98;
-  letter-spacing: -0.025em;
+  font-family: "Pagio", serif;
+  font-variant-ligatures: common-ligatures discretionary-ligatures;
+  font-feature-settings: "liga" 1, "dlig" 1, "clig" 1;
+  font-weight: 400;
+  font-size: clamp(38px, 5.6vw, 78px);
+  line-height: 1;
+  letter-spacing: -6px;
+  text-transform: none;
   margin-bottom: 30px;
 }
 

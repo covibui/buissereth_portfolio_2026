@@ -1,5 +1,5 @@
 ---
-title: "Core Keeper base design"
+title: "Core Keeper Base Design"
 order: 6
 category: "Spaces"
 tags: ["Spatial", "In Progress"]

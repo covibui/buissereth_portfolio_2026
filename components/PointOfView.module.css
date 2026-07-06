@@ -1,0 +1,20 @@
+.pov {
+  background: var(--ink);
+  color: var(--paper);
+  padding: clamp(72px, 10vw, 140px) 48px;
+}
+
+.inner {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.eyebrow {
+  font-family: "Archivo", sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--accent-on-ink);
+  font-weight: 600;
+  margin-bottom: 48px;
+}

@@ -41,19 +41,30 @@ export interface PageFrontmatter {
   /** Rendered through renderInlineMarkdown, so `*word*` becomes <em>word</em>. */
   heroHeadline: string;
   heroLede?: string;
-  heroCta?: HeroCta;
-  /** Cursor-spotlight reveal behind the hero heading. Defaults to true. */
+  /** "divider" renders the lede in a bordered row below a rule (Home); "plain" floats it under the headline (Personal, Work). Defaults to "plain". */
+  heroLedeVariant?: "plain" | "divider";
+  /** Cursor-hole image-reveal effect behind the hero, with a permanent reveal/cover toggle button. Defaults to true. */
   showHeroReveal?: boolean;
   heroRevealLabel?: string;
+  /** Corner the reveal caption/toggle button anchor to. Defaults to "left". */
+  heroRevealAlign?: "left" | "right";
 }
 
-/** Home page — the base page plus the "Featured Cases" and archive-teaser strips. */
+/** Home page — the base page plus the "Featured Cases" strip (the Point of View section is shared, see PointOfViewFrontmatter). */
 export interface HomeFrontmatter extends PageFrontmatter {
   featuredLabel: string;
-  featuredCountLabel: string;
-  povEyebrow: string;
+  featuredCta: HeroCta;
   archiveTeaserHeadline: string;
   archiveTeaserCta: HeroCta;
+}
+
+/**
+ * content/pages/point-of-view.md — the "Point of View" manifesto section.
+ * Shared verbatim by Home and the Work index, so it's its own content file
+ * rather than being duplicated into both pages' frontmatter/body.
+ */
+export interface PointOfViewFrontmatter {
+  eyebrow: string;
 }
 
 export interface CaseOutcome {

@@ -1,5 +1,5 @@
 ---
-title: "A Phoenix home, inside and out"
+title: "A Phoenix Home, inside and out"
 order: 3
 category: "Spaces"
 tags: ["Interior", "Landscape"]

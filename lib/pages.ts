@@ -1,7 +1,7 @@
 import { contentPath, readContentFile } from "./content";
 import { markdownToHtml } from "./markdown";
-import { isHomeFrontmatter, isPageFrontmatter, isResumeFrontmatter } from "./validators";
-import type { HomeFrontmatter, PageFrontmatter, ResumeFrontmatter } from "./types";
+import { isHomeFrontmatter, isPageFrontmatter, isPointOfViewFrontmatter, isResumeFrontmatter } from "./validators";
+import type { HomeFrontmatter, PageFrontmatter, PointOfViewFrontmatter, ResumeFrontmatter } from "./types";
 
 const PAGES_DIR = contentPath("pages");
 
@@ -28,4 +28,9 @@ export function getPersonalPage(): Promise<{ frontmatter: PageFrontmatter; conte
 
 export function getResumePage(): Promise<{ frontmatter: ResumeFrontmatter; content: string; html: string }> {
   return loadPage("resume", isResumeFrontmatter);
+}
+
+/** Shared by Home and the Work index — see PointOfViewFrontmatter for why this isn't duplicated into both pages. */
+export function getPointOfView(): Promise<{ frontmatter: PointOfViewFrontmatter; content: string; html: string }> {
+  return loadPage("point-of-view", isPointOfViewFrontmatter);
 }

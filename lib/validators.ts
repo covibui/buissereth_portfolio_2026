@@ -16,6 +16,7 @@ import type {
   HomeFrontmatter,
   NavLink,
   PageFrontmatter,
+  PointOfViewFrontmatter,
   PostFrontmatter,
   ProjectFrontmatter,
   ResumeContact,
@@ -77,6 +78,10 @@ function isOptionalHeroCta(value: unknown): value is HeroCta | undefined {
   return value === undefined || isHeroCta(value);
 }
 
+function isOptionalLiteral<T extends string>(value: unknown, options: readonly T[]): value is T | undefined {
+  return value === undefined || (isString(value) && (options as readonly string[]).includes(value));
+}
+
 export function isSiteConfig(value: unknown): value is SiteConfig {
   if (!isRecord(value)) return false;
   return (
@@ -102,9 +107,10 @@ function hasBasePageFields(value: Record<string, unknown>): boolean {
     isString(value.eyebrow) &&
     isString(value.heroHeadline) &&
     isOptionalString(value.heroLede) &&
-    isOptionalHeroCta(value.heroCta) &&
+    isOptionalLiteral(value.heroLedeVariant, ["plain", "divider"] as const) &&
     isOptionalBoolean(value.showHeroReveal) &&
-    isOptionalString(value.heroRevealLabel)
+    isOptionalString(value.heroRevealLabel) &&
+    isOptionalLiteral(value.heroRevealAlign, ["left", "right"] as const)
   );
 }
 
@@ -117,11 +123,14 @@ export function isHomeFrontmatter(value: unknown): value is HomeFrontmatter {
     isRecord(value) &&
     hasBasePageFields(value) &&
     isString(value.featuredLabel) &&
-    isString(value.featuredCountLabel) &&
-    isString(value.povEyebrow) &&
+    isHeroCta(value.featuredCta) &&
     isString(value.archiveTeaserHeadline) &&
     isHeroCta(value.archiveTeaserCta)
   );
+}
+
+export function isPointOfViewFrontmatter(value: unknown): value is PointOfViewFrontmatter {
+  return isRecord(value) && isString(value.eyebrow);
 }
 
 function isCaseOutcome(value: unknown): value is CaseOutcome {

@@ -55,21 +55,31 @@ content/
 | `eyebrow` | `string` | ✅ | — | Small kicker line above the hero `<h1>`. Rendered through the inline-Markdown pass, so `*word*` works. |
 | `heroHeadline` | `string` | ✅ | — | The hero `<h1>`. Use `*word*` for the accent-colored italic word (renders as `<em>`). |
 | `heroLede` | `string` | optional | — | Paragraph under the headline. Omit to render no lede. |
-| `heroCta` | `{ label, href }` | optional | — | If set, the lede and CTA render together in a bordered row (see Home). If omitted, the lede renders alone (see Personal/Work). |
-| `showHeroReveal` | `boolean` | optional | `true` | Toggles the cursor-spotlight image-reveal effect behind the hero. Set `false` for pages without a hero image concept (e.g. Work). |
-| `heroRevealLabel` | `string` | optional | — | Caption shown inside the reveal placeholder box. |
+| `heroLedeVariant` | `"plain" \| "divider"` | optional | `"plain"` | `"divider"` renders the lede in a bordered row below a rule (Home). `"plain"` floats it under the headline (Personal, Work). |
+| `showHeroReveal` | `boolean` | optional | `true` | Toggles the image-reveal hero: a placeholder image sits behind a paper-colored overlay; moving the cursor punches a soft hole in it, and a "Reveal image" / "Cover image" button permanently toggles the whole overlay. Set `false` for a plain hero with no image concept. |
+| `heroRevealLabel` | `string` | optional | — | Caption shown on the placeholder image, under the overlay. |
+| `heroRevealAlign` | `"left" \| "right"` | optional | `"left"` | Which corner the placeholder caption anchors to. The toggle button is always bottom-right. |
 
-The Markdown **body** of `home.md` is the Point-of-View section (an intro paragraph plus `## ` headed principles) — it's rendered as-is via `Prose`, so headings and paragraphs you add there show up automatically. `work.md` and `personal.md` currently have empty bodies since their content is fully driven by the posts/projects collections.
+`work.md` and `personal.md` have empty Markdown bodies since their content is fully driven by the posts/projects collections. The Point-of-View manifesto that used to live in `home.md`'s body is now its own content type — see `PointOfViewFrontmatter` below — because Work displays the identical section.
 
 ### `content/pages/home.md` → `HomeFrontmatter` (extends `PageFrontmatter`)
 
 | Field | Type | Required | Default | Description |
 |---|---|---|---|---|
 | `featuredLabel` | `string` | ✅ | — | Heading above the featured-cases strip (e.g. "Featured Cases"). |
-| `featuredCountLabel` | `string` | ✅ | — | Small label next to it (e.g. "Three of nine"). |
-| `povEyebrow` | `string` | ✅ | — | Eyebrow label above the Point-of-View section. |
+| `featuredCta` | `{ label, href }` | ✅ | — | Link next to that heading (e.g. "See selected work →" → `/work`). |
 | `archiveTeaserHeadline` | `string` | ✅ | — | Headline in the closing "browse the archive" strip. |
 | `archiveTeaserCta` | `{ label, href }` | ✅ | — | CTA link in that strip (typically `/work`). |
+
+### `content/pages/point-of-view.md` → `PointOfViewFrontmatter`
+
+Rendered identically on both Home (between the featured cases and the archive teaser) and the Work index (between the featured strip and the enterprise archive), via the shared `components/PointOfView.tsx` and `lib/pages.ts`'s `getPointOfView()`. Edit this one file to update the manifesto everywhere it appears.
+
+| Field | Type | Required | Default | Description |
+|---|---|---|---|---|
+| `eyebrow` | `string` | ✅ | — | Small kicker above the manifesto (e.g. "Point of View"). |
+
+The Markdown **body** is the manifesto itself — an intro paragraph plus `## ` headed principles — rendered via `Prose` in its dark/`ink` variant.
 
 ### `content/pages/resume.md` → `ResumeFrontmatter`
 
