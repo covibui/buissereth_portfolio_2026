@@ -20,7 +20,7 @@
   --paper: #f4f1ea;
   --ink: #1c1a17;
   --muted: #6b675f;
-  --hair: rgba(28, 26, 23, 0.14);
+  --hairline: rgba(28, 26, 23, 0.14);
   --accent: #ea580c;
   --accent-on-ink: #f6803f;
 }
@@ -50,4 +50,17 @@ a {
 img {
   max-width: 100%;
   display: block;
+}
+
+/* Display heading treatment shared by every Pagio h1 across the site (hero
+   headlines, resume name, case study titles). Letter-spacing is in em so it
+   scales with font-size instead of breaking at the small end of a clamp().
+   Combine with a page-specific class for font-size/line-height/margin. */
+.text-display {
+  font-family: "Pagio", serif;
+  font-variant-ligatures: common-ligatures discretionary-ligatures;
+  font-feature-settings: "liga" 1, "dlig" 1, "clig" 1;
+  font-weight: 400;
+  letter-spacing: -0.08em;
+  text-transform: none;
 }

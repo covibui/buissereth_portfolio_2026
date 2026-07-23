@@ -24,7 +24,7 @@ export default function CaseFeaturedRow({
         <h3 className={styles.title}>{frontmatter.title}</h3>
         <p className={styles.summary}>{frontmatter.summary}</p>
         <Link href={href} className={styles.cta}>
-          Read the case →
+          Read the case &rarr;
         </Link>
       </div>
     </article>

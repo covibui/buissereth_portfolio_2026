@@ -26,7 +26,7 @@ export default function Footer({ config }: { config: SiteConfig }) {
             ))}
           </ul>
           <a href="#top" className={styles.back}>
-            Back to top ↑
+            Back to top &uarr;
           </a>
         </div>
       </div>

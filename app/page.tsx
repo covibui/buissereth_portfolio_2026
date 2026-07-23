@@ -5,7 +5,6 @@ import CaseFeaturedRow from "@/components/CaseFeaturedRow";
 import PointOfView from "@/components/PointOfView";
 import { getHomePage, getPointOfView } from "@/lib/pages";
 import { getFeaturedPosts } from "@/lib/posts";
-import { renderInlineMarkdown } from "@/lib/markdown";
 import styles from "./page.module.css";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -18,11 +17,11 @@ export default async function HomePage() {
   const featured = getFeaturedPosts();
 
   return (
-    <main>
+    <>
       <Hero
-        eyebrowHtml={renderInlineMarkdown(page.frontmatter.eyebrow)}
-        headlineHtml={renderInlineMarkdown(page.frontmatter.heroHeadline)}
-        ledeHtml={page.frontmatter.heroLede ? renderInlineMarkdown(page.frontmatter.heroLede) : undefined}
+        eyebrow={page.frontmatter.eyebrow}
+        headline={page.frontmatter.heroHeadline}
+        lede={page.frontmatter.heroLede}
         ledeVariant={page.frontmatter.heroLedeVariant}
         size="large"
         showReveal={page.frontmatter.showHeroReveal ?? true}
@@ -50,6 +49,6 @@ export default async function HomePage() {
           {page.frontmatter.archiveTeaserCta.label}
         </Link>
       </section>
-    </main>
+    </>
   );
 }

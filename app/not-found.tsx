@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function NotFound() {
   return (
-    <main
+    <div
       style={{
         maxWidth: 640,
         margin: "0 auto",
@@ -34,8 +34,8 @@ export default function NotFound() {
         This page hasn&rsquo;t been framed yet.
       </h1>
       <Link href="/" style={{ color: "var(--accent)", textDecoration: "none", fontFamily: "Archivo, sans-serif" }}>
-        ← Back home
+        &larr; Back home
       </Link>
-    </main>
+    </div>
   );
 }

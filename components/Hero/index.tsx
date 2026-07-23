@@ -1,12 +1,13 @@
 "use client";
 
 import { useRef, useState, type MouseEvent } from "react";
+import { renderInlineMarkdown } from "@/lib/markdown";
 import styles from "./Hero.module.css";
 
 export interface HeroProps {
-  eyebrowHtml: string;
-  headlineHtml: string;
-  ledeHtml?: string;
+  eyebrow: string;
+  headline: string;
+  lede?: string;
   /** "divider" renders the lede in a bordered row below a rule (Home); "plain" floats it under the headline. Defaults to "plain". */
   ledeVariant?: "plain" | "divider";
   /** Home's headline runs larger than the sub-pages'. Defaults to "compact". */
@@ -24,9 +25,9 @@ export interface HeroProps {
 }
 
 export default function Hero({
-  eyebrowHtml,
-  headlineHtml,
-  ledeHtml,
+  eyebrow,
+  headline,
+  lede,
   ledeVariant = "plain",
   size = "compact",
   showReveal = true,
@@ -35,6 +36,10 @@ export default function Hero({
 }: HeroProps) {
   const overlayRef = useRef<HTMLDivElement>(null);
   const [revealed, setRevealed] = useState(false);
+
+  const eyebrowHtml = renderInlineMarkdown(eyebrow);
+  const headlineHtml = renderInlineMarkdown(headline);
+  const ledeHtml = lede ? renderInlineMarkdown(lede) : undefined;
 
   function handleMouseMove(event: MouseEvent<HTMLElement>) {
     const overlay = overlayRef.current;
@@ -59,7 +64,7 @@ export default function Hero({
     .filter(Boolean)
     .join(" ");
 
-  const lede = ledeHtml ? <p className={ledeClasses} dangerouslySetInnerHTML={{ __html: ledeHtml }} /> : null;
+  const ledeEl = ledeHtml ? <p className={ledeClasses} dangerouslySetInnerHTML={{ __html: ledeHtml }} /> : null;
 
   return (
     <section
@@ -92,10 +97,14 @@ export default function Hero({
       <div className={styles.content}>
         <p className={styles.eyebrow} dangerouslySetInnerHTML={{ __html: eyebrowHtml }} />
         <h1
-          className={size === "large" ? `${styles.headline} ${styles.headlineLarge}` : styles.headline}
+          className={
+            size === "large"
+              ? `${styles.headline} ${styles.headlineLarge} text-display`
+              : `${styles.headline} text-display`
+          }
           dangerouslySetInnerHTML={{ __html: headlineHtml }}
         />
-        {ledeVariant === "divider" ? <div className={styles.metaRow}>{lede}</div> : lede}
+        {ledeVariant === "divider" ? <div className={styles.metaRow}>{ledeEl}</div> : ledeEl}
       </div>
 
       {showReveal && (

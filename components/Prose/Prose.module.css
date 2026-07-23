@@ -49,8 +49,8 @@
   font-size: clamp(24px, 3.2vw, 36px);
   line-height: 1.25;
   letter-spacing: -0.01em;
-  border-top: 1px solid var(--hair);
-  border-bottom: 1px solid var(--hair);
+  border-top: 1px solid var(--hairline);
+  border-bottom: 1px solid var(--hairline);
   padding: 32px 0;
   margin: 2em 0;
   text-wrap: balance;

@@ -3,7 +3,7 @@
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 28px;
   border-top: 1px solid var(--ink);
-  border-bottom: 1px solid var(--hair);
+  border-bottom: 1px solid var(--hairline);
   padding: 26px 0;
 }
 

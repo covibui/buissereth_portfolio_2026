@@ -53,3 +53,15 @@ export function getNextPost(currentOrder: number): ContentEntry<PostFrontmatter>
   }
   return next;
 }
+
+/** The previous case study before the given order, wrapping back to the last. */
+export function getPrevPost(currentOrder: number): ContentEntry<PostFrontmatter> {
+  const all = getAllPostEntries();
+  const currentIndex = all.findIndex((post) => post.frontmatter.order === currentOrder);
+  const prevIndex = currentIndex === -1 ? all.length - 1 : (currentIndex - 1 + all.length) % all.length;
+  const prev = all[prevIndex];
+  if (!prev) {
+    throw new Error("getPrevPost called with no posts in content/posts");
+  }
+  return prev;
+}

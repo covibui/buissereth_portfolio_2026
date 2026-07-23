@@ -1,5 +1,5 @@
 .intro {
-  max-width: 1080px;
+  max-width: 1160px;
   margin: 0 auto;
   padding: clamp(56px, 8vw, 110px) 48px clamp(40px, 5vw, 64px);
 }
@@ -7,7 +7,7 @@
 .introTop {
   display: flex;
   flex-wrap: wrap;
-  gap: 28px;
+  gap: 32px;
   align-items: flex-end;
   justify-content: space-between;
   margin-bottom: 40px;
@@ -43,15 +43,9 @@
 }
 
 .name {
-  font-family: "Pagio", serif;
-  font-variant-ligatures: common-ligatures discretionary-ligatures;
-  font-feature-settings: "liga" 1, "dlig" 1, "clig" 1;
-  font-weight: 400;
   font-size: clamp(38px, 5.6vw, 78px);
   line-height: 1;
-  letter-spacing: -6px;
-  text-transform: none;
-  margin-bottom: 30px;
+  margin-bottom: 32px;
 }
 
 .summary :global(p) {
@@ -63,8 +57,8 @@
   text-wrap: pretty;
 }
 
-.body {
-  max-width: 1080px;
+.content {
+  max-width: 1160px;
   margin: 0 auto;
   padding: 0 48px clamp(64px, 8vw, 110px);
   display: grid;
@@ -78,20 +72,21 @@
   top: 96px;
   display: flex;
   flex-direction: column;
-  gap: 36px;
+  gap: 32px;
 }
 
 .sidebarLabel {
   font-family: "Archivo", sans-serif;
-  font-size: 10.5px;
+  font-size: 11px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--muted);
   font-weight: 600;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
 }
 
-.sidebarText {
+.sidebarList {
+  list-style: none;
   font-family: "Newsreader", serif;
   font-size: 17px;
   line-height: 1.65;
@@ -102,7 +97,8 @@
   transition: color 0.15s ease;
 }
 
-.contactLink:hover {
+.contactLink:hover,
+.contactLink:focus-visible {
   color: var(--accent);
 }
 
@@ -129,15 +125,15 @@
 
 .role {
   display: grid;
-  gap: 14px;
-  padding: 34px 0;
-  border-bottom: 1px solid var(--hair);
+  gap: 16px;
+  padding: 32px 0;
+  border-bottom: 1px solid var(--hairline);
 }
 
 .roleHeader {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px 20px;
+  gap: 8px 24px;
   align-items: baseline;
   justify-content: space-between;
 }
@@ -181,11 +177,11 @@
 .eduRow {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px 20px;
+  gap: 8px 24px;
   align-items: baseline;
   justify-content: space-between;
   padding: 24px 0;
-  border-bottom: 1px solid var(--hair);
+  border-bottom: 1px solid var(--hairline);
 }
 
 .eduTitle {

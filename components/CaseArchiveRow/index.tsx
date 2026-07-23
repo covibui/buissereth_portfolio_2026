@@ -10,7 +10,7 @@ export default function CaseArchiveRow({ post }: { post: ContentEntry<PostFrontm
       <span className={styles.num}>{String(frontmatter.order).padStart(2, "0")}</span>
       <span className={styles.title}>{frontmatter.title}</span>
       <span className={styles.meta}>
-        {frontmatter.disciplines[0]} · {frontmatter.year}
+        {frontmatter.disciplines[0]} &middot; {frontmatter.year}
       </span>
     </Link>
   );

@@ -4,15 +4,15 @@
   gap: clamp(32px, 4.5vw, 64px);
   align-items: center;
   padding: clamp(44px, 6vw, 76px) 0;
-  border-bottom: 1px solid var(--hair);
+  border-bottom: 1px solid var(--hairline);
 }
 
 .imageWrap {
   display: block;
   text-decoration: none;
   aspect-ratio: 4 / 3;
-  background: var(--hair);
-  border: 1px solid var(--hair);
+  background: var(--hairline);
+  border: 1px solid var(--hairline);
   position: relative;
   overflow: hidden;
 }

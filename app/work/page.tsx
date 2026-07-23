@@ -5,7 +5,6 @@ import CaseArchiveRow from "@/components/CaseArchiveRow";
 import PointOfView from "@/components/PointOfView";
 import { getPointOfView, getWorkPage } from "@/lib/pages";
 import { getArchivePosts, getFeaturedPosts } from "@/lib/posts";
-import { renderInlineMarkdown } from "@/lib/markdown";
 import styles from "./page.module.css";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -19,11 +18,11 @@ export default async function WorkPage() {
   const archive = getArchivePosts();
 
   return (
-    <main>
+    <>
       <Hero
-        eyebrowHtml={renderInlineMarkdown(page.frontmatter.eyebrow)}
-        headlineHtml={renderInlineMarkdown(page.frontmatter.heroHeadline)}
-        ledeHtml={page.frontmatter.heroLede ? renderInlineMarkdown(page.frontmatter.heroLede) : undefined}
+        eyebrow={page.frontmatter.eyebrow}
+        headline={page.frontmatter.heroHeadline}
+        lede={page.frontmatter.heroLede}
         showReveal={page.frontmatter.showHeroReveal ?? true}
         revealLabel={page.frontmatter.heroRevealLabel}
         revealAlign={page.frontmatter.heroRevealAlign}
@@ -42,12 +41,12 @@ export default async function WorkPage() {
 
       <section className={styles.archive}>
         <div className={styles.sectionHeader}>
-          <span>Enterprise Work · EPAM &apos;21–&apos;23</span>
+          <span>Enterprise Work &middot; EPAM &apos;21–&apos;23</span>
         </div>
         {archive.map((post) => (
           <CaseArchiveRow key={post.slug} post={post} />
         ))}
       </section>
-    </main>
+    </>
   );
 }

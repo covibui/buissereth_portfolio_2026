@@ -1,4 +1,4 @@
-import Prose from "./Prose";
+import Prose from "@/components/Prose";
 import styles from "./PointOfView.module.css";
 
 export default function PointOfView({ eyebrow, html }: { eyebrow: string; html: string }) {

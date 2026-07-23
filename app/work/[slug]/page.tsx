@@ -5,7 +5,7 @@ import Prose from "@/components/Prose";
 import CaseMetaBar from "@/components/CaseMetaBar";
 import OutcomesGrid from "@/components/OutcomesGrid";
 import PullQuote from "@/components/PullQuote";
-import { getAllPostSlugs, getNextPost, getPost } from "@/lib/posts";
+import { getAllPostSlugs, getNextPost, getPost, getPrevPost } from "@/lib/posts";
 import styles from "./page.module.css";
 
 export function generateStaticParams(): Array<{ slug: string }> {
@@ -36,18 +36,20 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
 
   const { frontmatter, html } = entry;
   const next = getNextPost(frontmatter.order);
+  const prev = getPrevPost(frontmatter.order);
 
   return (
-    <main>
+    <>
       <article>
         <header className={styles.header}>
           <Link href="/work" className={styles.back}>
-            ← The archive
+            &larr; The archive
           </Link>
           <p className={styles.eyebrow}>
-            Case {String(frontmatter.order).padStart(2, "0")} · {frontmatter.disciplines[0]} · {frontmatter.year}
+            Case {String(frontmatter.order).padStart(2, "0")} &middot; {frontmatter.disciplines[0]} &middot;{" "}
+            {frontmatter.year}
           </p>
-          <h1 className={styles.title}>{frontmatter.title}</h1>
+          <h1 className={`${styles.title} text-display`}>{frontmatter.title}</h1>
           <p className={styles.lede}>{frontmatter.summary}</p>
         </header>
 
@@ -72,9 +74,15 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
           <div className={styles.galleryWrap}>
             <div className={styles.gallery}>
               {frontmatter.gallery.map((filename) => (
-                <div key={filename} className={styles.galleryItem}>
-                  <span className={styles.galleryLabel}>Artifact</span>
-                </div>
+                <a
+                  key={filename}
+                  href={`/images/work/${slug}/${filename}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.galleryItem}
+                >
+                  <span className={styles.galleryLabel}>{filename}</span>
+                </a>
               ))}
             </div>
           </div>
@@ -87,12 +95,16 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
         )}
       </article>
 
-      <div className={styles.nextWrap}>
+      <div className={styles.navRow}>
+        <Link href={`/work/${prev.slug}`} className={styles.prev}>
+          <span className={styles.prevLabel}>&larr; Previous case</span>
+          <span className={styles.prevTitle}>{prev.frontmatter.title}</span>
+        </Link>
         <Link href={`/work/${next.slug}`} className={styles.next}>
-          <span className={styles.nextLabel}>Next case →</span>
+          <span className={styles.nextLabel}>Next case &rarr;</span>
           <span className={styles.nextTitle}>{next.frontmatter.title}</span>
         </Link>
       </div>
-    </main>
+    </>
   );
 }
