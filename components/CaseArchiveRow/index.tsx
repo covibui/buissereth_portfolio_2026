@@ -8,8 +8,8 @@ export default function CaseArchiveRow({ post }: { post: ContentEntry<PostFrontm
   return (
     <Link href={`/work/${slug}`} className={styles.row}>
       <span className={styles.num}>{String(frontmatter.order).padStart(2, "0")}</span>
-      <span className={styles.title}>{frontmatter.title}</span>
-      <span className={styles.meta}>
+      <span className={`text-serif-lg ${styles.title}`}>{frontmatter.title}</span>
+      <span className={`text-meta ${styles.meta}`}>
         {frontmatter.disciplines[0]} &middot; {frontmatter.year}
       </span>
     </Link>

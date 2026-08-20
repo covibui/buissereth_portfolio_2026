@@ -5,10 +5,13 @@ import Footer from "@/components/Footer";
 import { getSiteConfig } from "@/lib/config";
 import "./globals.css";
 
-export const metadata: Metadata = {
-  title: "Brianna Buissereth — Design Strategy",
-  description: "Strategy stays an idea until someone frames it — design strategy portfolio.",
-};
+export function generateMetadata(): Metadata {
+  const config = getSiteConfig();
+  return {
+    title: config.siteTitle,
+    description: config.siteDescription,
+  };
+}
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   const config = getSiteConfig();

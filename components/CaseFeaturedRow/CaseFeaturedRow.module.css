@@ -1,13 +1,19 @@
 .row {
-  display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
-  gap: clamp(32px, 4.5vw, 64px);
+  display: flex;
+  gap: var(--space-64);
   align-items: center;
-  padding: clamp(44px, 6vw, 76px) 0;
+  padding: var(--space-64) 0;
   border-bottom: 1px solid var(--hairline);
 }
 
+/* Reverse the image/text order from the parent alone — no per-child order. */
+.reversed {
+  flex-direction: row-reverse;
+}
+
+/* flex-grow ratios reproduce the 1.05fr / 0.95fr column split. */
 .imageWrap {
+  flex: 105 1 0;
   display: block;
   text-decoration: none;
   aspect-ratio: 4 / 3;
@@ -17,83 +23,68 @@
   overflow: hidden;
 }
 
+.content {
+  flex: 95 1 0;
+}
+
 .imageLabel {
   position: absolute;
-  bottom: 16px;
-  left: 18px;
-  font-family: "Archivo", sans-serif;
-  font-size: 10.5px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
+  bottom: var(--space-16);
+  left: var(--space-16);
   color: var(--muted);
+  letter-spacing: 0.18em;
 }
 
 .index {
-  font-family: "Archivo", sans-serif;
-  font-size: 11px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
   color: var(--accent);
-  font-weight: 600;
 }
 
 .title {
-  font-family: "Pagio", serif;
-  font-variant-ligatures: common-ligatures discretionary-ligatures;
-  font-feature-settings: "liga" 1, "dlig" 1, "clig" 1;
-  font-weight: 400;
-  font-size: clamp(28px, 3.6vw, 46px);
-  line-height: 1.08;
-  letter-spacing: -2px;
-  margin: 18px 0 22px;
-  text-wrap: pretty;
+  margin: var(--space-16) 0 var(--space-24);
   max-width: 18ch;
 }
 
+.titleLink {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.15s ease;
+}
+
+.titleLink:hover,
+.titleLink:focus-visible {
+  color: var(--accent);
+}
+
 .summary {
-  font-family: "Newsreader", serif;
-  font-size: clamp(18px, 2vw, 21px);
-  line-height: 1.55;
   color: var(--muted);
   max-width: 48ch;
-  margin-bottom: 30px;
-  text-wrap: pretty;
+  margin-bottom: var(--space-32);
 }
 
 .cta {
   text-decoration: none;
-  font-family: "Archivo", sans-serif;
+  font-family: var(--font-sans);
   font-size: 12px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   font-weight: 600;
   color: var(--ink);
   border-bottom: 2px solid var(--ink);
-  padding-bottom: 5px;
+  padding-bottom: var(--space-4);
   transition: color 0.15s ease, border-color 0.15s ease;
 }
 
-.cta:hover {
+.cta:hover,
+.cta:focus-visible {
   color: var(--accent);
   border-bottom-color: var(--accent);
 }
 
-.reversed .imageWrap {
-  order: 2;
-}
-
-.reversed .content {
-  order: 1;
-}
-
-@media (max-width: 720px) {
-  .row {
-    grid-template-columns: 1fr;
-    gap: 28px;
-  }
-
-  .reversed .imageWrap,
-  .reversed .content {
-    order: unset;
+@media (max-width: 768px) {
+  .row,
+  .reversed {
+    flex-direction: column;
+    gap: var(--space-24);
+    align-items: stretch;
   }
 }

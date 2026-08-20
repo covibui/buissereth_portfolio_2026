@@ -82,6 +82,16 @@ function isOptionalLiteral<T extends string>(value: unknown, options: readonly T
   return value === undefined || (isString(value) && (options as readonly string[]).includes(value));
 }
 
+function isFooterConfig(value: unknown): value is SiteConfig["footer"] {
+  return (
+    isRecord(value) &&
+    isRecord(value.cta) &&
+    isString(value.cta.label) &&
+    isString(value.cta.headline) &&
+    isNavLinkArray(value.links)
+  );
+}
+
 export function isSiteConfig(value: unknown): value is SiteConfig {
   if (!isRecord(value)) return false;
   return (
@@ -90,12 +100,10 @@ export function isSiteConfig(value: unknown): value is SiteConfig {
     isString(value.email) &&
     isOptionalString(value.phone) &&
     isOptionalString(value.location) &&
+    isString(value.siteTitle) &&
+    isString(value.siteDescription) &&
     isNavLinkArray(value.nav) &&
-    isString(value.footerCtaLabel) &&
-    isString(value.footerCtaHeadline) &&
-    isNavLinkArray(value.footerLinks) &&
-    isString(value.copyrightName) &&
-    isNumber(value.copyrightYear)
+    isFooterConfig(value.footer)
   );
 }
 
@@ -129,8 +137,18 @@ export function isHomeFrontmatter(value: unknown): value is HomeFrontmatter {
   );
 }
 
+function isPointOfViewPrinciple(value: unknown): value is PointOfViewFrontmatter["principles"][number] {
+  return isRecord(value) && isString(value.title) && isString(value.body);
+}
+
 export function isPointOfViewFrontmatter(value: unknown): value is PointOfViewFrontmatter {
-  return isRecord(value) && isString(value.eyebrow);
+  return (
+    isRecord(value) &&
+    isString(value.eyebrow) &&
+    isString(value.lead) &&
+    Array.isArray(value.principles) &&
+    value.principles.every(isPointOfViewPrinciple)
+  );
 }
 
 function isCaseOutcome(value: unknown): value is CaseOutcome {

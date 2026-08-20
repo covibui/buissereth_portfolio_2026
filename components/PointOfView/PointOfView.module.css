@@ -1,7 +1,7 @@
 .pov {
   background: var(--ink);
   color: var(--paper);
-  padding: clamp(72px, 10vw, 140px) 48px;
+  padding: var(--space-112) var(--gutter);
 }
 
 .inner {
@@ -10,11 +10,43 @@
 }
 
 .eyebrow {
-  font-family: "Archivo", sans-serif;
-  font-size: 12px;
+  color: var(--accent-on-dark);
   letter-spacing: 0.26em;
-  text-transform: uppercase;
-  color: var(--accent-on-ink);
-  font-weight: 600;
-  margin-bottom: 48px;
+  margin-bottom: var(--space-48);
+}
+
+.lead {
+  font-size: 50px;
+  line-height: 1.18;
+}
+
+.lead :global(em) {
+  font-style: italic;
+  color: var(--accent-on-dark);
+}
+
+.principles {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--space-40);
+  margin-top: var(--space-40);
+  border-top: 1px solid var(--paper-18);
+  padding-top: var(--space-40);
+}
+
+.principleTitle {
+  color: var(--accent-on-dark);
+  letter-spacing: 0.14em;
+  margin-bottom: var(--space-16);
+}
+
+.principleBody {
+  color: var(--paper-72);
+}
+
+@media (max-width: 720px) {
+  .lead {
+    font-size: 34px;
+  }
 }

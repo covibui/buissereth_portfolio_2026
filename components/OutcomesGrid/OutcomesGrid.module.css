@@ -1,38 +1,43 @@
 .wrap {
   background: var(--ink);
   color: var(--paper);
-  padding: clamp(40px, 5vw, 64px);
+  padding: var(--space-64);
 }
 
 .label {
-  font-family: "Archivo", sans-serif;
-  font-size: 11px;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--accent-on-ink);
-  font-weight: 600;
-  margin-bottom: 40px;
+  color: var(--accent-on-dark);
+  margin-bottom: var(--space-40);
 }
 
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 40px;
+  gap: var(--space-40);
 }
 
 .outcomeLabel {
-  font-family: "Newsreader", serif;
+  font-family: var(--font-serif);
   font-weight: 300;
   font-style: italic;
-  font-size: clamp(30px, 3.6vw, 44px);
+  font-size: 40px;
   line-height: 1.05;
   letter-spacing: -0.02em;
-  margin-bottom: 14px;
+  margin-bottom: var(--space-16);
 }
 
 .outcomeDesc {
-  font-family: "Newsreader", serif;
+  font-family: var(--font-serif);
   font-size: 16px;
   line-height: 1.45;
-  color: rgba(244, 241, 234, 0.72);
+  color: var(--paper-72);
+}
+
+@media (max-width: 720px) {
+  .wrap {
+    padding: var(--space-40);
+  }
+
+  .outcomeLabel {
+    font-size: 32px;
+  }
 }

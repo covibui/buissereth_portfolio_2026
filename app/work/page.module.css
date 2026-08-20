@@ -1,24 +1,20 @@
 .index {
-  max-width: 1160px;
+  max-width: var(--container);
   margin: 0 auto;
-  padding: clamp(40px, 6vw, 80px) 48px clamp(72px, 10vw, 128px);
+  padding: var(--space-64) var(--gutter) var(--space-128);
 }
 
 .archive {
-  max-width: 1160px;
+  max-width: var(--container);
   margin: 0 auto;
-  padding: clamp(64px, 8vw, 110px) 48px clamp(72px, 10vw, 128px);
+  padding: var(--space-96) var(--gutter) var(--space-128);
 }
 
 .sectionHeader {
   display: flex;
   justify-content: space-between;
-  font-family: "Archivo", sans-serif;
-  font-size: 11px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
   color: var(--muted);
+  letter-spacing: 0.18em;
   border-bottom: 1px solid var(--ink);
-  padding-bottom: 14px;
-  font-weight: 600;
+  padding-bottom: var(--space-16);
 }

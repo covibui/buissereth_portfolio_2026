@@ -5,8 +5,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 24px;
-  padding: 20px 48px;
+  gap: var(--space-24);
+  padding: var(--space-20) var(--gutter);
   background: var(--paper);
   border-bottom: 1px solid var(--hairline);
   backdrop-filter: saturate(1.1);
@@ -16,7 +16,7 @@
   text-decoration: none;
   display: flex;
   align-items: center;
-  gap: 11px;
+  gap: var(--space-12);
   color: var(--ink);
 }
 
@@ -27,7 +27,7 @@
 }
 
 .name {
-  font-family: "Archivo", sans-serif;
+  font-family: var(--font-sans);
   font-weight: 600;
   font-size: 16px;
   letter-spacing: 0.09em;
@@ -35,7 +35,7 @@
 }
 
 .discipline {
-  font-family: "Archivo", sans-serif;
+  font-family: var(--font-sans);
   font-size: 10.5px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -46,8 +46,8 @@
 .nav {
   display: flex;
   align-items: center;
-  gap: 30px;
-  font-family: "Archivo", sans-serif;
+  gap: var(--space-32);
+  font-family: var(--font-sans);
   font-size: 12px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -58,7 +58,7 @@
 .navLink {
   text-decoration: none;
   color: var(--ink);
-  padding-bottom: 3px;
+  padding-bottom: var(--space-4);
   border-bottom: 2px solid transparent;
   transition: border-color 0.15s ease;
 }
@@ -67,7 +67,8 @@
   border-bottom-color: var(--accent);
 }
 
-.navLink:not(.navLinkActive):hover {
+.navLink:not(.navLinkActive):hover,
+.navLink:not(.navLinkActive):focus-visible {
   border-bottom-color: var(--hairline);
 }
 
@@ -75,21 +76,21 @@
   text-decoration: none;
   color: var(--paper);
   background: var(--ink);
-  padding: 9px 16px;
+  padding: var(--space-8) var(--space-16);
   border-radius: 999px;
   letter-spacing: 0.12em;
   transition: background 0.15s ease;
 }
 
-.cta:hover {
+.cta:hover,
+.cta:focus-visible {
   background: var(--accent);
 }
 
 @media (max-width: 720px) {
   .header {
-    padding: 16px 24px;
     flex-wrap: wrap;
-    gap: 16px;
+    gap: var(--space-16);
   }
 
   .discipline {
@@ -97,7 +98,7 @@
   }
 
   .nav {
-    gap: 18px;
+    gap: var(--space-20);
     font-size: 11px;
   }
 }

@@ -31,7 +31,7 @@ export default async function HomePage() {
 
       <section className={styles.featured}>
         <div className={styles.featuredHeader}>
-          <h2 className={styles.featuredLabel}>{page.frontmatter.featuredLabel}</h2>
+          <h2 className={`text-label ${styles.featuredLabel}`}>{page.frontmatter.featuredLabel}</h2>
           <Link href={page.frontmatter.featuredCta.href} className={styles.featuredCta}>
             {page.frontmatter.featuredCta.label}
           </Link>
@@ -41,10 +41,10 @@ export default async function HomePage() {
         ))}
       </section>
 
-      <PointOfView eyebrow={pov.frontmatter.eyebrow} html={pov.html} />
+      <PointOfView content={pov.frontmatter} />
 
       <section className={styles.archiveTeaser}>
-        <h2 className={styles.archiveHeadline}>{page.frontmatter.archiveTeaserHeadline}</h2>
+        <h2 className={`text-serif-xl ${styles.archiveHeadline}`}>{page.frontmatter.archiveTeaserHeadline}</h2>
         <Link href={page.frontmatter.archiveTeaserCta.href} className={styles.archiveCta}>
           {page.frontmatter.archiveTeaserCta.label}
         </Link>

@@ -353,9 +353,9 @@
 }
 
 .quoteMark {
-  /* On-ink accent uses the lighter --accent-on-ink for legibility, matching
+  /* On-ink accent uses the lighter --accent-on-dark for legibility, matching
      the Footer and Point-of-View dark sections across the site. */
-  color: var(--accent-on-ink);
+  color: var(--accent-on-dark);
 }
 
 .quoteCaption {

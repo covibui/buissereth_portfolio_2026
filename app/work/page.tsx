@@ -29,7 +29,7 @@ export default async function WorkPage() {
       />
 
       <section className={styles.index}>
-        <div className={styles.sectionHeader}>
+        <div className={`text-label ${styles.sectionHeader}`}>
           <span>Live &amp; Ongoing</span>
         </div>
         {featured.map((post, index) => (
@@ -37,10 +37,10 @@ export default async function WorkPage() {
         ))}
       </section>
 
-      <PointOfView eyebrow={pov.frontmatter.eyebrow} html={pov.html} />
+      <PointOfView content={pov.frontmatter} />
 
       <section className={styles.archive}>
-        <div className={styles.sectionHeader}>
+        <div className={`text-label ${styles.sectionHeader}`}>
           <span>Enterprise Work &middot; EPAM &apos;21–&apos;23</span>
         </div>
         {archive.map((post) => (

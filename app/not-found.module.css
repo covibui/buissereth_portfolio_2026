@@ -1,0 +1,38 @@
+.wrap {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: var(--space-160) var(--gutter);
+  text-align: center;
+}
+
+.code {
+  color: var(--accent);
+  letter-spacing: 0.22em;
+  margin-bottom: var(--space-24);
+}
+
+.title {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 44px;
+  line-height: 1.1;
+  margin-bottom: var(--space-24);
+}
+
+.home {
+  color: var(--accent);
+  text-decoration: none;
+  font-family: var(--font-sans);
+  transition: color 0.15s ease;
+}
+
+.home:hover,
+.home:focus-visible {
+  color: var(--ink);
+}
+
+@media (max-width: 720px) {
+  .title {
+    font-size: 32px;
+  }
+}

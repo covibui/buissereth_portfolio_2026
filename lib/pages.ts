@@ -5,32 +5,34 @@ import type { HomeFrontmatter, PageFrontmatter, PointOfViewFrontmatter, ResumeFr
 
 const PAGES_DIR = contentPath("pages");
 
+/** Loads a page's frontmatter plus its Markdown body rendered to HTML. The
+   raw body isn't returned — no consumer needs it once it's been rendered. */
 async function loadPage<T>(slug: string, isValid: (data: unknown) => data is T) {
   const { data, content } = readContentFile(PAGES_DIR, slug);
   if (!isValid(data)) {
     throw new Error(`Invalid frontmatter in content/pages/${slug}.md`);
   }
   const html = await markdownToHtml(content);
-  return { frontmatter: data, content, html };
+  return { frontmatter: data, html };
 }
 
-export function getHomePage(): Promise<{ frontmatter: HomeFrontmatter; content: string; html: string }> {
+export function getHomePage(): Promise<{ frontmatter: HomeFrontmatter; html: string }> {
   return loadPage("home", isHomeFrontmatter);
 }
 
-export function getWorkPage(): Promise<{ frontmatter: PageFrontmatter; content: string; html: string }> {
+export function getWorkPage(): Promise<{ frontmatter: PageFrontmatter; html: string }> {
   return loadPage("work", isPageFrontmatter);
 }
 
-export function getPersonalPage(): Promise<{ frontmatter: PageFrontmatter; content: string; html: string }> {
+export function getPersonalPage(): Promise<{ frontmatter: PageFrontmatter; html: string }> {
   return loadPage("personal", isPageFrontmatter);
 }
 
-export function getResumePage(): Promise<{ frontmatter: ResumeFrontmatter; content: string; html: string }> {
+export function getResumePage(): Promise<{ frontmatter: ResumeFrontmatter; html: string }> {
   return loadPage("resume", isResumeFrontmatter);
 }
 
 /** Shared by Home and the Work index — see PointOfViewFrontmatter for why this isn't duplicated into both pages. */
-export function getPointOfView(): Promise<{ frontmatter: PointOfViewFrontmatter; content: string; html: string }> {
+export function getPointOfView(): Promise<{ frontmatter: PointOfViewFrontmatter; html: string }> {
   return loadPage("point-of-view", isPointOfViewFrontmatter);
 }

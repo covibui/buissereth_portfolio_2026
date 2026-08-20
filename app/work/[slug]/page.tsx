@@ -8,6 +8,7 @@ import OutcomesGrid from "@/components/OutcomesGrid";
 import PullQuote from "@/components/PullQuote";
 import SecurityCase from "@/components/SecurityCase";
 import CaseNav from "@/components/CaseNav";
+import { getSiteConfig } from "@/lib/config";
 import { getAllPostSlugs, getNextPost, getPost, getPrevPost } from "@/lib/posts";
 import styles from "./page.module.css";
 
@@ -28,7 +29,7 @@ export async function generateMetadata({
   const { slug } = await params;
   try {
     const { frontmatter } = await getPost(slug);
-    return { title: `${frontmatter.title} — Brianna Buissereth`, description: frontmatter.summary };
+    return { title: `${frontmatter.title} — ${getSiteConfig().name}`, description: frontmatter.summary };
   } catch {
     return { title: "Case not found" };
   }
@@ -55,15 +56,15 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
     <>
       <article>
         <header className={styles.header}>
-          <Link href="/work" className={styles.back}>
+          <Link href="/work" className={`text-label ${styles.back}`}>
             &larr; The archive
           </Link>
-          <p className={styles.eyebrow}>
+          <p className={`text-eyebrow ${styles.eyebrow}`}>
             Case {String(frontmatter.order).padStart(2, "0")} &middot; {frontmatter.disciplines[0]} &middot;{" "}
             {frontmatter.year}
           </p>
-          <h1 className={`${styles.title} text-display`}>{frontmatter.title}</h1>
-          <p className={styles.lede}>{frontmatter.summary}</p>
+          <h1 className={`text-display text-title ${styles.title}`}>{frontmatter.title}</h1>
+          <p className={`text-lede ${styles.lede}`}>{frontmatter.summary}</p>
         </header>
 
         <div className={styles.metaWrap}>

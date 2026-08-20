@@ -18,6 +18,14 @@ export interface HeroCta {
   href: string;
 }
 
+export interface FooterConfig {
+  cta: {
+    label: string;
+    headline: string;
+  };
+  links: FooterLink[];
+}
+
 /** content/config/site.yaml — global site identity, navigation, and footer copy. */
 export interface SiteConfig {
   name: string;
@@ -25,12 +33,11 @@ export interface SiteConfig {
   email: string;
   phone?: string;
   location?: string;
+  /** Default document <title> / description, used by the root layout. */
+  siteTitle: string;
+  siteDescription: string;
   nav: NavLink[];
-  footerCtaLabel: string;
-  footerCtaHeadline: string;
-  footerLinks: FooterLink[];
-  copyrightName: string;
-  copyrightYear: number;
+  footer: FooterConfig;
 }
 
 /** Frontmatter shared by every standalone, single-hero page (home, work index, personal). */
@@ -63,8 +70,17 @@ export interface HomeFrontmatter extends PageFrontmatter {
  * Shared verbatim by Home and the Work index, so it's its own content file
  * rather than being duplicated into both pages' frontmatter/body.
  */
+export interface PointOfViewPrinciple {
+  /** Rendered as a stylized <ol> item; the "01 /" index is derived from order. */
+  title: string;
+  body: string;
+}
+
 export interface PointOfViewFrontmatter {
   eyebrow: string;
+  /** The manifesto statement. Rendered through renderInlineMarkdown for `*emphasis*`. */
+  lead: string;
+  principles: PointOfViewPrinciple[];
 }
 
 export interface CaseOutcome {

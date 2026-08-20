@@ -16,7 +16,7 @@ export function getAllPosts(): ContentEntry<PostFrontmatter>[] {
   return getAllPostEntries();
 }
 
-/** The three "Live & Ongoing" cases shown on Home and at the top of the Work index. */
+/** The "Live & Ongoing" cases (featured: true) shown on Home and atop the Work index. */
 export function getFeaturedPosts(): ContentEntry<PostFrontmatter>[] {
   return getAllPostEntries().filter((post) => post.frontmatter.featured);
 }

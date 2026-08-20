@@ -4,7 +4,7 @@ import styles from "./OutcomesGrid.module.css";
 export default function OutcomesGrid({ outcomes }: { outcomes: CaseOutcome[] }) {
   return (
     <div className={styles.wrap}>
-      <p className={styles.label}>What changed</p>
+      <p className={`text-eyebrow ${styles.label}`}>What changed</p>
       <div className={styles.grid}>
         {outcomes.map((outcome) => (
           <div key={outcome.label}>

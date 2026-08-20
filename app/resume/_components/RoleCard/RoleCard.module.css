@@ -1,0 +1,29 @@
+.role {
+  display: grid;
+  gap: var(--space-16);
+  padding: var(--space-32) 0;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-8) var(--space-24);
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.dates {
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.company {
+  color: var(--accent);
+  letter-spacing: 0.08em;
+}
+
+.blurb {
+  color: var(--muted);
+  max-width: 62ch;
+}

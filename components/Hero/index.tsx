@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState, type MouseEvent } from "react";
+import classNames from "classnames";
 import { renderInlineMarkdown } from "@/lib/markdown";
 import styles from "./Hero.module.css";
 
@@ -56,13 +57,12 @@ export default function Hero({
     overlay.style.setProperty("--my", "-400px");
   }
 
-  const ledeClasses = [
+  const ledeClasses = classNames(
+    "text-lede",
     ledeVariant === "divider" ? styles.metaLede : styles.lede,
-    showReveal ? styles.ledeHighlight : "",
-    showReveal && revealed ? styles.ledeRevealed : "",
-  ]
-    .filter(Boolean)
-    .join(" ");
+    showReveal && styles.ledeHighlight,
+    showReveal && revealed && styles.ledeRevealed,
+  );
 
   const ledeEl = ledeHtml ? <p className={ledeClasses} dangerouslySetInnerHTML={{ __html: ledeHtml }} /> : null;
 
@@ -73,35 +73,26 @@ export default function Hero({
       onMouseLeave={showReveal ? handleMouseLeave : undefined}
     >
       {showReveal && (
-        <div className={styles.placeholder} aria-hidden="true">
-          {revealLabel && (
-            <span
-              className={
-                revealAlign === "right" ? `${styles.placeholderLabel} ${styles.alignRight}` : styles.placeholderLabel
-              }
-            >
-              {revealLabel}
-            </span>
-          )}
-        </div>
-      )}
-
-      {showReveal && (
-        <div
-          ref={overlayRef}
-          aria-hidden="true"
-          className={revealed ? `${styles.overlay} ${styles.overlayHidden}` : styles.overlay}
-        />
+        <>
+          <div className={styles.placeholder} aria-hidden="true">
+            {revealLabel && (
+              <span className={classNames(styles.placeholderLabel, revealAlign === "right" && styles.alignRight)}>
+                {revealLabel}
+              </span>
+            )}
+          </div>
+          <div
+            ref={overlayRef}
+            aria-hidden="true"
+            className={classNames(styles.overlay, revealed && styles.overlayHidden)}
+          />
+        </>
       )}
 
       <div className={styles.content}>
-        <p className={styles.eyebrow} dangerouslySetInnerHTML={{ __html: eyebrowHtml }} />
+        <p className={`text-eyebrow ${styles.eyebrow}`} dangerouslySetInnerHTML={{ __html: eyebrowHtml }} />
         <h1
-          className={
-            size === "large"
-              ? `${styles.headline} ${styles.headlineLarge} text-display`
-              : `${styles.headline} text-display`
-          }
+          className={classNames("text-display", size === "large" ? "text-hero" : "text-title", styles.headline)}
           dangerouslySetInnerHTML={{ __html: headlineHtml }}
         />
         {ledeVariant === "divider" ? <div className={styles.metaRow}>{ledeEl}</div> : ledeEl}
@@ -109,7 +100,7 @@ export default function Hero({
 
       {showReveal && (
         <button type="button" className={styles.toggle} onClick={() => setRevealed((value) => !value)}>
-          <span className={revealed ? `${styles.dot} ${styles.dotFilled}` : styles.dot} aria-hidden="true" />
+          <span className={classNames(styles.dot, revealed && styles.dotFilled)} aria-hidden="true" />
           {revealed ? "Cover image" : "Reveal image"}
         </button>
       )}

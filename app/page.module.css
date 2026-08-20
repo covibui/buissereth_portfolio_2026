@@ -1,31 +1,27 @@
 .featured {
-  max-width: 1160px;
+  max-width: var(--container);
   margin: 0 auto;
-  padding: 0 48px clamp(40px, 6vw, 80px);
+  padding: 0 var(--gutter) var(--space-80);
 }
 
 .featuredHeader {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  gap: 24px;
+  gap: var(--space-24);
   border-bottom: 1px solid var(--hairline);
-  padding-bottom: 18px;
-  margin-bottom: 8px;
+  padding-bottom: var(--space-16);
+  margin-bottom: var(--space-8);
 }
 
 .featuredLabel {
-  font-family: "Archivo", sans-serif;
-  font-size: 12px;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  font-weight: 600;
   color: var(--muted);
+  letter-spacing: 0.22em;
 }
 
 .featuredCta {
   text-decoration: none;
-  font-family: "Archivo", sans-serif;
+  font-family: var(--font-sans);
   font-size: 12px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -33,34 +29,30 @@
   color: var(--ink);
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: var(--space-8);
   border-bottom: 2px solid var(--ink);
-  padding-bottom: 4px;
+  padding-bottom: var(--space-4);
   transition: color 0.15s ease, border-color 0.15s ease;
 }
 
-.featuredCta:hover {
+.featuredCta:hover,
+.featuredCta:focus-visible {
   color: var(--accent);
   border-bottom-color: var(--accent);
 }
 
 .archiveTeaser {
-  max-width: 1160px;
+  max-width: var(--container);
   margin: 0 auto;
-  padding: clamp(64px, 8vw, 110px) 48px;
+  padding: var(--space-112) var(--gutter);
   display: flex;
   flex-wrap: wrap;
-  gap: 32px;
+  gap: var(--space-32);
   align-items: flex-end;
   justify-content: space-between;
 }
 
 .archiveHeadline {
-  font-family: "Newsreader", serif;
-  font-weight: 400;
-  font-size: clamp(30px, 4.4vw, 56px);
-  line-height: 1.05;
-  letter-spacing: -0.02em;
   max-width: 18ch;
   text-wrap: balance;
 }
@@ -68,18 +60,19 @@
 .archiveCta {
   flex: none;
   text-decoration: none;
-  font-family: "Archivo", sans-serif;
+  font-family: var(--font-sans);
   font-size: 12px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   font-weight: 600;
   color: var(--ink);
   border-bottom: 2px solid var(--ink);
-  padding-bottom: 5px;
+  padding-bottom: var(--space-4);
   transition: color 0.15s ease, border-color 0.15s ease;
 }
 
-.archiveCta:hover {
+.archiveCta:hover,
+.archiveCta:focus-visible {
   color: var(--accent);
   border-bottom-color: var(--accent);
 }

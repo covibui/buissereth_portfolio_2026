@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import classNames from "classnames";
 import type { SiteConfig } from "@/lib/types";
 import styles from "./Header.module.css";
 
@@ -18,12 +19,15 @@ export default function Header({ config }: { config: SiteConfig }) {
       <nav>
         <ul className={styles.nav}>
           {config.nav.map((link) => {
-            const isActive = pathname === link.href || pathname === `${link.href}/`;
+            // Highlight the section for its index and every child route
+            // (e.g. "Work" stays active on /work/<case-slug>).
+            const isActive = pathname === link.href || pathname.startsWith(`${link.href}/`);
             return (
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className={isActive ? `${styles.navLink} ${styles.navLinkActive}` : styles.navLink}
+                  className={classNames(styles.navLink, isActive && styles.navLinkActive)}
+                  aria-current={isActive ? "page" : undefined}
                 >
                   {link.label}
                 </Link>

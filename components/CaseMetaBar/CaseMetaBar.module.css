@@ -1,23 +1,19 @@
 .bar {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 28px;
+  gap: var(--space-32);
   border-top: 1px solid var(--ink);
   border-bottom: 1px solid var(--hairline);
-  padding: 26px 0;
+  padding: var(--space-24) 0;
 }
 
 .label {
-  font-family: "Archivo", sans-serif;
-  font-size: 10.5px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
   color: var(--muted);
-  margin-bottom: 7px;
-  font-weight: 600;
+  margin-bottom: var(--space-8);
 }
 
 .value {
-  font-family: "Newsreader", serif;
+  font-family: var(--font-serif);
   font-size: 17px;
+  line-height: 1.4;
 }

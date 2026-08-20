@@ -1,3 +1,4 @@
+import classNames from "classnames";
 import styles from "./Prose.module.css";
 
 /**
@@ -14,6 +15,6 @@ export interface ProseProps {
 }
 
 export default function Prose({ html, variant = "light", className }: ProseProps) {
-  const classes = [styles.prose, variant === "dark" ? styles.dark : "", className].filter(Boolean).join(" ");
+  const classes = classNames(styles.prose, variant === "dark" && styles.dark, className);
   return <div className={classes} dangerouslySetInnerHTML={{ __html: html }} />;
 }

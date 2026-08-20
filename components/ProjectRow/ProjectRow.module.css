@@ -1,11 +1,16 @@
 .project {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 48px;
+  display: flex;
+  gap: var(--space-48);
   align-items: center;
 }
 
+/* Reverse image/text order from the parent alone — no per-child order. */
+.reversed {
+  flex-direction: row-reverse;
+}
+
 .imageWrap {
+  flex: 1 1 0;
   aspect-ratio: 5 / 4;
   background: var(--hairline);
   border: 1px solid var(--hairline);
@@ -13,72 +18,49 @@
   overflow: hidden;
 }
 
+.content {
+  flex: 1 1 0;
+}
+
 .imageLabel {
   position: absolute;
-  bottom: 16px;
-  left: 18px;
-  font-family: "Archivo", sans-serif;
-  font-size: 10.5px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
+  bottom: var(--space-16);
+  left: var(--space-16);
   color: var(--muted);
+  letter-spacing: 0.18em;
 }
 
 .index {
-  font-family: "Archivo", sans-serif;
-  font-size: 11px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
   color: var(--accent);
-  font-weight: 600;
   display: block;
-  margin-bottom: 16px;
+  margin-bottom: var(--space-16);
 }
 
 .title {
-  font-family: "Pagio", serif;
-  font-variant-ligatures: common-ligatures discretionary-ligatures;
-  font-feature-settings: "liga" 1, "dlig" 1, "clig" 1;
-  font-weight: 400;
-  font-size: clamp(26px, 3.2vw, 40px);
-  line-height: 1.08;
-  letter-spacing: -2px;
-  margin-bottom: 20px;
-  text-wrap: pretty;
+  margin-bottom: var(--space-20);
 }
 
 .desc :global(p) {
-  font-family: "Newsreader", serif;
+  font-family: var(--font-serif);
   font-size: 18px;
   line-height: 1.58;
   color: var(--muted);
-  margin-bottom: 24px;
+  margin-bottom: var(--space-24);
   max-width: 46ch;
   text-wrap: pretty;
 }
 
 .tags {
   display: flex;
-  gap: 10px;
+  gap: var(--space-8);
   flex-wrap: wrap;
 }
 
-.reversed .imageWrap {
-  order: 2;
-}
-
-.reversed .content {
-  order: 1;
-}
-
-@media (max-width: 720px) {
-  .project {
-    grid-template-columns: 1fr;
-    gap: 28px;
-  }
-
-  .reversed .imageWrap,
-  .reversed .content {
-    order: unset;
+@media (max-width: 768px) {
+  .project,
+  .reversed {
+    flex-direction: column;
+    gap: var(--space-24);
+    align-items: stretch;
   }
 }
