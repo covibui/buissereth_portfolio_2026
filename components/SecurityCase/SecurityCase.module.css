@@ -1,0 +1,656 @@
+/* Bespoke layout for the Security Assessment Tool case (Work-CaseSecurity v3).
+   A one-off editorial page that doesn't reuse the generic /work/[slug] template,
+   so its styles live here rather than in the shared case CSS. Card borders use
+   the warm paper hairline #e2dcd2; the dark panels invert onto --ink. */
+
+.page {
+  overflow-x: hidden;
+}
+
+/* ---- 1 · Cover ------------------------------------------------------------ */
+
+.cover {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: clamp(44px, 6vw, 84px) 48px 0;
+}
+
+.archiveLink {
+  text-decoration: none;
+  font-family: "Archivo", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 600;
+  transition: color 0.15s ease;
+}
+
+.archiveLink:hover,
+.archiveLink:focus-visible {
+  color: var(--accent);
+}
+
+.coverKicker {
+  font-family: "Archivo", sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 600;
+  margin: 36px 0 24px;
+}
+
+.coverTitle {
+  font-family: "Pagio", serif;
+  font-feature-settings: "liga" 1, "dlig" 1;
+  font-weight: 400;
+  font-size: clamp(34px, 5.6vw, 72px);
+  line-height: 1.02;
+  letter-spacing: -6px;
+  text-wrap: balance;
+  max-width: 16ch;
+  margin-bottom: 28px;
+}
+
+.coverTitleAccent {
+  font-family: "Newsreader", serif;
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: -0.02em;
+  color: var(--accent);
+}
+
+.coverLede {
+  font-family: "Newsreader", serif;
+  font-size: clamp(19px, 2.2vw, 24px);
+  line-height: 1.5;
+  color: var(--muted);
+  max-width: 60ch;
+  text-wrap: pretty;
+}
+
+.coverDisciplines {
+  font-family: "Archivo", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 600;
+  margin-top: 26px;
+}
+
+/* ---- Full-bleed image frames --------------------------------------------- */
+
+.heroImageSection {
+  padding: clamp(56px, 7vw, 96px) 0 0;
+}
+
+.interfaceImageSection {
+  padding: clamp(80px, 9vw, 120px) 0;
+}
+
+.imageFrame {
+  background: #ffffff;
+  border-top: 1px solid #e2dcd2;
+  border-bottom: 1px solid #e2dcd2;
+  padding: clamp(20px, 3vw, 44px) clamp(16px, 4vw, 64px);
+}
+
+.interfaceImageSection .imageFrame {
+  padding: clamp(20px, 3vw, 48px) clamp(16px, 4vw, 64px);
+}
+
+.heroImg {
+  display: block;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  height: auto;
+}
+
+.interfaceImg {
+  display: block;
+  width: 100%;
+  max-width: 1480px;
+  margin: 0 auto;
+  height: auto;
+}
+
+/* ---- 2 · Meta strip ------------------------------------------------------- */
+
+.metaSection {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: clamp(40px, 5vw, 72px) 48px 0;
+}
+
+.metaGrid {
+  border-top: 1px solid var(--hairline);
+  border-bottom: 1px solid var(--hairline);
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 140px), 1fr));
+  gap: clamp(20px, 3vw, 36px) clamp(16px, 2vw, 24px);
+  padding: clamp(22px, 3vw, 30px) 0;
+}
+
+.metaLabel {
+  font-family: "Archivo", sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 600;
+  margin-bottom: 9px;
+}
+
+.metaValue {
+  font-family: "Newsreader", serif;
+  font-size: 17px;
+  line-height: 1.4;
+  color: var(--ink);
+  text-wrap: pretty;
+}
+
+/* ---- Rail sections (label column + copy column) --------------------------- */
+
+.rail {
+  max-width: 1160px;
+  margin: 0 auto;
+  display: grid;
+  gap: clamp(28px, 5vw, 80px);
+  align-items: start;
+}
+
+.railSituation {
+  padding: clamp(64px, 8vw, 110px) 48px clamp(20px, 3vw, 32px);
+}
+
+.railReframe {
+  padding: clamp(64px, 8vw, 104px) 48px clamp(24px, 3vw, 36px);
+}
+
+.railLabel {
+  position: sticky;
+  top: 96px;
+  width: 100%;
+  max-width: 560px;
+}
+
+.railEyebrow {
+  font-family: "Archivo", sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 22px;
+}
+
+.railHeading {
+  font-family: "Newsreader", serif;
+  font-weight: 300;
+  font-size: clamp(24px, 2.6vw, 30px);
+  line-height: 1.22;
+  letter-spacing: -0.01em;
+  text-wrap: pretty;
+}
+
+.railCopy {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  width: 100%;
+  max-width: 560px;
+}
+
+.railBody {
+  font-family: "Newsreader", serif;
+  font-size: 20px;
+  line-height: 1.62;
+  color: var(--muted);
+  text-wrap: pretty;
+}
+
+.emInk {
+  font-style: italic;
+  color: var(--ink);
+}
+
+.emItalic {
+  font-style: italic;
+}
+
+/* ---- Calendar vs. threat comparison -------------------------------------- */
+
+.compareSection {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: clamp(28px, 4vw, 44px) 48px clamp(8px, 2vw, 20px);
+}
+
+.compareGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  border: 1px solid #e2dcd2;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.comparePanel {
+  padding: clamp(30px, 4vw, 44px) clamp(30px, 4vw, 44px) clamp(26px, 3vw, 36px);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.comparePanelLight {
+  background: #ffffff;
+}
+
+.comparePanelDark {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.compareKicker {
+  font-family: "Archivo", sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.compareKickerDark {
+  color: rgba(244, 241, 234, 0.55);
+}
+
+.compareTitle {
+  font-family: "Newsreader", serif;
+  font-size: clamp(23px, 2.4vw, 30px);
+  line-height: 1.1;
+  text-transform: capitalize;
+  font-weight: 500;
+}
+
+.compareSub {
+  font-family: "Newsreader", serif;
+  font-size: 17px;
+  line-height: 1.5;
+  color: var(--muted);
+  text-wrap: pretty;
+}
+
+.compareSubDark {
+  color: rgba(244, 241, 234, 0.72);
+}
+
+.barsRow {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  height: 88px;
+  margin-top: 20px;
+  border-bottom: 1px solid #e2dcd2;
+}
+
+.barsRowDark {
+  border-bottom: 1px solid rgba(244, 241, 234, 0.22);
+}
+
+.cadenceBar {
+  flex: 1;
+  height: 46px;
+  background: #d9d3c5;
+}
+
+.exposureBar {
+  flex: 1;
+}
+
+.compareFoot {
+  font-family: "Archivo", sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 600;
+  margin-top: 12px;
+}
+
+.compareFootDark {
+  color: rgba(244, 241, 234, 0.55);
+}
+
+/* ---- 4 · Pull quote ------------------------------------------------------- */
+
+.quoteSection {
+  background: var(--ink);
+  color: var(--paper);
+  margin-top: clamp(56px, 7vw, 96px);
+  padding: clamp(96px, 12vw, 160px) 48px;
+}
+
+.quoteFigure {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(24px, 3vw, 36px);
+}
+
+.quoteText {
+  margin: 0;
+  font-family: "Newsreader", serif;
+  font-weight: 300;
+  font-style: italic;
+  font-size: clamp(26px, 4vw, 42px);
+  line-height: 1.25;
+  text-align: center;
+  text-wrap: balance;
+}
+
+.quoteMark {
+  /* On-ink accent uses the lighter --accent-on-ink for legibility, matching
+     the Footer and Point-of-View dark sections across the site. */
+  color: var(--accent-on-ink);
+}
+
+.quoteCaption {
+  font-family: "Archivo", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: rgba(244, 241, 234, 0.55);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.quoteCaptionRule {
+  width: 24px;
+  height: 1px;
+  background: rgba(244, 241, 234, 0.35);
+}
+
+/* ---- Two decisions -------------------------------------------------------- */
+
+.decisionsSection {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: clamp(8px, 2vw, 20px) 48px clamp(56px, 7vw, 88px);
+}
+
+.decisionsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: clamp(16px, 2.5vw, 28px);
+}
+
+.card {
+  background: #ffffff;
+  border: 1px solid #e2dcd2;
+  border-radius: 4px;
+}
+
+.decisionCard {
+  padding: 32px 34px 36px;
+}
+
+.decisionTitle {
+  font-family: "Newsreader", serif;
+  font-size: 23px;
+  margin-bottom: 14px;
+  font-weight: 500;
+}
+
+.decisionBody {
+  font-family: "Newsreader", serif;
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--muted);
+  text-wrap: pretty;
+}
+
+/* ---- 5 · Interface intro -------------------------------------------------- */
+
+.interfaceHead {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: clamp(24px, 3vw, 40px) 48px 0;
+}
+
+.interfaceKicker {
+  font-family: "Archivo", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 600;
+  margin-bottom: 18px;
+}
+
+.interfaceTitle {
+  font-family: "Pagio", serif;
+  font-weight: 400;
+  font-size: clamp(28px, 3.6vw, 44px);
+  line-height: 1.06;
+  letter-spacing: -2px;
+}
+
+/* ---- Lenses (horizontal scroller) ---------------------------------------- */
+
+.lensesSection {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 48px clamp(56px, 7vw, 88px);
+}
+
+.lensesScroller {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(min(46%, 336px), 1fr);
+  gap: clamp(14px, 2vw, 24px);
+  overflow-x: auto;
+  padding-bottom: 8px;
+}
+
+.lensFigure {
+  margin: 0;
+}
+
+.lensCaption {
+  font-family: "Archivo", sans-serif;
+  font-size: 10.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.lensFrame {
+  background: #ffffff;
+  border: 1px solid #e2dcd2;
+  border-radius: 4px;
+  padding: 14px;
+}
+
+.lensImg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.lensesNote {
+  font-family: "Newsreader", serif;
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--muted);
+  max-width: 68ch;
+  margin: clamp(24px, 3vw, 34px) auto 0;
+  text-align: center;
+  text-wrap: pretty;
+}
+
+/* ---- 6 · Three moments ---------------------------------------------------- */
+
+.momentsSection {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 48px clamp(64px, 8vw, 104px);
+}
+
+.momentsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: clamp(16px, 2.5vw, 28px);
+}
+
+.momentCard {
+  padding: 30px 32px 34px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.momentTitle {
+  font-family: "Newsreader", serif;
+  font-size: 23px;
+  line-height: 1.15;
+  text-wrap: pretty;
+  font-weight: 500;
+}
+
+.momentBody {
+  font-family: "Newsreader", serif;
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--muted);
+  text-wrap: pretty;
+}
+
+.momentCropBox {
+  margin-top: auto;
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border: 1px solid #e2dcd2;
+  border-radius: 4px;
+  background: #ffffff;
+}
+
+.momentCropImg {
+  position: absolute;
+  display: block;
+  max-width: none;
+  height: auto;
+}
+
+/* ---- 7 · What became possible -------------------------------------------- */
+
+.railPossible {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 48px clamp(20px, 3vw, 32px);
+  display: grid;
+  gap: clamp(20px, 4vw, 56px);
+  align-items: start;
+}
+
+.possibleEyebrow {
+  font-family: "Archivo", sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 600;
+  width: 100%;
+  max-width: 560px;
+}
+
+.possibleContent {
+  width: 100%;
+  max-width: 560px;
+}
+
+.chipsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 140px), 1fr));
+  gap: clamp(16px, 2vw, 24px);
+  border-top: 1px solid var(--hairline);
+  border-bottom: 1px solid var(--hairline);
+  padding: clamp(24px, 3vw, 34px) 0;
+  margin-bottom: clamp(32px, 4vw, 48px);
+}
+
+.chipValue {
+  font-family: "Pagio", serif;
+  font-size: 26px;
+  line-height: 1.1;
+  margin-bottom: 10px;
+}
+
+.chipLabel {
+  font-family: "Archivo", sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.possibleCopy {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  width: 100%;
+  max-width: 560px;
+}
+
+.possibleBodySmall {
+  font-family: "Newsreader", serif;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--muted);
+  text-wrap: pretty;
+}
+
+/* ---- 8 · Reflection ------------------------------------------------------- */
+
+.reflectionSection {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: clamp(96px, 11vw, 140px) 48px clamp(72px, 9vw, 110px);
+}
+
+.reflectionInner {
+  max-width: 62ch;
+  margin: 0 auto;
+}
+
+.reflectionEyebrow {
+  font-family: "Archivo", sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 28px;
+}
+
+.reflectionBody {
+  font-family: "Newsreader", serif;
+  font-size: 20px;
+  line-height: 1.62;
+  color: var(--ink);
+  text-wrap: pretty;
+}
+
+.reflectionBody + .reflectionBody {
+  margin-top: 24px;
+}
+

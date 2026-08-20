@@ -1,12 +1,20 @@
 import type { Metadata } from "next";
+import type { ReactElement } from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Prose from "@/components/Prose";
 import CaseMetaBar from "@/components/CaseMetaBar";
 import OutcomesGrid from "@/components/OutcomesGrid";
 import PullQuote from "@/components/PullQuote";
+import SecurityCase from "@/components/SecurityCase";
+import CaseNav from "@/components/CaseNav";
 import { getAllPostSlugs, getNextPost, getPost, getPrevPost } from "@/lib/posts";
 import styles from "./page.module.css";
+
+/** Cases with a hand-built editorial layout that bypasses the generic template. */
+const BESPOKE_CASES: Record<string, () => ReactElement> = {
+  "security-assessment-tool": () => <SecurityCase />,
+};
 
 export function generateStaticParams(): Array<{ slug: string }> {
   return getAllPostSlugs().map((slug) => ({ slug }));
@@ -32,6 +40,11 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
   const entry = await getPost(slug).catch(() => null);
   if (!entry) {
     notFound();
+  }
+
+  const bespoke = BESPOKE_CASES[slug];
+  if (bespoke) {
+    return bespoke();
   }
 
   const { frontmatter, html } = entry;
@@ -95,16 +108,12 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
         )}
       </article>
 
-      <div className={styles.navRow}>
-        <Link href={`/work/${prev.slug}`} className={styles.prev}>
-          <span className={styles.prevLabel}>&larr; Previous case</span>
-          <span className={styles.prevTitle}>{prev.frontmatter.title}</span>
-        </Link>
-        <Link href={`/work/${next.slug}`} className={styles.next}>
-          <span className={styles.nextLabel}>Next case &rarr;</span>
-          <span className={styles.nextTitle}>{next.frontmatter.title}</span>
-        </Link>
-      </div>
+      <CaseNav
+        prevHref={`/work/${prev.slug}`}
+        prevTitle={prev.frontmatter.title}
+        nextHref={`/work/${next.slug}`}
+        nextTitle={next.frontmatter.title}
+      />
     </>
   );
 }

@@ -208,7 +208,7 @@
 }
 
 @media (max-width: 860px) {
-  .body {
+  .content {
     grid-template-columns: 1fr;
   }
 
