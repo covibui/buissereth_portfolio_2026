@@ -74,10 +74,6 @@ export function isHeroCta(value: unknown): value is HeroCta {
   return isRecord(value) && isString(value.label) && isString(value.href);
 }
 
-function isOptionalHeroCta(value: unknown): value is HeroCta | undefined {
-  return value === undefined || isHeroCta(value);
-}
-
 function isOptionalLiteral<T extends string>(value: unknown, options: readonly T[]): value is T | undefined {
   return value === undefined || (isString(value) && (options as readonly string[]).includes(value));
 }

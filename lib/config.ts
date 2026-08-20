@@ -1,6 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
-import yaml from "js-yaml";
+import { load } from "js-yaml";
 import { isSiteConfig } from "./validators";
 import type { SiteConfig } from "./types";
 
@@ -15,7 +15,7 @@ export function getSiteConfig(): SiteConfig {
   }
 
   const raw = fs.readFileSync(SITE_CONFIG_PATH, "utf8");
-  const data: unknown = yaml.load(raw);
+  const data: unknown = load(raw);
 
   if (!isSiteConfig(data)) {
     throw new Error("Invalid site config in content/config/site.yaml");

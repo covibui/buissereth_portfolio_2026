@@ -194,7 +194,7 @@ export default function SecurityCase() {
             application sat in a blind spot, unassessed and unbothered.
           </p>
           <p className={styles.railBody}>
-            The risk was always there. What was missing wasn't effort. It was{" "}
+            The risk was always there. What was missing wasn’t effort. It was{" "}
             <em className={styles.emInk}>sight</em>.
           </p>
         </div>
@@ -217,7 +217,7 @@ export default function SecurityCase() {
             <p className={`${styles.compareKicker} ${styles.compareKickerDark}`}>How risk actually arrived</p>
             <p className={styles.compareTitle}>The threat</p>
             <p className={`${styles.compareSub} ${styles.compareSubDark}`}>
-              Exposure that doesn't care what week it is.
+              Exposure that doesn’t care what week it is.
             </p>
             <div className={`${styles.barsRow} ${styles.barsRowDark}`}>
               {exposure.map((b, i) => (
@@ -253,7 +253,7 @@ export default function SecurityCase() {
         </div>
         <div data-rail-copy className={styles.railCopy}>
           <p className={styles.railBody}>
-            The team didn't want another tool to maintain. They wanted to stop guessing. So the design
+            The team didn’t want another tool to maintain. They wanted to stop guessing. So the design
             goal became embarrassingly simple to say and genuinely hard to build: make risk impossible
             to miss.
           </p>
@@ -282,8 +282,8 @@ export default function SecurityCase() {
             <p className={styles.decisionBody}>
               That cuts both ways. It pushes genuinely at-risk applications to the front of the line,
               and it gives the team explicit permission to <em className={styles.emItalic}>stop</em>{" "}
-              re-checking healthy ones so often. Good prioritization isn't only about what to do next.
-              It's about what you're allowed to ignore.
+              re-checking healthy ones so often. Good prioritization isn’t only about what to do next.
+              It’s about what you’re allowed to ignore.
             </p>
           </div>
         </div>
@@ -366,7 +366,7 @@ export default function SecurityCase() {
             </p>
             <p className={styles.possibleBodySmall}>
               This was a vision and proof-of-concept engagement. It was not deployed to production
-              during my involvement, so there are no adoption figures to report, and I'd rather say
+              during my involvement, so there are no adoption figures to report, and I’d rather say
               that than imply otherwise.
             </p>
           </div>
@@ -378,13 +378,13 @@ export default function SecurityCase() {
         <div className={styles.reflectionInner}>
           <p className={styles.reflectionEyebrow}>Reflection</p>
           <p className={styles.reflectionBody}>
-            The part I'd revisit is the default thresholds. Handing an organization a slider is only
+            The part I’d revisit is the default thresholds. Handing an organization a slider is only
             empowering if they have some basis for where to put it — and a team that already lacked
             visibility is not well positioned to set its own tolerance on day one. Defaults are a
             design decision I treated as a settings problem.
           </p>
           <p className={styles.reflectionBody}>
-            The gap I'd close is ownership. The tool is excellent at telling you{" "}
+            The gap I’d close is ownership. The tool is excellent at telling you{" "}
             <em className={styles.emItalic}>which</em> application is on fire and completely silent on{" "}
             <em className={styles.emItalic}>whose</em> it is. Making risk visible turns out to be the
             easier half; routing it to the person who can act is where a transparency layer either
