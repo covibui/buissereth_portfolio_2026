@@ -1,12 +1,13 @@
 ---
 title: "The heuristics, personas, and flows behind the work — method made visible"
+slug: "ux-showcase"
 client: "A major cloud-data platform"
 year: "EPAM · 2021–2023"
 disciplines: ["UX Research", "Usability Testing", "UX Strategy"]
 summary: "A full research arc — heuristic evaluation, validated personas, and two rounds of usability testing — that rebuilt a platform's sign-up around the people actually signing up rather than the engineers who built it."
 order: 9
 featured: false
-coverLabel: "UX Research Showcase"
+coverLabel: "UX Showcase"
 gallery: ["cloud-2screen.jpg"]
 ---
 

@@ -1,5 +1,6 @@
 ---
 title: "One try-on component library, so every brand could ship without rebuilding it"
+slug: "virtual-tryon-component-library"
 client: "A global cosmetics company"
 year: "EPAM · 2021–2023"
 disciplines: ["Design Systems", "UX/UI", "Mobile Design"]

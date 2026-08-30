@@ -1,5 +1,6 @@
 ---
 title: "Immortalizing the Family Cookbook"
+slug: "del-buico-cookbook"
 order: 1
 category: "Cooking"
 tags: ["Web", "Branding", "Live"]

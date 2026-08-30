@@ -1,5 +1,6 @@
 ---
 title: "A sprawling security audit, rebuilt into a tool a team could actually run"
+slug: "security-assessment-tool"
 client: "An enterprise information-security organization"
 year: "EPAM · 2021–2023"
 disciplines: ["Product Design", "UX/UI", "Data Visualization"]

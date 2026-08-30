@@ -1,5 +1,6 @@
 ---
 title: "VMC Aesthetics — a clinic rebuilt around one system"
+slug: "vmc-aesthetics"
 client: "VMC Aesthetics and Wellness"
 year: "2025"
 disciplines: ["Branding", "Design Systems", "Operations"]

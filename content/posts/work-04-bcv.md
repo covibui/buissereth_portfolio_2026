@@ -1,5 +1,6 @@
 ---
 title: "A vision for how a bank's branches and its customers actually talk"
+slug: "branch-communication-vision"
 client: "A financial services institution"
 year: "EPAM · 2021–2023"
 disciplines: ["Financial Services", "Product Vision"]
