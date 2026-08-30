@@ -1,5 +1,6 @@
 ---
 title: "Pan de Jamón, taken seriously"
+slug: "pan-de-jamon"
 order: 2
 category: "Branding"
 tags: ["Branding", "Packaging"]

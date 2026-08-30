@@ -88,15 +88,9 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
           <div className={styles.galleryWrap}>
             <div className={styles.gallery}>
               {frontmatter.gallery.map((filename) => (
-                <a
-                  key={filename}
-                  href={`/images/work/${slug}/${filename}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.galleryItem}
-                >
+                <figure key={filename} className={styles.galleryItem}>
                   <span className={styles.galleryLabel}>{filename}</span>
-                </a>
+                </figure>
               ))}
             </div>
           </div>

@@ -1,5 +1,6 @@
 ---
 title: "The Stardew Profit Calculator"
+slug: "stardew-calculator"
 order: 4
 category: "Tools"
 tags: ["Product", "Data"]

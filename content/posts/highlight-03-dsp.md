@@ -1,5 +1,6 @@
 ---
 title: "Diné Safe Passage — when trust is the product"
+slug: "dine-safe-passage"
 client: "A tribal public-health & safety initiative"
 year: "Ongoing"
 disciplines: ["Service Design", "Brand"]

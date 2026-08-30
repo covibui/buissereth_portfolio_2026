@@ -1,5 +1,6 @@
 ---
 title: "Two readers who want opposite things. One hub that serves both"
+slug: "internal-content-hub"
 client: "An enterprise organization"
 year: "EPAM · 2021–2023"
 disciplines: ["Content Strategy", "UX/UI"]

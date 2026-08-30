@@ -83,17 +83,10 @@
 }
 
 .galleryItem {
-  display: block;
   aspect-ratio: 4 / 3;
   background: var(--hairline);
   border: 1px solid var(--hairline);
   position: relative;
-  transition: border-color 0.15s ease;
-}
-
-.galleryItem:hover,
-.galleryItem:focus-visible {
-  border-color: var(--accent);
 }
 
 .galleryLabel {
@@ -112,7 +105,3 @@
   margin: 0 auto;
   padding: var(--space-64) var(--gutter) var(--space-112);
 }
-
-/* Prev/next case navigation now lives in the shared components/CaseNav
-   (implements Main-CaseNav.dc.html), used by both this template and the
-   bespoke SecurityCase so every case ends on an identical nav. */

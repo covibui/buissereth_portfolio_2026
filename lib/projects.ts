@@ -1,4 +1,4 @@
-import { contentPath, readAllContentFiles, readContentFile } from "./content";
+import { contentPath, readAllContentFiles } from "./content";
 import { markdownToHtml } from "./markdown";
 import { isProjectFrontmatter } from "./validators";
 import type { ContentEntry, ProjectFrontmatter } from "./types";
@@ -12,20 +12,21 @@ export function getAllProjects(): ContentEntry<ProjectFrontmatter>[] {
   );
 }
 
-/** One project with its body rendered to HTML. */
+/** One project with its body rendered to HTML. Looked up by route slug. */
 export async function getProject(
   slug: string,
 ): Promise<ContentEntry<ProjectFrontmatter> & { html: string }> {
-  const { data, content } = readContentFile(PROJECTS_DIR, slug);
-  if (!isProjectFrontmatter(data)) {
-    throw new Error(`Invalid personal project frontmatter in content/personal-projects/${slug}.md`);
+  const entry = getAllProjects().find((project) => project.slug === slug);
+  if (!entry) {
+    throw new Error(`No personal project found for slug "${slug}" in content/personal-projects`);
   }
-  const html = await markdownToHtml(content);
-  return { slug, frontmatter: data, content, html };
+  const html = await markdownToHtml(entry.content);
+  return { ...entry, html };
 }
 
 /** All projects with their bodies pre-rendered — used by the Personal page, which lists every project inline. */
 export async function getAllProjectsWithHtml(): Promise<Array<ContentEntry<ProjectFrontmatter> & { html: string }>> {
-  const all = getAllProjects();
-  return Promise.all(all.map((entry) => getProject(entry.slug)));
+  return Promise.all(
+    getAllProjects().map(async (entry) => ({ ...entry, html: await markdownToHtml(entry.content) })),
+  );
 }

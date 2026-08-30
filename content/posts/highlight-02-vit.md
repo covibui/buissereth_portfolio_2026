@@ -1,5 +1,6 @@
 ---
 title: "Vitality — a second venture, designed deliberately"
+slug: "vitality"
 client: "A second wellness venture (founder anonymized)"
 year: "Ongoing"
 disciplines: ["Brand & Product Vision"]
