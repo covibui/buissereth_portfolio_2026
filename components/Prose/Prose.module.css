@@ -1,0 +1,104 @@
+/* Editorial styles for author-rendered Markdown (case bodies, résumé summary,
+   project descriptions). Vertical rhythm stays in em so it scales with each
+   element's font-size; sizes reference the shared type scale. */
+
+.prose :global(h2) {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 600;
+  margin: 2.5em 0 0.75em;
+}
+
+.prose :global(h2:first-child) {
+  margin-top: 0;
+}
+
+.prose :global(h3) {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  margin: 2em 0 0.5em;
+}
+
+.prose :global(p) {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  line-height: 1.62;
+  color: var(--ink);
+  margin-bottom: 1.3em;
+  text-wrap: pretty;
+}
+
+.prose :global(p:last-child) {
+  margin-bottom: 0;
+}
+
+/* strong renders a lighter 600 weight to sit with Newsreader rather than the
+   browser-default 700. em keeps the default italic, so it needs no rule. */
+.prose :global(strong) {
+  font-weight: 600;
+}
+
+.prose :global(blockquote) {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-style: italic;
+  font-size: 34px;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  border-top: 1px solid var(--hairline);
+  border-bottom: 1px solid var(--hairline);
+  padding: var(--space-32) 0;
+  margin: 2em 0;
+  text-wrap: balance;
+}
+
+.prose :global(ul),
+.prose :global(ol) {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--ink);
+  margin: 0 0 1.3em 1.4em;
+}
+
+.prose :global(a) {
+  color: var(--accent);
+}
+
+.prose.dark :global(h2) {
+  color: var(--accent-on-dark);
+}
+
+.prose.dark :global(p) {
+  color: var(--paper-72);
+}
+
+.prose.dark :global(p:first-of-type) {
+  color: var(--paper);
+  font-weight: 300;
+  font-size: 44px;
+  line-height: 1.18;
+  letter-spacing: -0.015em;
+}
+
+.prose.dark :global(blockquote) {
+  border-color: var(--paper-18);
+  color: var(--paper);
+}
+
+@media (max-width: 720px) {
+  .prose :global(h3),
+  .prose :global(blockquote) {
+    font-size: 26px;
+  }
+
+  .prose.dark :global(p:first-of-type) {
+    font-size: 32px;
+  }
+}

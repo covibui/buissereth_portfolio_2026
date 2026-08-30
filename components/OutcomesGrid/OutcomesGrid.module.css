@@ -1,0 +1,43 @@
+.wrap {
+  background: var(--ink);
+  color: var(--paper);
+  padding: var(--space-64);
+}
+
+.label {
+  color: var(--accent-on-dark);
+  margin-bottom: var(--space-40);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--space-40);
+}
+
+.outcomeLabel {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-style: italic;
+  font-size: 40px;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-16);
+}
+
+.outcomeDesc {
+  font-family: var(--font-serif);
+  font-size: 16px;
+  line-height: 1.45;
+  color: var(--paper-72);
+}
+
+@media (max-width: 720px) {
+  .wrap {
+    padding: var(--space-40);
+  }
+
+  .outcomeLabel {
+    font-size: 32px;
+  }
+}

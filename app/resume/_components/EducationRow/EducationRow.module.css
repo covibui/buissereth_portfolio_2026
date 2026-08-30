@@ -1,0 +1,18 @@
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-8) var(--space-24);
+  align-items: baseline;
+  justify-content: space-between;
+  padding: var(--space-24) 0;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.place {
+  color: var(--muted);
+  margin-top: var(--space-4);
+}
+
+.year {
+  color: var(--muted);
+}

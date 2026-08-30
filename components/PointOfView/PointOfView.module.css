@@ -1,0 +1,52 @@
+.pov {
+  background: var(--ink);
+  color: var(--paper);
+  padding: var(--space-112) var(--gutter);
+}
+
+.inner {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.eyebrow {
+  color: var(--accent-on-dark);
+  letter-spacing: 0.26em;
+  margin-bottom: var(--space-48);
+}
+
+.lead {
+  font-size: 50px;
+  line-height: 1.18;
+}
+
+.lead :global(em) {
+  font-style: italic;
+  color: var(--accent-on-dark);
+}
+
+.principles {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--space-40);
+  margin-top: var(--space-40);
+  border-top: 1px solid var(--paper-18);
+  padding-top: var(--space-40);
+}
+
+.principleTitle {
+  color: var(--accent-on-dark);
+  letter-spacing: 0.14em;
+  margin-bottom: var(--space-16);
+}
+
+.principleBody {
+  color: var(--paper-72);
+}
+
+@media (max-width: 720px) {
+  .lead {
+    font-size: 34px;
+  }
+}

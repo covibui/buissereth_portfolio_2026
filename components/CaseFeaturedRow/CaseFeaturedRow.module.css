@@ -1,0 +1,90 @@
+.row {
+  display: flex;
+  gap: var(--space-64);
+  align-items: center;
+  padding: var(--space-64) 0;
+  border-bottom: 1px solid var(--hairline);
+}
+
+/* Reverse the image/text order from the parent alone — no per-child order. */
+.reversed {
+  flex-direction: row-reverse;
+}
+
+/* flex-grow ratios reproduce the 1.05fr / 0.95fr column split. */
+.imageWrap {
+  flex: 105 1 0;
+  display: block;
+  text-decoration: none;
+  aspect-ratio: 4 / 3;
+  background: var(--hairline);
+  border: 1px solid var(--hairline);
+  position: relative;
+  overflow: hidden;
+}
+
+.content {
+  flex: 95 1 0;
+}
+
+.imageLabel {
+  position: absolute;
+  bottom: var(--space-16);
+  left: var(--space-16);
+  color: var(--muted);
+  letter-spacing: 0.18em;
+}
+
+.index {
+  color: var(--accent);
+}
+
+.title {
+  margin: var(--space-16) 0 var(--space-24);
+  max-width: 18ch;
+}
+
+.titleLink {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.15s ease;
+}
+
+.titleLink:hover,
+.titleLink:focus-visible {
+  color: var(--accent);
+}
+
+.summary {
+  color: var(--muted);
+  max-width: 48ch;
+  margin-bottom: var(--space-32);
+}
+
+.cta {
+  text-decoration: none;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--ink);
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: var(--space-4);
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.cta:hover,
+.cta:focus-visible {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+@media (max-width: 768px) {
+  .row,
+  .reversed {
+    flex-direction: column;
+    gap: var(--space-24);
+    align-items: stretch;
+  }
+}

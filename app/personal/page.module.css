@@ -1,0 +1,8 @@
+.projects {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--gutter) var(--space-112);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-128);
+}

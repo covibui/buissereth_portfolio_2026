@@ -1,0 +1,27 @@
+name: "Brianna Buissereth"
+discipline: "Design Strategy"
+email: "covibui@gmail.com"
+phone: "201 419 9664"
+location: "Saint Cloud, FL"
+
+# Default document metadata (root layout falls back to these).
+siteTitle: "Brianna Buissereth — Design Strategy"
+siteDescription: "Strategy stays an idea until someone frames it — design strategy portfolio."
+
+nav:
+  - label: "Work"
+    href: "/work"
+  - label: "Personal"
+    href: "/personal"
+  - label: "Résumé"
+    href: "/resume"
+
+footer:
+  cta:
+    label: "Let's talk"
+    headline: "Have a problem that's still just an idea?"
+  links:
+    - label: "LinkedIn"
+      href: "https://www.linkedin.com/in/brianna-buissereth-5a79a613a/"
+    - label: "Résumé"
+      href: "/resume"

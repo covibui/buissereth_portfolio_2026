@@ -1,0 +1,240 @@
+@font-face {
+  font-family: "Pagio";
+  font-style: normal;
+  font-weight: 400;
+  src:
+    url("/fonts/Pagio.woff") format("woff"),
+    url("/fonts/Pagio.otf") format("opentype");
+  font-display: swap;
+}
+
+/* ==========================================================================
+   Design tokens
+   The single source of truth for spacing, type, and color. Components should
+   reference these tokens (or the .text-* utilities below) rather than defining
+   their own font stacks, magic-number spacing, or one-off rgba() values.
+   ========================================================================== */
+
+:root {
+  /* Color ----------------------------------------------------------------- */
+  --paper: #f4f1ea;
+  --ink: #1c1a17;
+  --muted: #6b675f;
+  --hairline: rgba(28, 26, 23, 0.14);
+  --accent: #ea580c;
+  /* Lighter accent used on the dark (--ink) surfaces, where #ea580c reads too
+     dim. Pair it with any ink-background section (footer, point of view). */
+  --accent-on-dark: #f6803f;
+
+  /* Paper laid over ink at decreasing opacity — the type/rule hierarchy used
+     on every dark section (footer, point-of-view, dark case panels). */
+  --paper-72: rgba(244, 241, 234, 0.72);
+  --paper-62: rgba(244, 241, 234, 0.62);
+  --paper-55: rgba(244, 241, 234, 0.55);
+  --paper-40: rgba(244, 241, 234, 0.4);
+  --paper-22: rgba(244, 241, 234, 0.22);
+  --paper-18: rgba(244, 241, 234, 0.18);
+  --card: #ffffff;
+  --card-border: #e2dcd2;
+
+  /* Spacing — 8px system with a 4px sub-step. Named by pixel value so a call
+     site reads unambiguously (var(--space-24) is 24px). */
+  --space-4: 4px;
+  --space-8: 8px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-20: 20px;
+  --space-24: 24px;
+  --space-32: 32px;
+  --space-40: 40px;
+  --space-48: 48px;
+  --space-56: 56px;
+  --space-64: 64px;
+  --space-80: 80px;
+  --space-96: 96px;
+  --space-112: 112px;
+  --space-128: 128px;
+  --space-160: 160px;
+
+  /* Layout ---------------------------------------------------------------- */
+  --gutter: 48px; /* page side padding, governed globally (see media query) */
+  --container: 1160px; /* standard page width */
+  --container-reading: 920px; /* narrower editorial reading column (case body) */
+
+  /* Type ------------------------------------------------------------------ */
+  --font-display: "Pagio", serif;
+  --font-serif: "Newsreader", serif;
+  --font-sans: "Archivo", sans-serif;
+}
+
+@media (max-width: 720px) {
+  :root {
+    --gutter: 24px;
+  }
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+::selection {
+  background: var(--accent);
+  color: #fff;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  min-height: 100vh;
+  font-family: var(--font-serif);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ==========================================================================
+   Typography utilities
+   Every recurring text treatment lives here so pages/components apply a class
+   instead of re-declaring font-family/size/tracking. Sizes are fixed (with a
+   single mobile step for the display scale) rather than clamped, so tight
+   display tracking kerns predictably at every width.
+   ========================================================================== */
+
+/* Display (Pagio). Compose a size utility with .text-display. */
+.text-display {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-variant-ligatures: common-ligatures discretionary-ligatures;
+  font-feature-settings: "liga" 1, "dlig" 1, "clig" 1;
+  text-transform: none;
+}
+
+.text-hero {
+  font-size: 88px;
+  line-height: 0.98;
+  letter-spacing: -0.05em;
+  text-wrap: balance;
+}
+
+.text-title {
+  font-size: 64px;
+  line-height: 1.02;
+  letter-spacing: -0.045em;
+  text-wrap: balance;
+}
+
+.text-title-sm {
+  font-size: 44px;
+  line-height: 1.06;
+  letter-spacing: -0.035em;
+  text-wrap: pretty;
+}
+
+/* Serif display + body (Newsreader). */
+.text-serif-xl {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 50px;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  text-wrap: pretty;
+}
+
+.text-serif-lg {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+  text-wrap: pretty;
+}
+
+.text-serif-md {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 1.2;
+}
+
+.text-lede {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 1.5;
+  text-wrap: pretty;
+}
+
+.text-body {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.6;
+  text-wrap: pretty;
+}
+
+.text-body-sm {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+
+/* Sans labels (Archivo, uppercase). */
+.text-eyebrow {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.text-label {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.text-meta {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 720px) {
+  .text-hero {
+    font-size: 46px;
+  }
+
+  .text-title {
+    font-size: 38px;
+  }
+
+  .text-title-sm {
+    font-size: 30px;
+  }
+
+  .text-serif-xl {
+    font-size: 34px;
+  }
+}

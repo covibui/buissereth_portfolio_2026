@@ -1,0 +1,118 @@
+/* Page widths use the narrower --container-reading (an editorial reading
+   column); only the lead image and gallery break out to --container. */
+
+.header {
+  max-width: var(--container-reading);
+  margin: 0 auto;
+  padding: var(--space-96) var(--gutter) var(--space-56);
+}
+
+.back {
+  text-decoration: none;
+  color: var(--muted);
+  letter-spacing: 0.18em;
+  transition: color 0.15s ease;
+}
+
+.back:hover,
+.back:focus-visible {
+  color: var(--accent);
+}
+
+.eyebrow {
+  color: var(--accent);
+  margin: var(--space-40) 0 var(--space-24);
+}
+
+.title {
+  margin-bottom: var(--space-32);
+}
+
+.lede {
+  color: var(--muted);
+  max-width: 58ch;
+}
+
+.metaWrap {
+  max-width: var(--container-reading);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.leadImage {
+  max-width: var(--container);
+  margin: var(--space-64) auto 0;
+  padding: 0 var(--gutter);
+  aspect-ratio: 16 / 9;
+  background: var(--hairline);
+  border: 1px solid var(--hairline);
+  position: relative;
+}
+
+.leadImageLabel {
+  position: absolute;
+  bottom: var(--space-16);
+  left: var(--space-64);
+  font-family: var(--font-sans);
+  font-size: 10.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.bodyWrap {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: var(--space-96) var(--gutter) 0;
+}
+
+.quoteWrap {
+  margin-bottom: var(--space-16);
+}
+
+.galleryWrap {
+  max-width: var(--container);
+  margin: var(--space-64) auto;
+  padding: 0 var(--gutter);
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-24);
+}
+
+.galleryItem {
+  display: block;
+  aspect-ratio: 4 / 3;
+  background: var(--hairline);
+  border: 1px solid var(--hairline);
+  position: relative;
+  transition: border-color 0.15s ease;
+}
+
+.galleryItem:hover,
+.galleryItem:focus-visible {
+  border-color: var(--accent);
+}
+
+.galleryLabel {
+  position: absolute;
+  bottom: var(--space-16);
+  left: var(--space-16);
+  font-family: var(--font-sans);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.outcomesWrap {
+  max-width: var(--container-reading);
+  margin: 0 auto;
+  padding: var(--space-64) var(--gutter) var(--space-112);
+}
+
+/* Prev/next case navigation now lives in the shared components/CaseNav
+   (implements Main-CaseNav.dc.html), used by both this template and the
+   bespoke SecurityCase so every case ends on an identical nav. */

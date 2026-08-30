@@ -1,0 +1,19 @@
+.quote {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-style: italic;
+  font-size: 34px;
+  line-height: 1.22;
+  letter-spacing: -0.01em;
+  border-top: 1px solid var(--hairline);
+  border-bottom: 1px solid var(--hairline);
+  padding: var(--space-40) 0;
+  margin: var(--space-64) 0;
+  text-wrap: balance;
+}
+
+@media (max-width: 720px) {
+  .quote {
+    font-size: 26px;
+  }
+}
