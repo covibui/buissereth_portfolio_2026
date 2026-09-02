@@ -1,8 +1,9 @@
 "use client";
 
-import { useRef, useState, type MouseEvent } from "react";
+import { useEffect, useRef, useState, type MouseEvent } from "react";
 import classNames from "classnames";
 import { renderInlineMarkdown } from "@/lib/markdown";
+import { pickRandomRevealImage } from "@/lib/revealImages";
 import styles from "./Hero.module.css";
 
 export interface HeroProps {
@@ -36,7 +37,23 @@ export default function Hero({
   revealAlign = "left",
 }: HeroProps) {
   const overlayRef = useRef<HTMLDivElement>(null);
+  const placeholderRef = useRef<HTMLDivElement>(null);
   const [revealed, setRevealed] = useState(false);
+
+  // Pick a random reveal image on every mount (page load, refresh, or client-side
+  // navigation) and inject it as the placeholder's background. Runs only on the
+  // client, so the randomness never causes a server/client hydration mismatch.
+  // Falls back to the CSS placeholder pattern when the image pool is empty.
+  useEffect(() => {
+    if (!showReveal) return;
+    const el = placeholderRef.current;
+    const src = pickRandomRevealImage();
+    if (!el || !src) return;
+    el.style.backgroundImage = `url("${src}")`;
+    el.style.backgroundSize = "cover";
+    el.style.backgroundPosition = "center";
+    el.style.backgroundRepeat = "no-repeat";
+  }, [showReveal]);
 
   const eyebrowHtml = renderInlineMarkdown(eyebrow);
   const headlineHtml = renderInlineMarkdown(headline);
@@ -74,7 +91,7 @@ export default function Hero({
     >
       {showReveal && (
         <>
-          <div className={styles.placeholder} aria-hidden="true">
+          <div ref={placeholderRef} className={styles.placeholder} aria-hidden="true">
             {revealLabel && (
               <span className={classNames(styles.placeholderLabel, revealAlign === "right" && styles.alignRight)}>
                 {revealLabel}
