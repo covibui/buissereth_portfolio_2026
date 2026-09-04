@@ -18,7 +18,7 @@
 /** Folder the files live in, under /public. Change here if you move the folder. */
 export const REVEAL_IMAGE_DIR = "/images/reveal";
 
-export const REVEAL_IMAGES = [
+export const REVEAL_IMAGES: string[] = [
   "art-institute-of-chicago-8iUNcgrHl1c-unsplash.jpg",
   "art-institute-of-chicago-FGuCahPfK_Y-unsplash.jpg",
   "art-institute-of-chicago-P1RgzNBTYJA-unsplash.jpg",
