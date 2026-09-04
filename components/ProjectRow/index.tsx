@@ -1,20 +1,29 @@
 import classNames from "classnames";
 import Tag from "./Tag";
 import type { ContentEntry, ProjectFrontmatter } from "@/lib/types";
+import { placeholderImageForIndex } from "@/lib/placeholderImages";
 import styles from "./ProjectRow.module.css";
 
 export default function ProjectRow({
   project,
   reversed,
+  index,
 }: {
   project: ContentEntry<ProjectFrontmatter> & { html: string };
   reversed: boolean;
+  index: number;
 }) {
   const { frontmatter, html } = project;
+  // Placeholder art fills the gray image block until a real photo is dropped in.
+  // Keyed by position so images don't repeat on adjacent cards.
+  const placeholder = placeholderImageForIndex(index);
 
   return (
     <article className={classNames(styles.project, reversed && styles.reversed)}>
       <div className={styles.imageWrap}>
+        {placeholder && (
+          <img src={placeholder} alt="" className={styles.image} loading="lazy" />
+        )}
         <span className={`text-label ${styles.imageLabel}`}>{frontmatter.imageLabel}</span>
       </div>
       <div className={styles.content}>
