@@ -56,6 +56,25 @@
   z-index: 2;
 }
 
+/* Optional "← back" link, above the eyebrow on case covers. */
+.back {
+  display: inline-block;
+  text-decoration: none;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--muted);
+  margin-bottom: var(--space-32);
+  transition: color 0.15s ease;
+}
+
+.back:hover,
+.back:focus-visible {
+  color: var(--accent);
+}
+
 .eyebrow {
   color: var(--accent);
   margin-bottom: var(--space-40);
@@ -69,6 +88,13 @@
 .headline :global(em) {
   font-style: italic;
   color: var(--accent);
+}
+
+/* Sets the emphasis in the serif face against a display headline (Cookbook cover). */
+.serifAccent :global(em) {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  letter-spacing: -0.02em;
 }
 
 /* Lede: the highlight box (used whenever showReveal is set) toggles an opaque

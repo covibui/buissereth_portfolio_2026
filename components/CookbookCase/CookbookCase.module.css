@@ -1,0 +1,571 @@
+/* Bespoke layout for Personal-DBC (Claude Design).
+
+   The design derives its grids from a JS resize listener with two breakpoints —
+   "narrow" (<900px) collapses the label rails and the multi-column grids, and
+   "tight" (<600px) turns the wireframe row into a horizontal scroller. Both are
+   media queries here, so the case stays a server component.
+
+   The design's body copy runs one step larger than the site's .text-* scale
+   (20px/1.62 rather than 18px/1.6), so the sizes are declared locally. */
+
+.page {
+  overflow-x: hidden;
+}
+
+/* ── Shared rails and copy ─────────────────────────────────────────────── */
+
+.railLabel {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 600;
+  padding-top: 10px;
+}
+
+.railLabelPlain {
+  composes: railLabel;
+  padding-top: 0;
+}
+
+.kicker {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 600;
+  margin-bottom: 18px;
+}
+
+.body,
+.bodyTight {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-24);
+  max-width: 66ch;
+}
+
+.bodyTight {
+  gap: 22px;
+  max-width: 64ch;
+}
+
+.body p {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  line-height: 1.62;
+  color: var(--muted);
+  text-wrap: pretty;
+}
+
+.bodyTight p {
+  font-family: var(--font-serif);
+  font-size: 19px;
+  line-height: 1.6;
+  color: var(--muted);
+  text-wrap: pretty;
+}
+
+/* Paragraphs the design promotes to full ink — the turns in the argument. */
+.body .bodyInk,
+.bodyTight .bodyInk {
+  color: var(--ink);
+}
+
+.bodySmall {
+  font-size: 17px !important;
+  line-height: 1.6 !important;
+}
+
+.em {
+  font-style: italic;
+}
+
+.emInk {
+  font-style: italic;
+  color: var(--ink);
+}
+
+.strongInk {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+/* Field and UI names set in the sans face, inline in serif copy. */
+.code {
+  font-family: var(--font-sans);
+  font-size: 0.8em;
+  color: var(--ink);
+}
+
+.note {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 600;
+  line-height: 1.7;
+}
+
+/* The live-site line set opposite the lede in the hero's divider row. */
+.liveLink {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.liveLink a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.liveLink a:hover,
+.liveLink a:focus-visible {
+  text-decoration: underline;
+}
+
+/* ── 2 · The situation ─────────────────────────────────────────────────── */
+
+.situation {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: clamp(72px, 9vw, 120px) var(--gutter) 0;
+  display: grid;
+  grid-template-columns: minmax(120px, 150px) 4fr 8fr;
+  gap: clamp(24px, 3vw, 48px);
+  align-items: start;
+}
+
+.statement {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: clamp(28px, 3.2vw, 44px);
+  line-height: 1.14;
+  letter-spacing: -0.015em;
+  text-wrap: pretty;
+}
+
+/* ── 3 · Quote band ────────────────────────────────────────────────────── */
+
+.quoteBand {
+  background: var(--ink);
+  color: var(--paper);
+  padding: clamp(96px, 12vw, 160px) var(--gutter);
+  margin-top: clamp(72px, 9vw, 120px);
+}
+
+.quote {
+  margin: 0 auto;
+  max-width: 30ch;
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-style: italic;
+  font-size: clamp(28px, 4vw, 46px);
+  line-height: 1.2;
+  text-align: center;
+  text-wrap: pretty;
+}
+
+.quoteMark {
+  color: var(--accent-on-dark);
+}
+
+/* ── 4 · The diagnosis ─────────────────────────────────────────────────── */
+
+.diagnosis {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: clamp(64px, 8vw, 104px) var(--gutter) 0;
+  display: grid;
+  grid-template-columns: minmax(120px, 150px) minmax(0, 9fr) 3fr;
+  gap: clamp(24px, 3vw, 48px);
+  align-items: start;
+}
+
+/* ── Diagrams ──────────────────────────────────────────────────────────── */
+
+.diagramSection {
+  padding: clamp(64px, 8vw, 96px) clamp(16px, 2vw, 32px) clamp(56px, 7vw, 88px);
+}
+
+.diagram {
+  margin: 0;
+}
+
+.diagramImg {
+  display: block;
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  height: auto;
+}
+
+/* ── 5 · The interface ─────────────────────────────────────────────────── */
+
+.interface {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: clamp(24px, 3vw, 40px) var(--gutter) 0;
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  gap: clamp(24px, 4vw, 56px);
+  align-items: start;
+}
+
+.interfaceTitle {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(28px, 3.6vw, 44px);
+  line-height: 1.06;
+  letter-spacing: -0.045em;
+}
+
+/* ── The entry form, in a full-bleed white panel ───────────────────────── */
+
+.formSection {
+  padding: clamp(80px, 9vw, 120px) 0 0;
+}
+
+.formPanel {
+  background: var(--card);
+  border-top: 1px solid var(--card-border);
+  border-bottom: 1px solid var(--card-border);
+  padding: clamp(16px, 3vw, 40px) clamp(16px, 4vw, 56px);
+}
+
+.formImg {
+  display: block;
+  width: 100%;
+  max-width: 1480px;
+  margin: 0 auto;
+  height: auto;
+}
+
+.formNoteWrap {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 14px var(--gutter) 0;
+}
+
+/* ── Three staggered wireframes ────────────────────────────────────────── */
+
+.staggerSection {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: clamp(56px, 7vw, 96px) var(--gutter) clamp(56px, 7vw, 88px);
+}
+
+.stagger {
+  display: grid;
+  grid-template-columns: 3fr 5fr 4fr;
+  gap: clamp(16px, 2.2vw, 28px);
+  align-items: start;
+  padding-bottom: 8px;
+}
+
+.stag1,
+.stag2,
+.stag3 {
+  margin: 0;
+  min-width: 0;
+}
+
+/* The uneven top offsets are the design's — a deliberately broken baseline that
+   only reads as intentional at desktop width. */
+.stag2 {
+  margin-top: 36px;
+}
+
+.stag3 {
+  margin-top: 14px;
+}
+
+.stagCaption {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.stagImg {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--card-border);
+}
+
+.staggerNote {
+  font-family: var(--font-serif);
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--muted);
+  max-width: 70ch;
+  margin-top: clamp(20px, 2.5vw, 30px);
+  text-wrap: pretty;
+}
+
+/* ── 6 · Five moments, an offset ladder over 12 columns ────────────────── */
+
+.ladder {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--gutter) clamp(64px, 8vw, 104px);
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  row-gap: clamp(56px, 7vw, 88px);
+  column-gap: clamp(16px, 2vw, 24px);
+}
+
+.rung1,
+.rung2,
+.rung3,
+.rung4,
+.rung5 {
+  min-width: 0;
+}
+
+.rung1 {
+  grid-column: 1 / span 7;
+}
+
+.rung2 {
+  grid-column: 4 / span 7;
+}
+
+.rung3 {
+  grid-column: 1 / span 7;
+}
+
+.rung4 {
+  grid-column: 5 / span 7;
+}
+
+.rung5 {
+  grid-column: 2 / span 7;
+}
+
+.momentTitle {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 23px;
+  line-height: 1.2;
+  margin-bottom: 14px;
+}
+
+.momentBody {
+  font-family: var(--font-serif);
+  font-size: 17px;
+  line-height: 1.58;
+  color: var(--muted);
+  max-width: 62ch;
+  text-wrap: pretty;
+}
+
+/* Each crop frames an exact region of a wireframe: the box sets the aspect
+   ratio, the image is oversized and offset inside it. */
+.cropBox {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--card-border);
+  background: var(--card);
+  margin-top: 22px;
+}
+
+.cropImg {
+  position: absolute;
+  max-width: none;
+  height: auto;
+  display: block;
+}
+
+.ladderNote {
+  grid-column: 1 / -1;
+  font-family: var(--font-sans);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 600;
+  margin-top: 8px;
+}
+
+/* ── 7 · What became possible ──────────────────────────────────────────── */
+
+.possible {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+  display: grid;
+  grid-template-columns: 8fr 4fr;
+  gap: clamp(24px, 4vw, 56px);
+  align-items: start;
+}
+
+.possibleBody {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-24);
+  max-width: 64ch;
+  order: 1;
+}
+
+.possibleBody p {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  line-height: 1.62;
+  color: var(--muted);
+  text-wrap: pretty;
+}
+
+.possibleBody .bodyInk {
+  color: var(--ink);
+}
+
+.possibleLabel {
+  order: 2;
+  min-width: 0;
+}
+
+/* Oversized numeral, set as a ghost in the hairline tint. */
+.ghostNumeral {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(96px, 14vw, 200px);
+  line-height: 0.86;
+  letter-spacing: -0.06em;
+  color: var(--hairline);
+  margin-top: 18px;
+}
+
+.possibleLabel .note {
+  margin-top: 14px;
+}
+
+/* ── 8 · Reflection, off-centre over 12 columns ────────────────────────── */
+
+.reflection {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: clamp(96px, 11vw, 140px) var(--gutter) clamp(48px, 6vw, 72px);
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: clamp(16px, 2vw, 24px);
+}
+
+.reflectionLabel {
+  composes: railLabel;
+  grid-column: 1 / span 3;
+  padding-top: 6px;
+}
+
+.reflectionBody {
+  grid-column: 4 / span 7;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-24);
+  max-width: 62ch;
+}
+
+.reflectionBody p {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  line-height: 1.62;
+  color: var(--ink);
+  text-wrap: pretty;
+}
+
+.backLink {
+  text-decoration: none;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 600;
+  margin-top: 12px;
+  transition: color 0.15s ease;
+}
+
+.backLink:hover,
+.backLink:focus-visible {
+  color: var(--accent);
+}
+
+/* ── narrow: collapse every rail and multi-column grid ─────────────────── */
+
+@media (max-width: 900px) {
+  .situation,
+  .diagnosis,
+  .interface,
+  .possible {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .railLabel {
+    padding-top: 0;
+  }
+
+  /* The label leads on narrow, where the ghost numeral no longer sits beside
+     the copy. */
+  .possibleBody {
+    order: 2;
+  }
+
+  .possibleLabel {
+    order: 1;
+  }
+
+  .stagger {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .stag2,
+  .stag3 {
+    margin-top: 0;
+  }
+
+  .ladder {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .rung1,
+  .rung2,
+  .rung3,
+  .rung4,
+  .rung5 {
+    grid-column: 1 / -1;
+  }
+
+  .reflection {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .reflectionLabel,
+  .reflectionBody {
+    grid-column: 1 / -1;
+  }
+
+  .reflectionLabel {
+    margin-bottom: var(--space-24);
+  }
+}
+
+/* ── tight: the wireframe row becomes a horizontal scroller ────────────── */
+
+@media (max-width: 600px) {
+  .stagger {
+    grid-template-columns: none;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(60%, 1fr);
+    overflow-x: auto;
+  }
+}

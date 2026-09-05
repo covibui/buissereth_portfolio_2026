@@ -1,7 +1,9 @@
 .projects {
   max-width: var(--container);
   margin: 0 auto;
-  padding: 0 var(--gutter) var(--space-112);
+  /* Viewport-relative top padding from the design — scales the gap between the
+     hero and the first project with the hero's clamped type. */
+  padding: 8vw var(--gutter) var(--space-112);
   display: flex;
   flex-direction: column;
   gap: var(--space-128);

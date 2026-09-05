@@ -101,8 +101,16 @@ export interface PostFrontmatter {
   order: number;
   /** true = shown in the "Live & Ongoing" featured strip; false = compact archive row. */
   featured: boolean;
-  /** Caption shown on the placeholder image block until a real cover photo is dropped in. */
+  /** Caption shown over the cover block — on the placeholder art, or over a real `cover` photo. */
   coverLabel?: string;
+  /**
+   * Real cover photo for the featured-case rows, as a path under /public
+   * (e.g. "/images/work/<slug>/hero.png"). When set it replaces the rotating
+   * placeholder art; when absent the row falls back to placeholderImageForIndex.
+   */
+  cover?: string;
+  /** Alt text for `cover`. Required whenever `cover` is set — the image carries meaning in the row. */
+  coverAlt?: string;
   /** Filenames to drop into public/images/work/<slug>/ once real photos exist. */
   gallery?: string[];
   liveUrl?: string;
@@ -118,6 +126,12 @@ export interface ProjectFrontmatter {
   tags: string[];
   imageLabel: string;
   liveUrl?: string;
+  /**
+   * Destination for the "Read the case →" CTA. Only projects that actually have
+   * a case page set this — the rest render as plain, unlinked cards, so the row
+   * never offers a link it can't honour.
+   */
+  caseHref?: string;
 }
 
 export interface ResumeContact {

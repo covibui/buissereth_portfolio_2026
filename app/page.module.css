@@ -1,7 +1,9 @@
 .featured {
   max-width: var(--container);
   margin: 0 auto;
-  padding: 0 var(--gutter) var(--space-80);
+  /* The viewport-relative top padding is the design's own: it scales the gap
+     between the hero and the first case with the hero's clamped type. */
+  padding: 6vw var(--gutter) var(--space-80);
 }
 
 .featuredHeader {

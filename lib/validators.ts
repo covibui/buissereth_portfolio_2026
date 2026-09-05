@@ -166,6 +166,8 @@ export function isPostFrontmatter(value: unknown): value is PostFrontmatter {
     isNumber(value.order) &&
     isBoolean(value.featured) &&
     isOptionalString(value.coverLabel) &&
+    isOptionalString(value.cover) &&
+    isOptionalString(value.coverAlt) &&
     isOptionalStringArray(value.gallery) &&
     isOptionalString(value.liveUrl) &&
     isOptionalString(value.pullQuote) &&
@@ -181,7 +183,8 @@ export function isProjectFrontmatter(value: unknown): value is ProjectFrontmatte
     isString(value.category) &&
     isStringArray(value.tags) &&
     isString(value.imageLabel) &&
-    isOptionalString(value.liveUrl)
+    isOptionalString(value.liveUrl) &&
+    isOptionalString(value.caseHref)
   );
 }
 

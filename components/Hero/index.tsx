@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useRef, useState, type MouseEvent } from "react";
+import Link from "next/link";
+import { useEffect, useRef, useState, type MouseEvent, type ReactNode } from "react";
 import classNames from "classnames";
 import { renderInlineMarkdown } from "@/lib/markdown";
 import { pickRandomRevealImage } from "@/lib/revealImages";
@@ -24,6 +25,17 @@ export interface HeroProps {
   revealLabel?: string;
   /** Corner the placeholder caption anchors to — the toggle button is always bottom-right. Defaults to "left". */
   revealAlign?: "left" | "right";
+  /** Optional "← back" link above the eyebrow, used by case covers that sit under an index page. */
+  backHref?: string;
+  backLabel?: string;
+  /** Content set opposite the lede in the "divider" row — e.g. a live-site link. */
+  ledeAside?: ReactNode;
+  /**
+   * Render the headline's emphasis in the serif face rather than the display
+   * face. The Cookbook cover sets its accent word in italic Newsreader against
+   * a Pagio headline; every other hero keeps the emphasis in Pagio.
+   */
+  serifAccent?: boolean;
 }
 
 export default function Hero({
@@ -35,6 +47,10 @@ export default function Hero({
   showReveal = true,
   revealLabel,
   revealAlign = "left",
+  backHref,
+  backLabel,
+  ledeAside,
+  serifAccent = false,
 }: HeroProps) {
   const overlayRef = useRef<HTMLDivElement>(null);
   const placeholderRef = useRef<HTMLDivElement>(null);
@@ -107,12 +123,29 @@ export default function Hero({
       )}
 
       <div className={styles.content}>
+        {backHref && backLabel && (
+          <Link href={backHref} className={styles.back}>
+            &larr; {backLabel}
+          </Link>
+        )}
         <p className={`text-eyebrow ${styles.eyebrow}`} dangerouslySetInnerHTML={{ __html: eyebrowHtml }} />
         <h1
-          className={classNames("text-display", size === "large" ? "text-hero" : "text-title", styles.headline)}
+          className={classNames(
+            "text-display",
+            size === "large" ? "text-hero" : "text-title",
+            styles.headline,
+            serifAccent && styles.serifAccent,
+          )}
           dangerouslySetInnerHTML={{ __html: headlineHtml }}
         />
-        {ledeVariant === "divider" ? <div className={styles.metaRow}>{ledeEl}</div> : ledeEl}
+        {ledeVariant === "divider" ? (
+          <div className={styles.metaRow}>
+            {ledeEl}
+            {ledeAside}
+          </div>
+        ) : (
+          ledeEl
+        )}
       </div>
 
       {showReveal && (

@@ -15,15 +15,16 @@ export default function CaseFeaturedRow({
 }) {
   const { slug, frontmatter } = post;
   const href = `/work/${slug}`;
-  // Placeholder art fills the gray cover block until a real photo is dropped in.
-  // Keyed by position so images don't repeat on adjacent cards.
-  const placeholder = placeholderImageForIndex(index);
+  // A case supplies its own cover once real art exists; until then the rotating
+  // placeholder fills the gray block, keyed by position so images don't repeat
+  // on adjacent cards.
+  const cover = frontmatter.cover ?? placeholderImageForIndex(index);
 
   return (
     <article className={classNames(styles.row, reversed && styles.reversed)}>
       <Link href={href} className={styles.imageWrap} aria-hidden="true" tabIndex={-1}>
-        {placeholder && (
-          <img src={placeholder} alt="" className={styles.image} loading="lazy" />
+        {cover && (
+          <img src={cover} alt={frontmatter.coverAlt ?? ""} className={styles.image} loading="lazy" />
         )}
         <span className={`text-label ${styles.imageLabel}`}>{frontmatter.coverLabel ?? frontmatter.title}</span>
       </Link>
