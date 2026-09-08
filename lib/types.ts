@@ -125,6 +125,12 @@ export interface ProjectFrontmatter {
   order: number;
   category: string;
   tags: string[];
+  /**
+   * Real cover art for the project row, as a path under /public. When set it
+   * replaces the rotating placeholder; when absent the row falls back to
+   * placeholderImageForIndex. Mirrors PostFrontmatter.cover.
+   */
+  image?: string;
   imageLabel: string;
   liveUrl?: string;
   /**

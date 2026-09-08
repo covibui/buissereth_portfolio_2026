@@ -15,9 +15,10 @@ export default function ProjectRow({
   index: number;
 }) {
   const { frontmatter, html } = project;
-  // Placeholder art fills the gray image block until a real photo is dropped in.
-  // Keyed by position so images don't repeat on adjacent cards.
-  const placeholder = placeholderImageForIndex(index);
+  // A project supplies its own cover once real art exists; until then the
+  // rotating placeholder fills the gray block, keyed by position so images
+  // don't repeat on adjacent cards.
+  const cover = frontmatter.image ?? placeholderImageForIndex(index);
   const href = frontmatter.caseHref;
 
   // The image and title link only when the project has a case page. They're
@@ -25,7 +26,7 @@ export default function ProjectRow({
   // draws it) because the description is rendered markdown and may contain its
   // own links — nesting those inside an outer <a> would be invalid. This matches
   // how CaseFeaturedRow handles the same problem.
-  const image = placeholder && <img src={placeholder} alt="" className={styles.image} loading="lazy" />;
+  const image = cover && <img src={cover} alt="" className={styles.image} loading="lazy" />;
   const label = <span className={`text-label ${styles.imageLabel}`}>{frontmatter.imageLabel}</span>;
 
   return (

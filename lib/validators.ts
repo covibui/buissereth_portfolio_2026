@@ -182,6 +182,7 @@ export function isProjectFrontmatter(value: unknown): value is ProjectFrontmatte
     isNumber(value.order) &&
     isString(value.category) &&
     isStringArray(value.tags) &&
+    isOptionalString(value.image) &&
     isString(value.imageLabel) &&
     isOptionalString(value.liveUrl) &&
     isOptionalString(value.caseHref)
