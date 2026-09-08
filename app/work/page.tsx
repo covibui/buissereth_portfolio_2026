@@ -3,7 +3,7 @@ import Hero from "@/components/Hero";
 import CaseFeaturedRow from "@/components/CaseFeaturedRow";
 import CaseArchiveRow from "@/components/CaseArchiveRow";
 import PointOfView from "@/components/PointOfView";
-import { getPointOfView, getWorkPage } from "@/lib/pages";
+import { getWorkPage, getWorkPointOfView } from "@/lib/pages";
 import { getArchivePosts, getFeaturedPosts } from "@/lib/posts";
 import styles from "./page.module.css";
 
@@ -13,7 +13,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function WorkPage() {
-  const [page, pov] = await Promise.all([getWorkPage(), getPointOfView()]);
+  const [page, pov] = await Promise.all([getWorkPage(), getWorkPointOfView()]);
   const featured = getFeaturedPosts();
   const archive = getArchivePosts();
 

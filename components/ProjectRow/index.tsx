@@ -42,9 +42,7 @@ export default function ProjectRow({
         </div>
       )}
       <div className={styles.content}>
-        <span className={`text-label ${styles.index}`}>
-          {String(frontmatter.order).padStart(2, "0")} — {frontmatter.category}
-        </span>
+        <span className={`text-label ${styles.index}`}>{frontmatter.category}</span>
         <h2 className={`text-display text-title-sm ${styles.title}`}>
           {href ? (
             <Link href={href} className={styles.titleLink}>

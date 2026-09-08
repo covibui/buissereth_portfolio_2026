@@ -66,9 +66,10 @@ export interface HomeFrontmatter extends PageFrontmatter {
 }
 
 /**
- * content/pages/point-of-view.md — the "Point of View" manifesto section.
- * Shared verbatim by Home and the Work index, so it's its own content file
- * rather than being duplicated into both pages' frontmatter/body.
+ * The manifesto band rendered by <PointOfView>. Home and the Work index each
+ * author their own copy against this shape — content/pages/point-of-view.md and
+ * content/pages/point-of-view-work.md — so the section is a shared component
+ * with per-page words rather than one block repeated on both pages.
  */
 export interface PointOfViewPrinciple {
   /** Rendered as a stylized <ol> item; the "01 /" index is derived from order. */
@@ -129,7 +130,7 @@ export interface ProjectFrontmatter {
   /**
    * Destination for the "Read the case →" CTA. Only projects that actually have
    * a case page set this — the rest render as plain, unlinked cards, so the row
-   * never offers a link it can't honour.
+   * never offers a link it can't honor.
    */
   caseHref?: string;
 }

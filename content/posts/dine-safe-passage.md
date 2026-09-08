@@ -2,7 +2,7 @@
 title: "Safe Passage NEMT — a brand built before the business"
 client: "Safe Passage NEMT"
 year: "2026"
-disciplines: ["Branding", "Business Strategy", "Design Strategy"]
+disciplines: ["Branding & Product Vision", "Business Strategy", "Design Strategy"]
 summary: "I was hired for the brand and spent most of the engagement stress-testing the business it was supposed to represent. Four fatal flaws found before anything reached a lender."
 order: 3
 featured: true

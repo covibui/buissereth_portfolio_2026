@@ -1,7 +1,7 @@
 ---
 title: "Core Keeper Base Design"
 order: 6
-category: "Spaces"
+category: "Designing with AI"
 tags: ["Spatial", "In Progress"]
 imageLabel: "Screenshots pending"
 ---

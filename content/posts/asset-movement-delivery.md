@@ -11,7 +11,7 @@ coverLabel: "Asset Movement & Delivery"
 
 ## Problem
 
-The official process for how assets moved through the delivery network no longer matched what was actually happening on the ground — dispatchers and drivers had built their own workarounds to keep things moving, and the software wasn't designed around any of them.
+The official process for how assets moved through the delivery network no longer matched what was happening on the ground — dispatchers and drivers had built their own workarounds to keep things moving, and the software wasn't designed around any of them.
 
 ## Approach
 
@@ -19,4 +19,4 @@ I mapped the real, as-practiced flow of how assets moved — not the documented 
 
 ## Outcome
 
-A delivery experience grounded in how the work actually happens, closing the gap between the documented process and the one people were already quietly running.
+A delivery experience grounded in how the work happens, closing the gap between the documented process and the one people were already quietly running.

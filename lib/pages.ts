@@ -32,7 +32,13 @@ export function getResumePage(): Promise<{ frontmatter: ResumeFrontmatter; html:
   return loadPage("resume", isResumeFrontmatter);
 }
 
-/** Shared by Home and the Work index — see PointOfViewFrontmatter for why this isn't duplicated into both pages. */
+/** The Home manifesto. The Work index runs the same section with its own copy — see getWorkPointOfView. */
 export function getPointOfView(): Promise<{ frontmatter: PointOfViewFrontmatter; html: string }> {
   return loadPage("point-of-view", isPointOfViewFrontmatter);
+}
+
+/** The Work index's manifesto — same section shape as Home's, different copy, so
+   the two pages don't repeat themselves for anyone who reads both. */
+export function getWorkPointOfView(): Promise<{ frontmatter: PointOfViewFrontmatter; html: string }> {
+  return loadPage("point-of-view-work", isPointOfViewFrontmatter);
 }

@@ -5,6 +5,7 @@ import { useEffect, useRef, useState, type MouseEvent, type ReactNode } from "re
 import classNames from "classnames";
 import { renderInlineMarkdown } from "@/lib/markdown";
 import { pickRandomRevealImage } from "@/lib/revealImages";
+import { DARK_LUMINANCE_THRESHOLD, measureImageLuminance } from "@/lib/imageLuminance";
 import styles from "./Hero.module.css";
 
 export interface HeroProps {
@@ -55,6 +56,10 @@ export default function Hero({
   const overlayRef = useRef<HTMLDivElement>(null);
   const placeholderRef = useRef<HTMLDivElement>(null);
   const [revealed, setRevealed] = useState(false);
+  // Whether a reveal image actually loaded, and whether it's dark enough that
+  // ink/accent copy over it needs to flip to white.
+  const [hasImage, setHasImage] = useState(false);
+  const [imageIsDark, setImageIsDark] = useState(false);
 
   // Pick a random reveal image on every mount (page load, refresh, or client-side
   // navigation) and inject it as the placeholder's background. Runs only on the
@@ -69,6 +74,19 @@ export default function Hero({
     el.style.backgroundSize = "cover";
     el.style.backgroundPosition = "center";
     el.style.backgroundRepeat = "no-repeat";
+    setHasImage(true);
+
+    // Sample the image and flip the hero's ink/accent to white over a dark one,
+    // so the eyebrow, headline and reveal pill stay legible. An unmeasurable
+    // image leaves the default dark-on-paper treatment in place.
+    let cancelled = false;
+    measureImageLuminance(src).then((luminance) => {
+      if (cancelled || luminance === null) return;
+      setImageIsDark(luminance < DARK_LUMINANCE_THRESHOLD);
+    });
+    return () => {
+      cancelled = true;
+    };
   }, [showReveal]);
 
   const eyebrowHtml = renderInlineMarkdown(eyebrow);
@@ -101,14 +119,14 @@ export default function Hero({
 
   return (
     <section
-      className={styles.hero}
+      className={classNames(styles.hero, showReveal && revealed && imageIsDark && styles.overDarkImage)}
       onMouseMove={showReveal ? handleMouseMove : undefined}
       onMouseLeave={showReveal ? handleMouseLeave : undefined}
     >
       {showReveal && (
         <>
           <div ref={placeholderRef} className={styles.placeholder} aria-hidden="true">
-            {revealLabel && (
+            {revealLabel && !hasImage && (
               <span className={classNames(styles.placeholderLabel, revealAlign === "right" && styles.alignRight)}>
                 {revealLabel}
               </span>

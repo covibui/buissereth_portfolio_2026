@@ -1,13 +1,17 @@
 .index {
   max-width: var(--container);
   margin: 0 auto;
-  padding: var(--space-64) var(--gutter) var(--space-128);
+  padding: var(--hero-gap) var(--gutter) var(--space-128);
 }
 
+/* The archive list is the last thing on the page, so it runs almost straight
+   into the footer — the 128px gap here read as a dead cream band. The small
+   remaining step is the design's own (Main-02-Work.dc.html), and keeps the last
+   row's hairline off the dark band. */
 .archive {
   max-width: var(--container);
   margin: 0 auto;
-  padding: var(--space-96) var(--gutter) var(--space-128);
+  padding: var(--space-96) var(--gutter) clamp(24px, 3vw, 40px);
 }
 
 .sectionHeader {

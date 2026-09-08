@@ -20,4 +20,4 @@ Rather than compromise toward an average reader who didn't exist, I designed the
 
 ## Outcome
 
-One hub that both audiences could actually use as intended, instead of a single format that quietly underserved one of them.
+One hub both audiences could use as intended, instead of a single format that quietly underserved one of them.

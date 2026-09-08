@@ -1,8 +1,10 @@
 .row {
   display: flex;
+  text-decoration: none;
+  color: var(--ink);
   gap: var(--space-64);
   align-items: center;
-  padding: var(--space-64) 0;
+  padding: calc(var(--section-gap) / 2) 0;
   border-bottom: 1px solid var(--hairline);
 }
 
@@ -15,7 +17,6 @@
 .imageWrap {
   flex: 105 1 0;
   display: block;
-  text-decoration: none;
   aspect-ratio: 4 / 3;
   background: var(--hairline);
   border: 1px solid var(--hairline);
@@ -64,14 +65,12 @@
   max-width: 18ch;
 }
 
-.titleLink {
-  text-decoration: none;
-  color: inherit;
+.title {
   transition: color 0.15s ease;
 }
 
-.titleLink:hover,
-.titleLink:focus-visible {
+.row:hover .title,
+.row:focus-visible .title {
   color: var(--accent);
 }
 
@@ -82,7 +81,7 @@
 }
 
 .cta {
-  text-decoration: none;
+  display: inline-block;
   font-family: var(--font-sans);
   font-size: 12px;
   letter-spacing: 0.16em;
@@ -94,10 +93,16 @@
   transition: color 0.15s ease, border-color 0.15s ease;
 }
 
-.cta:hover,
-.cta:focus-visible {
+.row:hover .cta,
+.row:focus-visible .cta {
   color: var(--accent);
   border-bottom-color: var(--accent);
+}
+
+/* The row is one large link, so give it a visible keyboard focus ring. */
+.row:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 6px;
 }
 
 @media (max-width: 768px) {

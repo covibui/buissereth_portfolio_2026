@@ -370,7 +370,7 @@ export default function CookbookCase() {
           </figure>
         </section>
 
-        {/* 8 · Reflection — off-centre, columns 4–10. */}
+        {/* 8 · Reflection — off-center, columns 4–10. */}
         <section className={styles.reflection}>
           <p className={styles.reflectionLabel}>Reflection</p>
           <div className={styles.reflectionBody}>
