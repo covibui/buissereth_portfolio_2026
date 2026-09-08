@@ -1,5 +1,6 @@
 ---
 title: "Mapping how assets really move — then designing the delivery around the reality"
+slug: "asset-movement-delivery"
 client: "A logistics organization"
 year: "EPAM · 2021–2023"
 disciplines: ["Logistics", "Service Design"]

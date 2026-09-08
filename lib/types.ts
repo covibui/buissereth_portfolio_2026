@@ -92,6 +92,9 @@ export interface CaseOutcome {
 /** content/posts/*.md — a work case study. */
 export interface PostFrontmatter {
   title: string;
+  /** Public URL segment (/work/<slug>). Defaults to the filename when absent.
+     Set explicitly so a file can be renamed without changing a live URL. */
+  slug?: string;
   /** Anonymized client/industry descriptor — never a real name under NDA. */
   client: string;
   year: string;
@@ -122,6 +125,8 @@ export interface PostFrontmatter {
 /** content/personal-projects/*.md — an "off the clock" project. */
 export interface ProjectFrontmatter {
   title: string;
+  /** Stable identifier, independent of the filename. See PostFrontmatter.slug. */
+  slug?: string;
   order: number;
   category: string;
   tags: string[];
@@ -180,9 +185,12 @@ export interface ResumeFrontmatter {
   education: ResumeEducationItem[];
 }
 
-/** A parsed content file: frontmatter + raw markdown body, keyed by its filename slug. */
+/** A parsed content file: frontmatter + raw markdown body.
+   `slug` is the public route segment; `fileId` is the name on disk. They are
+   allowed to differ — see the header comment in lib/content.ts. */
 export interface ContentEntry<T> {
   slug: string;
+  fileId: string;
   frontmatter: T;
   content: string;
 }

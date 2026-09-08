@@ -12,10 +12,10 @@ import styles from "./SecurityCase.module.css";
 
    Screenshots live in /public/images/work/security-assessment-tool/. */
 
-const IMG = "/images/work/security-assessment-tool";
-const insights = `${IMG}/insights-filters.png`;
-const heatmapTraining = `${IMG}/heatmap-training.png`;
-const heatmapIssues = `${IMG}/heatmap-issues.png`;
+const IMG_DIR = "/images/work/security-assessment-tool";
+const insights = `${IMG_DIR}/insights-filters.png`;
+const heatmapTraining = `${IMG_DIR}/heatmap-training.png`;
+const heatmapIssues = `${IMG_DIR}/heatmap-issues.png`;
 
 /** Frame an exact pixel region of a source screenshot into a 16:10 box.
    Ported verbatim from the design's DCLogic.crop(). */

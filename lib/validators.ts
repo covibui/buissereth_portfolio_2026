@@ -159,6 +159,7 @@ export function isPostFrontmatter(value: unknown): value is PostFrontmatter {
   if (!isRecord(value)) return false;
   return (
     isString(value.title) &&
+    isOptionalString(value.slug) &&
     isString(value.client) &&
     isString(value.year) &&
     isStringArray(value.disciplines) &&
@@ -179,6 +180,7 @@ export function isProjectFrontmatter(value: unknown): value is ProjectFrontmatte
   if (!isRecord(value)) return false;
   return (
     isString(value.title) &&
+    isOptionalString(value.slug) &&
     isNumber(value.order) &&
     isString(value.category) &&
     isStringArray(value.tags) &&

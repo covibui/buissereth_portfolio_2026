@@ -1,5 +1,6 @@
 ---
 title: "Safe Passage NEMT — a brand built before the business"
+slug: "dine-safe-passage"
 client: "Safe Passage NEMT"
 year: "2026"
 disciplines: ["Branding & Product Vision", "Business Strategy", "Design Strategy"]

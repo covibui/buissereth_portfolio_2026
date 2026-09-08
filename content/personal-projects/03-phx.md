@@ -1,5 +1,6 @@
 ---
 title: "A Phoenix Home, inside and out"
+slug: "phoenix-home"
 order: 3
 category: "Spaces"
 tags: ["Interior", "Landscape"]

@@ -10,8 +10,7 @@ export interface CaseNavProps {
   nextKicker?: string;
 }
 
-/** Prev/next case navigation from Main-CaseNav.dc.html — a single top rule with
-   a center divider, prev on the left and next right-aligned. */
+/** Prev/next case navigation. */
 export default function CaseNav({
   prevHref,
   prevTitle,

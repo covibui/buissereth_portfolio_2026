@@ -1,4 +1,4 @@
-import { contentPath, readAllContentFiles, readContentFile } from "./content";
+import { contentPath, readAllContentFiles } from "./content";
 import { markdownToHtml } from "./markdown";
 import { isPostFrontmatter } from "./validators";
 import type { ContentEntry, PostFrontmatter } from "./types";
@@ -26,20 +26,22 @@ export function getArchivePosts(): ContentEntry<PostFrontmatter>[] {
   return getAllPostEntries().filter((post) => !post.frontmatter.featured);
 }
 
+/** Public route slugs — what /work/[slug] statically generates. Not filenames. */
 export function getAllPostSlugs(): string[] {
   return getAllPostEntries().map((post) => post.slug);
 }
 
-/** One case study with its body rendered to HTML — used by the /work/[slug] page. */
+/** One case study with its body rendered to HTML — used by the /work/[slug] page.
+   Looked up by ROUTE slug, which may differ from the file's name on disk. */
 export async function getPost(
   slug: string,
 ): Promise<ContentEntry<PostFrontmatter> & { html: string }> {
-  const { data, content } = readContentFile(POSTS_DIR, slug);
-  if (!isPostFrontmatter(data)) {
-    throw new Error(`Invalid post frontmatter in content/posts/${slug}.md`);
+  const entry = getAllPostEntries().find((post) => post.slug === slug);
+  if (!entry) {
+    throw new Error(`No post found for slug "${slug}" in content/posts`);
   }
-  const html = await markdownToHtml(content);
-  return { slug, frontmatter: data, content, html };
+  const html = await markdownToHtml(entry.content);
+  return { ...entry, html };
 }
 
 /** The next case study after the given order, wrapping back to the first. */
