@@ -112,7 +112,6 @@ export default function Hero({
     "text-lede",
     ledeVariant === "divider" ? styles.metaLede : styles.lede,
     showReveal && styles.ledeHighlight,
-    showReveal && revealed && styles.ledeRevealed,
   );
 
   const ledeEl = ledeHtml ? <p className={ledeClasses} dangerouslySetInnerHTML={{ __html: ledeHtml }} /> : null;
@@ -159,7 +158,7 @@ export default function Hero({
         {ledeVariant === "divider" ? (
           <div className={styles.metaRow}>
             {ledeEl}
-            {ledeAside}
+            {ledeAside && (showReveal ? <div className={styles.asideHighlight}>{ledeAside}</div> : ledeAside)}
           </div>
         ) : (
           ledeEl

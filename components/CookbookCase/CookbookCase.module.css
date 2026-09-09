@@ -110,7 +110,9 @@
   line-height: 1.7;
 }
 
-/* The live-site line set opposite the lede in the hero's divider row. */
+/* The live-site line set opposite the lede in the hero's divider row. The Hero
+   wraps it in its own paper box when the reveal is on, so it keeps its ordinary
+   dark-on-paper ink rather than flipping with the image. */
 .liveLink {
   font-family: var(--font-sans);
   font-size: 11px;
