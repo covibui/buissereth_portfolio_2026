@@ -26,7 +26,7 @@ export default async function PersonalPage() {
 
       <section className={styles.projects}>
         {projects.map((project, index) => (
-          <ProjectRow key={project.slug} project={project} reversed={index % 2 === 1} />
+          <ProjectRow key={project.slug} project={project} reversed={index % 2 === 1} index={index} />
         ))}
       </section>
     </>

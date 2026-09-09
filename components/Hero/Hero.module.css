@@ -1,4 +1,5 @@
 .hero {
+  --toggle-hover-ink: #fff;
   position: relative;
   overflow: hidden;
   max-width: var(--container);
@@ -56,36 +57,89 @@
   z-index: 2;
 }
 
+/* Set once the revealed photo measures dark (see Hero/index.tsx): the eyebrow,
+   headline, its emphasis and the reveal pill all read from --reveal-ink /
+   --reveal-accent, so flipping the two here turns the whole hero white. The
+   pill inverts on hover — white fill, ink label — rather than accent-on-white. */
+.overDarkImage {
+  --reveal-ink: #fff;
+  --reveal-accent: #fff;
+  --reveal-muted: rgba(255, 255, 255, 0.72);
+  --reveal-hairline: rgba(255, 255, 255, 0.32);
+  --toggle-hover-ink: var(--ink);
+}
+
+/* Optional "← back" link, above the eyebrow on case covers. It sits on bare
+   photo once the image is revealed — no paper box — so like the eyebrow and
+   headline it reads from the --reveal-* tokens and flips over a dark image. */
+.back {
+  display: inline-block;
+  text-decoration: none;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--reveal-muted, var(--muted));
+  margin-bottom: var(--space-32);
+  transition: color 0.15s ease;
+}
+
+.back:hover,
+.back:focus-visible {
+  color: var(--reveal-accent, var(--accent));
+}
+
 .eyebrow {
-  color: var(--accent);
+  color: var(--reveal-accent, var(--accent));
   margin-bottom: var(--space-40);
+  transition: color 0.4s ease;
 }
 
 .headline {
   max-width: 15ch;
   margin-bottom: var(--space-40);
+  color: var(--reveal-ink, var(--ink));
+  transition: color 0.4s ease;
 }
 
 .headline :global(em) {
   font-style: italic;
-  color: var(--accent);
+  color: var(--reveal-accent, var(--accent));
+  transition: color 0.4s ease;
 }
 
-/* Lede: the highlight box (used whenever showReveal is set) toggles an opaque
-   background so the text stays legible once the overlay is fully removed. */
-.ledeHighlight {
+/* Sets the emphasis in the serif face against a display headline (Cookbook cover). */
+.serifAccent :global(em) {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+/* Lede: the highlight box (used whenever showReveal is set) is always paper-
+   colored. At rest it is invisible — paper sitting on the paper overlay — but it
+   keeps the lede on its own opaque ground the moment the image shows through,
+   both while the cursor hole passes over it and after the overlay is toggled
+   off. This is why the lede is NOT wired to --reveal-ink the way the eyebrow and
+   headline are: it never sits directly on the photo, so dark-on-paper stays the
+   legible choice in every state. */
+.ledeHighlight,
+.asideHighlight {
   display: inline-block;
-  background: transparent;
+  background: var(--paper);
   padding: var(--space-12) var(--space-20);
   margin-left: calc(-1 * var(--space-20));
   border-radius: 4px;
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
-  transition: background 0.4s ease;
 }
 
-.ledeRevealed {
-  background: var(--paper);
+/* The divider row's aside (e.g. the Cookbook cover's live-site link) gets the
+   same paper ground as the lede, so every word in the row survives the cursor
+   hole. Its copy is a single 11px line, so it needs less vertical room. */
+.asideHighlight {
+  padding-top: var(--space-8);
+  padding-bottom: var(--space-8);
 }
 
 .lede {
@@ -93,14 +147,18 @@
   max-width: 58ch;
 }
 
+/* The row's hairline is the one part of the divider that stays on bare photo —
+   both boxes sit above it — so it reads from --reveal-hairline and lightens
+   over a dark image instead of vanishing into it. */
 .metaRow {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-40) var(--space-64);
   align-items: flex-end;
   justify-content: space-between;
-  border-top: 1px solid var(--hairline);
+  border-top: 1px solid var(--reveal-hairline, var(--hairline));
   padding-top: var(--space-32);
+  transition: border-color 0.4s ease;
 }
 
 .metaLede {
@@ -122,18 +180,18 @@
   letter-spacing: 0.16em;
   text-transform: uppercase;
   font-weight: 600;
-  border: 1px solid var(--accent);
+  border: 1px solid var(--reveal-accent, var(--accent));
   background: transparent;
-  color: var(--accent);
+  color: var(--reveal-accent, var(--accent));
   padding: var(--space-8) var(--space-16);
   border-radius: 999px;
-  transition: background 0.18s ease, color 0.18s ease;
+  transition: background 0.18s ease, color 0.18s ease, border-color 0.4s ease;
 }
 
 .toggle:hover,
 .toggle:focus-visible {
-  background: var(--accent);
-  color: #fff;
+  background: var(--reveal-accent, var(--accent));
+  color: var(--toggle-hover-ink);
 }
 
 .dot {

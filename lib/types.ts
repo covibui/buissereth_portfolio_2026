@@ -66,9 +66,10 @@ export interface HomeFrontmatter extends PageFrontmatter {
 }
 
 /**
- * content/pages/point-of-view.md — the "Point of View" manifesto section.
- * Shared verbatim by Home and the Work index, so it's its own content file
- * rather than being duplicated into both pages' frontmatter/body.
+ * The manifesto band rendered by <PointOfView>. Home and the Work index each
+ * author their own copy against this shape — content/pages/point-of-view.md and
+ * content/pages/point-of-view-work.md — so the section is a shared component
+ * with per-page words rather than one block repeated on both pages.
  */
 export interface PointOfViewPrinciple {
   /** Rendered as a stylized <ol> item; the "01 /" index is derived from order. */
@@ -104,8 +105,16 @@ export interface PostFrontmatter {
   order: number;
   /** true = shown in the "Live & Ongoing" featured strip; false = compact archive row. */
   featured: boolean;
-  /** Caption shown on the placeholder image block until a real cover photo is dropped in. */
+  /** Caption shown over the cover block — on the placeholder art, or over a real `cover` photo. */
   coverLabel?: string;
+  /**
+   * Real cover photo for the featured-case rows, as a path under /public
+   * (e.g. "/images/work/<slug>/hero.png"). When set it replaces the rotating
+   * placeholder art; when absent the row falls back to placeholderImageForIndex.
+   */
+  cover?: string;
+  /** Alt text for `cover`. Required whenever `cover` is set — the image carries meaning in the row. */
+  coverAlt?: string;
   /** Filenames to drop into public/images/work/<slug>/ once real photos exist. */
   gallery?: string[];
   liveUrl?: string;
@@ -121,8 +130,20 @@ export interface ProjectFrontmatter {
   order: number;
   category: string;
   tags: string[];
+  /**
+   * Real cover art for the project row, as a path under /public. When set it
+   * replaces the rotating placeholder; when absent the row falls back to
+   * placeholderImageForIndex. Mirrors PostFrontmatter.cover.
+   */
+  image?: string;
   imageLabel: string;
   liveUrl?: string;
+  /**
+   * Destination for the "Read the case →" CTA. Only projects that actually have
+   * a case page set this — the rest render as plain, unlinked cards, so the row
+   * never offers a link it can't honor.
+   */
+  caseHref?: string;
 }
 
 export interface ResumeContact {

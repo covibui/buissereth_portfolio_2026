@@ -7,6 +7,7 @@ import CaseMetaBar from "@/components/CaseMetaBar";
 import OutcomesGrid from "@/components/OutcomesGrid";
 import PullQuote from "@/components/PullQuote";
 import SecurityCase from "@/components/SecurityCase";
+import SafePassageCase from "@/components/SafePassageCase";
 import CaseNav from "@/components/CaseNav";
 import { getSiteConfig } from "@/lib/config";
 import { getAllPostSlugs, getNextPost, getPost, getPrevPost } from "@/lib/posts";
@@ -15,6 +16,7 @@ import styles from "./page.module.css";
 /** Cases with a hand-built editorial layout that bypasses the generic template. */
 const BESPOKE_CASES: Record<string, () => ReactElement> = {
   "security-assessment-tool": () => <SecurityCase />,
+  "dine-safe-passage": () => <SafePassageCase />,
 };
 
 export function generateStaticParams(): Array<{ slug: string }> {

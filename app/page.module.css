@@ -1,7 +1,9 @@
 .featured {
   max-width: var(--container);
   margin: 0 auto;
-  padding: 0 var(--gutter) var(--space-80);
+  /* --hero-gap scales the space between the hero and the first case with the
+     hero's clamped type, and keeps that gap identical across Home/Work/Personal. */
+  padding: var(--hero-gap) var(--gutter) var(--space-80);
 }
 
 .featuredHeader {
