@@ -1,24 +1,26 @@
 ---
-title: "Diné Safe Passage — when trust is the product"
+title: "Safe Passage NEMT — a brand built before the business"
 slug: "dine-safe-passage"
-client: "A tribal public-health & safety initiative"
-year: "Ongoing"
-disciplines: ["Service Design", "Brand"]
-summary: "A service and brand for a sector where every design decision is also a safety decision. Built person-first and non-stigmatizing, with care for the people it serves."
+client: "Safe Passage NEMT"
+year: "2026"
+disciplines: ["Branding & Product Vision", "Business Strategy", "Design Strategy"]
+summary: "I was hired for the brand and spent most of the engagement stress-testing the business it was supposed to represent. Four fatal flaws found before anything reached a lender."
 order: 3
 featured: true
-coverLabel: "Diné Safe Passage"
+coverLabel: "Safe Passage NEMT"
+cover: "/images/work/dine-safe-passage/dsp-00-hero.png"
+coverAlt: "Black-and-white photograph: a group crouched over someone on the ground at a trailside."
 liveUrl: ""
 ---
 
 ## Problem
 
-Diné Safe Passage sits in a sector where the usual design instincts — polish, cleverness, brand personality — can actively work against the people it's meant to serve. The people who need this service most are also the most likely to be deterred by anything that feels institutional, judgmental, or unsafe to approach.
+Non-emergency medical transport for rural people getting to treatment across Arizona and New Mexico. The company needed an identity solid enough to build the rest of the business around, and concrete enough to raise money against — the brand guidelines were commissioned to support an investor pitch. But you can't ask someone at the toughest moment of their life to trust a service that carries them hundreds of miles, and you can't ask an investor to fund one, on the strength of a logo alone.
 
 ## Approach
 
-Every decision is being made against a person-first, non-stigmatizing standard first, and a conventional brand or usability standard second. That means plain language over clever copy, and service flows designed around what makes someone willing to take the first step, not just what's efficient once they have.
+I argued for brand before operations, because in this sector a rider has almost nothing else to go on — no app history, no reviews, just a van, a driver, and whatever the thing looks like. Then most of the engagement went into the documents underneath it: a validation memo, a lender-ready business plan, a business model canvas tagged FACT / ASSUMPTION / VERIFY, and a sequenced roadmap with stop-work gates. The brand came out of those documents rather than the other way around.
 
 ## Outcome
 
-Still underway. The service and brand are being built together rather than brand-then-service, so neither one quietly undermines the trust the other is trying to earn.
+Four corrections landed before anything reached a lender: an overstated market claim, a funding structure resting on grant dollars the company wasn't eligible for, unit economics with no backhaul assumption, and a regulatory posture that turned compliance from overhead into the reason to pick this provider. The pitch went out and conversations are continuing. Nothing is signed and no vehicle has driven anywhere — every figure in the plan is a projection built to make an argument, not a record of what happened.

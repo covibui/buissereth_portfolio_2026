@@ -13,7 +13,7 @@ gallery: ["cloud-2screen.jpg"]
 
 ## Problem
 
-The platform's sign-up flow had been designed around the mental model of the engineers who built the underlying product, not the people actually signing up for it — a gap no one had measured, only suspected.
+The platform's sign-up flow had been designed around the mental model of the engineers who built the underlying product, not the people signing up for it — a gap no one had measured, only suspected.
 
 ## Approach
 
@@ -21,4 +21,4 @@ I ran a full research arc to make the gap visible: a heuristic evaluation of the
 
 ## Outcome
 
-A sign-up flow rebuilt around evidence of how people actually approached it, and a documented method — heuristics, personas, flows — the team could reuse on the next redesign.
+A sign-up flow rebuilt around evidence of how people approached it, and a documented method — heuristics, personas, flows — the team could reuse on the next redesign.

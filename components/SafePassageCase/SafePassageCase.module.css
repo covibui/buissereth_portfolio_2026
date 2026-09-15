@@ -1,0 +1,684 @@
+/* Bespoke layout for Highlight-DSP (Claude Design).
+
+   The design computes its columns from a JS resize listener; those breakpoints
+   are media queries here (900px "narrow", 620px "mobile", 1024px for the prose
+   offset), which keeps the case a server component.
+
+   Sizes below are the design's own rem values rather than the global .text-*
+   utilities — this case runs a Newsreader-led editorial scale that is distinct
+   from the Pagio display scale used across the rest of the site. */
+
+.page {
+  overflow-x: hidden;
+}
+
+/* ── 1 · Cover ─────────────────────────────────────────────────────────────
+   Ink ground with the paper texture multiplied over it — the same treatment the
+   reframe band and the moments band use, so all three dark bands read as one
+   material. background-color stays set so the ink holds if the texture 404s. */
+
+.cover {
+  background-color: var(--ink);
+  background-image: url("/images/work/dine-safe-passage/unsplash_XFWiZTa2Ub0.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-blend-mode: multiply;
+  color: var(--paper);
+  padding: clamp(3.5rem, 8vw, 7rem) var(--gutter) clamp(3rem, 7vw, 6rem);
+}
+
+.coverInner {
+  max-width: var(--container);
+  margin: 0 auto;
+}
+
+.back {
+  display: inline-block;
+  text-decoration: none;
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--paper-62);
+  margin-bottom: clamp(2.5rem, 6vw, 4.5rem);
+  transition: color 0.15s ease;
+}
+
+.back:hover,
+.back:focus-visible {
+  color: var(--accent-on-dark);
+}
+
+.coverKicker {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent-on-dark);
+  font-weight: 600;
+  margin-bottom: clamp(1.25rem, 2.5vw, 2rem);
+}
+
+/* The hero image slides up behind the headline, so the type stays on top. */
+.coverLockup {
+  position: relative;
+}
+
+.coverTitle {
+  position: relative;
+  z-index: 2;
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: clamp(3.25rem, 11vw, 9rem);
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+  max-width: 15ch;
+  text-wrap: balance;
+}
+
+.coverTitleAccent {
+  font-style: italic;
+  color: var(--accent-on-dark);
+}
+
+.coverImage {
+  position: relative;
+  z-index: 1;
+  width: clamp(240px, 50%, 600px);
+  margin-left: auto;
+  margin-top: clamp(-5rem, -7vw, -2.5rem);
+  border: 1px solid var(--paper-18);
+  opacity: 0.5;
+}
+
+/* The source photo is wider than 16/10, so the frame crops it rather than
+   letting it sit short inside the box. */
+.coverImage img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border: none;
+}
+
+.coverLede {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: clamp(1.1875rem, 2.1vw, 1.5rem);
+  line-height: 1.5;
+  color: var(--paper-72);
+  max-width: 60ch;
+  margin-top: clamp(2rem, 4vw, 3rem);
+  text-wrap: pretty;
+}
+
+/* ── 2 · Meta strip ────────────────────────────────────────────────────── */
+
+.metaSection {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: clamp(3.5rem, 8vw, 7rem) var(--gutter) 0;
+}
+
+.metaGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(148px, 1fr));
+  gap: var(--space-24) var(--space-32);
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--hairline);
+  padding: clamp(1.5rem, 3vw, 2.25rem) 0;
+}
+
+.metaLabel {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: var(--space-8);
+  font-weight: 600;
+}
+
+.metaValue {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 0.9375rem;
+  line-height: 1.4;
+}
+
+/* ── Shared section shells ─────────────────────────────────────────────── */
+
+.section {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: clamp(3.5rem, 8vw, 7rem) var(--gutter);
+}
+
+/* Same width, but top padding only — used where modules stack inside one section. */
+.sectionFlush {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: clamp(3.5rem, 8vw, 6rem) var(--gutter) 0;
+}
+
+.sectionFlushTight {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: clamp(2.5rem, 5vw, 4rem) var(--gutter) 0;
+}
+
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: clamp(1.75rem, 3.5vw, 2.5rem);
+}
+
+.subhead {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  line-height: 1.25;
+  margin-bottom: 1.25rem;
+}
+
+.subheadInline {
+  composes: subhead;
+  margin-bottom: 0;
+}
+
+/* ── Prose ─────────────────────────────────────────────────────────────── */
+
+.prose {
+  max-width: 64ch;
+  display: flex;
+  flex-direction: column;
+  gap: 1.375rem;
+}
+
+.prose p {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 1.0625rem;
+  line-height: 1.62;
+  text-wrap: pretty;
+}
+
+/* The opening paragraph of "The situation" runs one step larger. Scoped under
+   .prose so it outranks the `.prose p` rule above without !important. */
+.prose .proseLead {
+  font-size: 1.375rem;
+  line-height: 1.5;
+}
+
+.proseSingle {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 1.0625rem;
+  line-height: 1.62;
+  max-width: 64ch;
+  text-wrap: pretty;
+}
+
+.proseAfterFigure {
+  padding-top: clamp(3rem, 6vw, 4.5rem);
+}
+
+.proseAccent {
+  font-weight: 300;
+  font-style: italic;
+  color: var(--accent);
+}
+
+/* Sections 6 and 7 indent their copy on wide viewports. */
+.proseOffset {
+  margin-left: clamp(0px, 8vw, 120px);
+}
+
+@media (max-width: 1024px) {
+  .proseOffset {
+    margin-left: 0;
+  }
+}
+
+/* ── 3 · The situation ─────────────────────────────────────────────────── */
+
+.situation {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: clamp(3.5rem, 8vw, 7rem) var(--gutter);
+}
+
+.situationGrid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: clamp(2rem, 5vw, 4.5rem);
+}
+
+@media (max-width: 900px) {
+  .situationGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.situation .prose {
+  max-width: 62ch;
+}
+
+.factRail {
+  display: flex;
+  flex-direction: column;
+}
+
+.fact {
+  border-top: 1px solid var(--hairline);
+  padding: 1rem 0;
+}
+
+.factKey {
+  font-family: var(--font-sans);
+  font-size: 0.625rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.factValue {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 0.9375rem;
+  line-height: 1.45;
+}
+
+/* ── 4 · Full-bleed reframe band ───────────────────────────────────────── */
+
+.band {
+  background-color: var(--ink);
+  background-image: url("/images/work/dine-safe-passage/unsplash_XFWiZTa2Ub0.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-blend-mode: multiply;
+  color: var(--paper);
+  padding: clamp(4rem, 9vw, 8rem) var(--gutter);
+}
+
+.bandQuote {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-style: italic;
+  font-size: clamp(1.75rem, 3.4vw, 2.875rem);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  max-width: 30ch;
+  margin: 0 auto;
+  text-align: center;
+  text-wrap: pretty;
+}
+
+/* ── 5 · Exhibits ──────────────────────────────────────────────────────── */
+
+.figureNarrow {
+  margin: clamp(3rem, 6vw, 4.5rem) 0 0;
+  max-width: 820px;
+}
+
+.figureMid {
+  margin: 0;
+  max-width: 760px;
+}
+
+.figureWide {
+  margin: 0;
+}
+
+.exhibitImg {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--card-border);
+}
+
+/* Placeholder frame for exhibits whose art has not been exported yet — same
+   treatment the generic case template uses for its lead image and gallery. */
+.exhibitPlaceholder {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  background: var(--hairline);
+  border: 1px solid var(--hairline);
+  position: relative;
+}
+
+.exhibitPlaceholderLabel {
+  position: absolute;
+  bottom: var(--space-16);
+  left: var(--space-16);
+  font-family: var(--font-sans);
+  font-size: 10.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* On the ink cover the placeholder needs the inverse treatment. */
+.coverImage .exhibitPlaceholder {
+  background: var(--paper-18);
+  border: none;
+  aspect-ratio: auto;
+  height: 100%;
+}
+
+.coverImage .exhibitPlaceholderLabel {
+  color: var(--paper-62);
+}
+
+.figCaption {
+  padding-top: 14px;
+  font-family: var(--font-sans);
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+/* ── Brand peer grid (logo + color) ────────────────────────────────────── */
+
+.peerGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(260px, 1fr));
+  gap: clamp(1rem, 2vw, 1.75rem);
+  padding-bottom: 6px;
+}
+
+@media (max-width: 900px) {
+  .peerGrid {
+    overflow-x: auto;
+  }
+}
+
+.peerFigure {
+  margin: 0;
+  min-width: 260px;
+}
+
+.peerFrame {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  border: 1px solid var(--card-border);
+  background: var(--card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 var(--space-24);
+}
+
+.logoImg {
+  display: block;
+  width: 286px;
+  height: 160px;
+  object-fit: contain;
+}
+
+.swatchFrame {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  padding: 0;
+}
+
+.swatch {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 2px;
+  padding: 10px;
+}
+
+.swatchRole {
+  font-family: var(--font-sans);
+  font-size: 0.5rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.swatchHex {
+  font-family: ui-monospace, Menlo, monospace;
+  font-size: 0.5625rem;
+}
+
+.badgeAccent {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  font-family: var(--font-sans);
+  font-size: 0.5625rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  padding: 5px 10px;
+}
+
+.badgeMuted {
+  font-family: var(--font-sans);
+  font-size: 0.5625rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border: 1px solid var(--card-border);
+  padding: 5px 10px;
+}
+
+.peerCaption {
+  padding-top: var(--space-16);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.peerKicker {
+  font-family: var(--font-sans);
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.peerBody {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 0.96875rem;
+  line-height: 1.5;
+}
+
+.peerBodyMuted {
+  color: var(--muted);
+}
+
+/* ── Application module ────────────────────────────────────────────────── */
+
+.applicationFigure {
+  margin: clamp(2.5rem, 5vw, 3.5rem) 0 0;
+}
+
+.applicationPanel {
+  position: relative;
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  padding: clamp(1.75rem, 4vw, 3.5rem) clamp(1.25rem, 3vw, 2.5rem);
+}
+
+.applicationPanel .badgeMuted {
+  position: absolute;
+  top: var(--space-16);
+  right: var(--space-16);
+}
+
+.applicationPanel img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: none;
+}
+
+.applicationBody {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 1.0625rem;
+  line-height: 1.5;
+}
+
+/* ── Deck ──────────────────────────────────────────────────────────────── */
+
+.deckHead {
+  display: flex;
+  align-items: center;
+  gap: var(--space-16);
+  flex-wrap: wrap;
+  margin-bottom: 1.25rem;
+}
+
+.deckGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(200px, 1fr));
+  gap: clamp(1rem, 2vw, 1.5rem);
+  margin-top: clamp(2rem, 4vw, 3rem);
+  padding-bottom: 6px;
+}
+
+@media (max-width: 900px) {
+  .deckGrid {
+    grid-template-columns: repeat(2, minmax(200px, 1fr));
+    overflow-x: auto;
+  }
+}
+
+.slideFigure {
+  margin: 0;
+  min-width: 200px;
+}
+
+.slideImg {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border: 1px solid var(--card-border);
+}
+
+/* ── Key design moments band ───────────────────────────────────────────── */
+
+.momentsBand {
+  margin-top: clamp(3.5rem, 8vw, 7rem);
+  background-color: var(--ink);
+  background-image: url("/images/work/dine-safe-passage/unsplash_XFWiZTa2Ub0.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-blend-mode: multiply;
+  color: var(--paper);
+  padding: clamp(3rem, 7vw, 5.5rem) var(--gutter);
+}
+
+.momentsInner {
+  max-width: var(--container);
+  margin: 0 auto;
+}
+
+.momentsBand .eyebrow {
+  color: var(--accent-on-dark);
+}
+
+.moment {
+  display: grid;
+  grid-template-columns: 0.9fr 2fr;
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+  border-top: 1px solid var(--paper-18);
+  padding: clamp(2.25rem, 5vw, 3.5rem) 0;
+}
+
+@media (max-width: 620px) {
+  .moment {
+    grid-template-columns: 1fr;
+  }
+}
+
+.momentNum {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--accent-on-dark);
+}
+
+.momentTitle {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: clamp(1.375rem, 2.2vw, 1.875rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.125rem;
+  text-wrap: pretty;
+}
+
+.momentBody {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 1.0625rem;
+  line-height: 1.62;
+  max-width: 58ch;
+  color: var(--paper-72);
+  text-wrap: pretty;
+}
+
+/* ── 6 · What became possible / 7 · Reflection ─────────────────────────── */
+
+.possible {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: clamp(3rem, 7vw, 5.5rem) var(--gutter);
+}
+
+.possible .prose {
+  max-width: 60ch;
+}
+
+.reflection {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: clamp(3rem, 7vw, 5rem) var(--gutter) clamp(6rem, 12vw, 10rem);
+}
+
+.reflectionInner {
+  border-top: 1px solid var(--hairline);
+  padding-top: clamp(2rem, 4vw, 3rem);
+}
+
+.reflection .prose {
+  max-width: 66ch;
+}
+
+/* ── Mobile ────────────────────────────────────────────────────────────── */
+
+@media (max-width: 620px) {
+  .metaGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

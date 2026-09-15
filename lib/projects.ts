@@ -5,11 +5,18 @@ import type { ContentEntry, ProjectFrontmatter } from "./types";
 
 const PROJECTS_DIR = contentPath("personal-projects");
 
-/** All personal ("off the clock") projects, sorted by `order`. */
+/**
+ * All personal ("off the clock") projects that have a case page, sorted by
+ * `order`. A project without a `caseHref` is still being written up: on the
+ * index it would be a placeholder-art card that goes nowhere, which reads as
+ * unfinished to anyone using the site as a portfolio. It stays in
+ * content/personal-projects so the copy isn't lost, and appears here the
+ * moment its `caseHref` is set.
+ */
 export function getAllProjects(): ContentEntry<ProjectFrontmatter>[] {
-  return readAllContentFiles(PROJECTS_DIR, isProjectFrontmatter, "personal project").sort(
-    (a, b) => a.frontmatter.order - b.frontmatter.order,
-  );
+  return readAllContentFiles(PROJECTS_DIR, isProjectFrontmatter, "personal project")
+    .filter((project) => Boolean(project.frontmatter.caseHref))
+    .sort((a, b) => a.frontmatter.order - b.frontmatter.order);
 }
 
 /** One project with its body rendered to HTML. Looked up by route slug. */

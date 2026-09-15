@@ -56,6 +56,15 @@
   --space-128: 128px;
   --space-160: 160px;
 
+  /* Vertical rhythm between major page bands, governed globally so Home, Work
+     and Personal breathe identically. --hero-gap is the space under a hero
+     before the first index section; --section-gap is the space between two
+     stacked case/project rows. Both scale with the viewport like the clamped
+     hero type they sit beneath. --section-gap is the *total* space between two
+     rows, so a component that pads both of its own edges uses half of it. */
+  --hero-gap: clamp(96px, 11vw, 168px);
+  --section-gap: clamp(152px, 14vw, 208px);
+
   /* Layout ---------------------------------------------------------------- */
   --gutter: 48px; /* page side padding, governed globally (see media query) */
   --container: 1160px; /* standard page width */

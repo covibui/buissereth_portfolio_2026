@@ -1,0 +1,146 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1240" width="1600" height="1240" font-family="Newsreader, Georgia, 'Times New Roman', serif">
+  <!-- The source diagram from Claude Design references these classes but ships no
+       stylesheet; an SVG embedded through img cannot inherit the page CSS, so the
+       definitions are inlined here from the site's design tokens. -->
+  <style>
+    .paper{fill:#F4F1EA}
+    .surf{fill:#FFFFFF}
+    .line{fill:none;stroke:#E2DCD2;stroke-width:1}
+    .hair{fill:none;stroke:rgba(28,26,23,.28);stroke-width:1}
+    .ink{fill:#1C1A17}
+    .muted{fill:#6B675F}
+    .acc{fill:#EA580C}
+    .lbl{font-family:Archivo,system-ui,sans-serif;font-weight:600;letter-spacing:.14em}
+    .ttl{font-weight:400}
+    .fld{font-weight:400}
+    .it{font-style:italic}
+  </style>
+  <defs>
+
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#6B675F"></path>
+    </marker>
+    <marker id="ara" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#EA580C"></path>
+    </marker>
+  </defs>
+
+  <rect class="paper" x="0" y="0" width="1600" height="1240"></rect>
+
+
+  <text class="lbl acc" x="60" y="72" font-size="13">Del Buico Kitchen · content model</text>
+  <text class="ttl ink" x="60" y="126" font-size="42">What we built, and what it should have been.</text>
+  <line class="hair" x1="60" y1="158" x2="1540" y2="158"></line>
+  <text class="fld muted" x="60" y="188" font-size="15">Left: the shipped POC, read off the live site. Right: the proposed v2 model, read off the wireframes. Nothing on the right has been built.</text>
+
+
+  <text class="lbl ink" x="60" y="250" font-size="13">V1 · shipped 2025 · live</text>
+  <line class="line" x1="60" y1="266" x2="740" y2="266"></line>
+
+
+  <rect class="surf" x="60" y="290" width="680" height="128" rx="10"></rect>
+  <rect class="line" x="60" y="290" width="680" height="128" rx="10"></rect>
+  <text class="lbl muted" x="84" y="322" font-size="11">Entity</text>
+  <text class="ttl ink" x="84" y="354" font-size="24">Group</text>
+  <text class="fld muted" x="84" y="382" font-size="14">name · cover_image (stock photography)</text>
+  <text class="fld acc" x="84" y="404" font-size="14">24 groups, flat. 7 hold zero recipes.</text>
+
+  <line class="hair" x1="400" y1="418" x2="400" y2="454" marker-end="url(#ar)"></line>
+
+
+  <rect class="surf" x="60" y="460" width="680" height="392" rx="10"></rect>
+  <rect class="line" x="60" y="460" width="680" height="392" rx="10"></rect>
+  <text class="lbl muted" x="84" y="492" font-size="11">Entity</text>
+  <text class="ttl ink" x="84" y="524" font-size="24">Recipe</text>
+
+  <line class="hair" x1="84" y1="544" x2="716" y2="544"></line>
+  <text class="fld ink" x="84" y="574" font-size="15">title</text>
+  <text class="fld muted" x="470" y="574" font-size="13">string</text>
+  <text class="fld ink" x="84" y="602" font-size="15">by</text>
+  <text class="fld muted" x="470" y="602" font-size="13">string · free text, not a person</text>
+  <text class="fld ink" x="84" y="630" font-size="15">prep_time · cook_time · serves</text>
+  <text class="fld muted" x="470" y="630" font-size="13">string · &#34;1 day&#34;, &#34;2 hours&#34;</text>
+  <text class="fld ink" x="84" y="658" font-size="15">ingredients</text>
+  <text class="fld muted" x="470" y="658" font-size="13">rich text blob</text>
+  <text class="fld ink" x="84" y="686" font-size="15">directions</text>
+  <text class="fld muted" x="470" y="686" font-size="13">rich text blob</text>
+  <text class="fld ink" x="84" y="714" font-size="15">notes</text>
+  <text class="fld acc" x="470" y="714" font-size="13">rich text blob · unbounded</text>
+  <text class="fld ink" x="84" y="742" font-size="15">image</text>
+  <text class="fld acc" x="470" y="742" font-size="13">present in schema, unused</text>
+  <line class="hair" x1="84" y1="766" x2="716" y2="766"></line>
+  <text class="fld muted it" x="84" y="796" font-size="14">One relation in the entire model: recipe belongs to group.</text>
+  <text class="fld muted it" x="84" y="820" font-size="14">No people. No provenance. No dates. No links between recipes.</text>
+
+
+  <rect x="60" y="884" width="680" height="270" rx="10" fill="#1C1A17"></rect>
+  <text class="lbl" x="84" y="920" font-size="11" fill="#EA580C">Observed in the live record &#34;Pernil, low and slow&#34;</text>
+  <text class="fld" x="84" y="956" font-size="14.5" fill="#F4F1EA">The notes field holds a second, complete copy of the recipe.</text>
+  <text class="fld" x="84" y="982" font-size="14.5" fill="#F4F1EA">The two copies contradict each other: 475°→275° for 9 hours in</text>
+  <text class="fld" x="84" y="1008" font-size="14.5" fill="#F4F1EA">directions, 350° for 4–5 hours in notes. Ingredients appear twice</text>
+  <text class="fld" x="84" y="1034" font-size="14.5" fill="#F4F1EA">with different yields (feeds 4–5 / feeds 3–4).</text>
+  <text class="fld" x="84" y="1072" font-size="14.5" fill="#F4F1EA">Text references &#34;see first picture, top of post&#34; — there is no picture.</text>
+  <text class="fld" x="84" y="1098" font-size="14.5" fill="#F4F1EA">Text credits &#34;WANF reader Emilee&#34; — not a member of this family.</text>
+  <text class="fld it" x="84" y="1136" font-size="14.5" fill="#EA580C">A blob field accepts a paste. It cannot ask a question.</text>
+
+
+  <text class="lbl ink" x="860" y="250" font-size="13">V2 · proposed · not built</text>
+  <line class="line" x1="860" y1="266" x2="1540" y2="266"></line>
+
+
+  <rect class="surf" x="860" y="290" width="680" height="128" rx="10"></rect>
+  <rect class="line" x="860" y="290" width="680" height="128" rx="10"></rect>
+  <text class="lbl muted" x="884" y="322" font-size="11">Entity</text>
+  <text class="ttl ink" x="884" y="354" font-size="24">Chapter</text>
+  <text class="fld muted" x="884" y="382" font-size="14">numeral · title · opener_photo · recipe_count</text>
+  <text class="fld acc" x="884" y="404" font-size="14">8 chapters, editorial. A chapter can be created while writing.</text>
+
+  <line class="hair" x1="1200" y1="418" x2="1200" y2="454" marker-end="url(#ar)"></line>
+
+
+  <rect class="surf" x="860" y="460" width="680" height="562" rx="10"></rect>
+  <rect class="line" x="860" y="460" width="680" height="562" rx="10"></rect>
+  <text class="lbl muted" x="884" y="492" font-size="11">Entity</text>
+  <text class="ttl ink" x="884" y="524" font-size="24">Recipe</text>
+
+  <line class="hair" x1="884" y1="544" x2="1516" y2="544"></line>
+  <text class="fld ink" x="884" y="574" font-size="15">title · kicker</text>
+  <text class="fld muted" x="1250" y="574" font-size="13">string</text>
+  <text class="fld ink" x="884" y="602" font-size="15">provenance</text>
+  <text class="fld acc" x="1250" y="602" font-size="13">taught_by, place, year, copied_by</text>
+  <text class="fld ink" x="884" y="630" font-size="15">serves · prep · cook</text>
+  <text class="fld muted" x="1250" y="630" font-size="13">number · duration</text>
+  <text class="fld ink" x="884" y="658" font-size="15">difficulty</text>
+  <text class="fld muted" x="1250" y="658" font-size="13">enum I–V</text>
+  <text class="fld ink" x="884" y="686" font-size="15">ingredients[ ]</text>
+  <text class="fld acc" x="1250" y="686" font-size="13">{qty, unit, item} — scalable ×½ ×1 ×2</text>
+  <text class="fld ink" x="884" y="714" font-size="15">steps[ ]</text>
+  <text class="fld acc" x="1250" y="714" font-size="13">ordered, one instruction each</text>
+  <text class="fld ink" x="884" y="742" font-size="15">margin_note</text>
+  <text class="fld acc" x="1250" y="742" font-size="13">short text · the only free field</text>
+  <text class="fld ink" x="884" y="770" font-size="15">photo</text>
+  <text class="fld muted" x="1250" y="770" font-size="13">image, optional</text>
+  <text class="fld ink" x="884" y="798" font-size="15">card_scan</text>
+  <text class="fld acc" x="1250" y="798" font-size="13">image of the handwritten original</text>
+  <text class="fld ink" x="884" y="826" font-size="15">visibility</text>
+  <text class="fld muted" x="1250" y="826" font-size="13">family | private</text>
+  <text class="fld ink" x="884" y="854" font-size="15">pairs_with[ ]</text>
+  <text class="fld muted" x="1250" y="854" font-size="13">→ Recipe</text>
+  <text class="fld ink" x="884" y="882" font-size="15">cooked_by[ ]</text>
+  <text class="fld muted" x="1250" y="882" font-size="13">→ Person</text>
+  <text class="fld ink" x="884" y="910" font-size="15">last_made</text>
+  <text class="fld muted" x="1250" y="910" font-size="13">date</text>
+  <line class="hair" x1="884" y1="936" x2="1516" y2="936"></line>
+  <text class="fld muted it" x="884" y="966" font-size="14">Facets derived, not authored: par saison · par cuisinier ·</text>
+  <text class="fld muted it" x="884" y="990" font-size="14">par occasion · marqués. One recipe, many shelves.</text>
+
+
+  <line class="hair" x1="1200" y1="1022" x2="1200" y2="1054" marker-end="url(#ara)" stroke="#EA580C"></line>
+  <rect class="surf" x="860" y="1060" width="680" height="94" rx="10"></rect>
+  <rect class="line" x="860" y="1060" width="680" height="94" rx="10"></rect>
+  <text class="lbl muted" x="884" y="1090" font-size="11">Entity · new in v2</text>
+  <text class="ttl ink" x="884" y="1122" font-size="22">Person</text>
+  <text class="fld muted" x="1050" y="1122" font-size="14">name · kitchen · generation · recipes_taught[ ]</text>
+
+  <text class="fld acc it" x="860" y="1196" font-size="15">The v1 model stores dishes. The v2 model stores who cooks them, and that is the whole difference.</text>
+</svg>

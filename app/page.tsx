@@ -37,7 +37,7 @@ export default async function HomePage() {
           </Link>
         </div>
         {featured.map((post, index) => (
-          <CaseFeaturedRow key={post.slug} post={post} reversed={index % 2 === 1} />
+          <CaseFeaturedRow key={post.slug} post={post} reversed={index % 2 === 1} index={index} />
         ))}
       </section>
 
