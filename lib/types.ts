@@ -139,9 +139,10 @@ export interface ProjectFrontmatter {
   imageLabel: string;
   liveUrl?: string;
   /**
-   * Destination for the "Read the case →" CTA. Only projects that actually have
-   * a case page set this — the rest render as plain, unlinked cards, so the row
-   * never offers a link it can't honor.
+   * Destination for the "Read the case →" CTA. Doubles as the publish switch:
+   * getAllProjects only returns projects that set it, so a project with no case
+   * page yet is kept out of the index rather than shown as a card that goes
+   * nowhere. Set it once the page exists.
    */
   caseHref?: string;
 }

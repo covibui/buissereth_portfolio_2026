@@ -15,9 +15,9 @@ import styles from "./CookbookCase.module.css";
 
    Wireframes and diagrams live in /public/images/personal/del-buico-cookbook/. */
 
-const IMG = "/images/personal/del-buico-cookbook";
-const recipePage = `${IMG}/dbc-10-v2-recipe-page.jpg`;
-const addRecipe = `${IMG}/dbc-11-v2-add-recipe.jpg`;
+const IMG_DIR = "/images/personal/del-buico-cookbook";
+const recipePage = `${IMG_DIR}/dbc-10-v2-recipe-page.jpg`;
+const addRecipe = `${IMG_DIR}/dbc-11-v2-add-recipe.jpg`;
 
 /* The design frames each "moment" with an exact pixel crop of a wireframe,
    expressed as a percentage box plus an oversized absolutely-positioned image.
@@ -239,7 +239,7 @@ export default function CookbookCase() {
         <section className={styles.diagramSection}>
           <figure className={styles.diagram}>
             <img
-              src={`${IMG}/dbc-12-content-model.svg`}
+              src={`${IMG_DIR}/dbc-12-content-model.svg`}
               alt="Content model diagram: the shipped v1 record against the proposed v2 record, field by field."
               className={styles.diagramImg}
               loading="lazy"
@@ -295,7 +295,7 @@ export default function CookbookCase() {
             {wireframes.map((w, i) => (
               <figure key={w.file} className={styles[`stag${i + 1}` as keyof typeof styles] as string}>
                 <figcaption className={styles.stagCaption}>{w.cap}</figcaption>
-                <img src={`${IMG}/${w.file}`} alt={w.alt} className={styles.stagImg} loading="lazy" />
+                <img src={`${IMG_DIR}/${w.file}`} alt={w.alt} className={styles.stagImg} loading="lazy" />
               </figure>
             ))}
           </div>
@@ -362,7 +362,7 @@ export default function CookbookCase() {
         <section className={styles.diagramSection}>
           <figure className={styles.diagram}>
             <img
-              src={`${IMG}/dbc-13-v2-architecture.svg`}
+              src={`${IMG_DIR}/dbc-13-v2-architecture.svg`}
               alt="Proposed v2 architecture: who contributes, how it gets in, where it lives, how it comes out, and the free-tier rule underneath."
               className={styles.diagramImg}
               loading="lazy"

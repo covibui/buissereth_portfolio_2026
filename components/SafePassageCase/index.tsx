@@ -17,7 +17,7 @@ import styles from "./SafePassageCase.module.css";
    falls back to the project's standard labeled placeholder frame, so a missing
    export degrades to a caption rather than a broken image. */
 
-const IMG = "/images/work/dine-safe-passage";
+const IMG_DIR = "/images/work/dine-safe-passage";
 
 interface Exhibit {
   src: string | null;
@@ -27,31 +27,31 @@ interface Exhibit {
 }
 
 const fourFindings: Exhibit = {
-  src: `${IMG}/four-findings-infographic.png`,
+  src: `${IMG_DIR}/four-findings-infographic.png`,
   alt: "Diligence memo: four findings on the transport claim — regulatory, market, funding, and unit economics, each with its headline finding and supporting figures.",
   label: "Validation memo — the four corrections",
 };
 
 const sourcesAndUses: Exhibit = {
-  src: `${IMG}/sources-and-uses-v2.png`,
+  src: `${IMG_DIR}/sources-and-uses-v2.png`,
   alt: "Sources and uses, before and after the SAMHSA correction: owner equity and term loan unchanged; the ineligible SAMHSA grant line becomes a tribal subcontract booked as contracted revenue.",
   label: "Sources and uses — before and after the correction",
 };
 
 const verificationQueue: Exhibit = {
-  src: `${IMG}/verification-queue-infographic.png`,
+  src: `${IMG_DIR}/verification-queue-infographic.png`,
   alt: "Verification queue on a clipboard, five items ranked by how much the answer moves the model: the billing path flagged VERIFY at number one, two assumptions, two confirmed facts.",
   label: "Verification queue — ranked by what moves the model",
 };
 
 const logo: Exhibit = {
-  src: `${IMG}/logo.png`,
+  src: `${IMG_DIR}/logo.png`,
   alt: "The DINÉ SAFE PASSAGE wordmark in canyon clay: DINÉ set heavy above letterspaced SAFE PASSAGE.",
   label: "Primary lockup",
 };
 
 const applicationVan: Exhibit = {
-  src: `${IMG}/application.png`,
+  src: `${IMG_DIR}/application.png`,
   alt: "Side view of a cream passenger van with the side door open and a ramp deployed, the DINÉ wordmark in canyon clay on the rear panel.",
   label: "Vehicle livery",
 };
@@ -142,7 +142,7 @@ export default function SafePassageCase() {
               <div className={styles.coverImage}>
                 <ExhibitFrame
                   exhibit={{
-                    src: `${IMG}/dsp-00-hero.png`,
+                    src: `${IMG_DIR}/dsp-00-hero.png`,
                     alt: "Black-and-white photograph: a group crouched over someone on the ground at a trailside, one person supporting their head.",
                     label: "Lead image",
                   }}
@@ -406,7 +406,7 @@ export default function SafePassageCase() {
               {slides.map((s) => (
                 <figure key={s.file} className={styles.slideFigure}>
                   <img
-                    src={`${IMG}/${s.file}`}
+                    src={`${IMG_DIR}/${s.file}`}
                     alt={s.alt}
                     loading="lazy"
                     decoding="async"
